@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_28_205548) do
+ActiveRecord::Schema.define(version: 2022_02_28_212157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,36 @@ ActiveRecord::Schema.define(version: 2022_02_28_205548) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_baskets_on_user_id"
+  end
+
+  create_table "cryptos", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.string "abbreviation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "order_products", force: :cascade do |t|
+    t.float "fixed_price"
+    t.integer "quantity"
+    t.bigint "basket_id", null: false
+    t.bigint "crypto_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["basket_id"], name: "index_order_products_on_basket_id"
+    t.index ["crypto_id"], name: "index_order_products_on_crypto_id"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.float "purchased_price"
+    t.integer "quantity"
+    t.bigint "user_id", null: false
+    t.bigint "crypto_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["crypto_id"], name: "index_purchases_on_crypto_id"
+    t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,5 +65,20 @@ ActiveRecord::Schema.define(version: 2022_02_28_205548) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "watchlists", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "crypto_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["crypto_id"], name: "index_watchlists_on_crypto_id"
+    t.index ["user_id"], name: "index_watchlists_on_user_id"
+  end
+
   add_foreign_key "baskets", "users"
+  add_foreign_key "order_products", "baskets"
+  add_foreign_key "order_products", "cryptos"
+  add_foreign_key "purchases", "cryptos"
+  add_foreign_key "purchases", "users"
+  add_foreign_key "watchlists", "cryptos"
+  add_foreign_key "watchlists", "users"
 end
