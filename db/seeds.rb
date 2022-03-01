@@ -7,3 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 require 'open-uri'
+
+ 10.times do
+ crypto1 = Crypto.create!(
+    name: Faker::CryptoCoin.coin_name,
+    abbreviation: Faker::CryptoCoin.acronym,
+    price: [300, 400, 500, 600, 700].sample
+  )
+  crypto1.save!
+ end
