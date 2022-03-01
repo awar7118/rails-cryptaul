@@ -1,0 +1,23 @@
+.banner {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.0)), url("landing_img.jpeg");
+    /* Set a specific height */
+  height: 92vh;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  object-fit: contain;
+  align-items: center;
+}
+
+.banner-info-container {
+  margin-left: 100px;
+  padding-top: 200px;
+}
+
+.banner-title {
+  display: flex;
+}
