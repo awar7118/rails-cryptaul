@@ -1,4 +1,9 @@
 // Specific CSS for your home-page
+
+body {
+  background-color: #f7dddf2d;
+}
+
 .landing-main {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -6,4 +11,23 @@
 
 .center {
   text-align: center;
+}
+
+.landing-info-container {
+  background-color: white;
+  width: 90vw;
+  border-radius: 6px;
+  margin: auto;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.features-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.feature-card {
+  width: 300px;
 }
