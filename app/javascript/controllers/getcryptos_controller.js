@@ -56,6 +56,7 @@ data.forEach((crypto) => {
 });
 
 // Trying it the simple way, on connect iterate through the response and display
+// Did not work...
 // const setCryptoInfo = (data) => {
 data.forEach((crypto) => {
   <div class="card-product">
