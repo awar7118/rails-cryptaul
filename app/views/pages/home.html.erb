@@ -2,12 +2,20 @@
   <div>
     <div class="banner-info-container">
       <div class="banner-title">
-        <img src="crypto_coin.png" alt="A cryptocurrency coin">
+        <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646143122/mvm0isuwrx6vyrvhz1rn.png",
+        class: "coin-img", width: 100, height: 100, crop: :fill) %>
         <h1><strong>Cryptaul</strong></h1>
       </div>
       <h3>One-stop shop for crypto newbies/retail investors</h3>
+      <br>
 
-      <link href='https://fonts.googleapis.com/css?family=Lato|Roboto:200,900' rel='stylesheet' type='text/css'>
+      <div class="banner-buttons">
+        <a href="" class="banner-btn">Browse</a>
+        <a href="" class="banner-btn">Learn More</a>
+        <a href="" class="banner-btn">Sign Up</a>
+      </div>
+
+      <%# <link href='https://fonts.googleapis.com/css?family=Lato|Roboto:200,900' rel='stylesheet' type='text/css'>
       <a href="/pets" class="home-btn">
       <svg width="277" height="62">
       <defs>
@@ -20,5 +28,5 @@
     </svg>
     <!--<span>Voir mes réalisations</span>-->
     <span>Find Your New Friend</span>
-    </a>
+    </a> %>
 </div>

@@ -1,7 +1,15 @@
-.landing-btn {
+.banner-btn {
   border-radius: 20px;
   padding: 10px 20px;
   background-color: white;
   border: 2px solid #F93B31;
-  color: white;
+  color: #F73A30;
+  text-decoration: none;
+}
+
+
+.banner-btn:hover {
+  text-decoration: none;
+  opacity: 0.8;
+  color: #F73A30;
 }
