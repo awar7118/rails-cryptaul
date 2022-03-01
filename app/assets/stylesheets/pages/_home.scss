@@ -20,14 +20,17 @@ body {
   margin: auto;
   padding: 30px;
   margin-bottom: 40px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;}
 
 .features-container {
   display: flex;
   justify-content: space-around;
 }
 
-.feature-card {
-  width: 300px;
+h2 {
+  color: #F73A30;
+}
+
+h5 {
+  margin-top: 20px;
 }
