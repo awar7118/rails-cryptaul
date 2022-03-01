@@ -12,16 +12,47 @@ export default class extends Controller {
       .then((data) => setCryptoInfo(data));
   }
 }
+// Need to do 2 for each loops to iterate through and make sure the class changes
 const setCryptoInfo = (data) => {
   data.forEach((crypto) => {
+    const cryptoSymbol = document.querySelector("#crypto-symbol");
     const cryptoPrice = document.querySelector("#cryptoPrice");
     const cryptoName = document.querySelector("#cryptoName");
     const cryptoTicker = document.querySelector("#cryptoTicker");
     const cryptoMarketCap = document.querySelector("#cryptoMarketCap");
 
+    cryptoSymbol.innerText = crypto.image;
     cryptoPrice.innerText = crypto.current_price;
     cryptoName.innerText = crypto.id;
     cryptoTicker.innerText = crypto.btc;
     cryptoMarketCap.innerText = crypto.location;
   });
 };
+
+data.forEach((crypto) => {
+  <div class="card-product">
+    <ul class="card-product-infos">
+      <li>
+        <div id="crypto-symbol">Crypto symbol</div>
+      </li>
+      <li>
+        <div id="crypto-price">crypto price</div>
+      </li>
+      <li>
+        <div id="crypto-name">Crypto name</div>
+      </li>
+      <li>
+        <div id="crypto-ticker">Crypto Ticker</div>
+      </li>
+      <li>
+        <div id="24hr-change">crypto 24hr change</div>
+      </li>
+      cryptoMarketCap
+      <li>
+        <div id="cryptoMarketCap">crypto MarketCap</div>
+      </li>
+    </ul>
+  </div>;
+});
+
+// Trying it the simple way, on connect iterate through the response and display
