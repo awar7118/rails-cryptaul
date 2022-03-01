@@ -1,6 +1,6 @@
 .banner {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.0)), url("https://res.cloudinary.com/domtywpyc/image/upload/v1646144081/gcgl5iythf8la8sxqhh6.jpg");
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.0)), url("https://res.cloudinary.com/domtywpyc/image/upload/v1646144081/gcgl5iythf8la8sxqhh6.jpg");
     /* Set a specific height */
   height: 92vh;
 
@@ -39,9 +39,10 @@ h1 {
 h3 {
   color: white;
   margin-top: 20px;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: lighter;
 }
 
 .coin-img {
-  margin-bottom: 5px;
-  margin-top: 5px;
+  margin-top: 10px;
 }
