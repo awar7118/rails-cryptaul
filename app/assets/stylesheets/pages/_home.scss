@@ -1,1 +1,53 @@
 // Specific CSS for your home-page
+
+body {
+  background-color: #f7dddf2d;
+}
+
+.landing-main {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.center {
+  text-align: center;
+}
+
+.landing-info-container {
+  background-color: white;
+  width: 90vw;
+  border-radius: 6px;
+  margin: auto;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;}
+
+.features-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.members-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+h2 {
+  color: #EBB7B8;
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.2),
+}
+
+h5 {
+  margin-top: 20px;
+}
+
+.crypto-female {
+  width:100%;
+  opacity: 0.8;
+}
+
+.feature-illustration {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+}
