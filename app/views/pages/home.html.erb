@@ -5,13 +5,15 @@
       class: "coin-img", width: 100, height: 100, crop: :fill) %>
       <h1><strong>Cryptaul</strong></h1>
     </div>
-    <h3>The one-stop shop for crypto newbies/retail investors</h3>
-    <br>
+    <div class="banner-subs">
+      <h3>The one-stop shop for crypto newbies</h3>
+      <br>
 
-    <div class="banner-buttons">
-      <a href="" class="banner-btn">Browse</a>
-      <a href="" class="banner-btn">Learn More</a>
-      <a href="" class="banner-btn">Sign Up</a>
+      <div class="banner-buttons">
+        <a href="" class="banner-btn">Browse</a>
+        <a href="" class="banner-btn">Learn More</a>
+        <a href="" class="banner-btn">Sign Up</a>
+      </div>
     </div>
   </div>
 
@@ -36,20 +38,28 @@
     <div class="more-info">
       <h2>What is Cryptaul?</h2>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia fugiat fugit recusandae pariatur dignissimos vel quam minus at quis, beatae ea repellendus ut quisquam magnam, earum temporibus praesentium natus reiciendis!</p>
+      <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646154073/zom2qlnaingeoexszj0w.jpg",
+       class: "crypto-female") %>
     </div>
   </div>
 
   <div class="landing-info-container">
     <div class="features-container">
       <div class="feature-card">
+        <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646154450/sgz5zuu8sh3a52myi4gu.svg",
+        class: "feature-illustration", width: 150, height: 150) %>
         <h2>Browse</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, maxime aspernatur beatae accusamus laudantium officiis! Necessitatibus sed sequi harum ducimus maiores maxime, nobis voluptate voluptatibus? Neque tempora esse qui. Possimus?</p>
       </div>
       <div class="feature-card">
+        <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646154521/lgpcwa37m6w6414sx9ec.svg",
+        class: "feature-illustration", width: 150, height: 150) %>
         <h2>Learn</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, maxime aspernatur beatae accusamus laudantium officiis! Necessitatibus sed sequi harum ducimus maiores maxime, nobis voluptate voluptatibus? Neque tempora esse qui. Possimus?</p>
       </div>
       <div class="feature-card">
+        <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646154589/pt5qdveq80ykiai1zica.svg",
+        class: "feature-illustration", width: 150, height: 150) %>
         <h2>Sign Up</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, maxime aspernatur beatae accusamus laudantium officiis! Necessitatibus sed sequi harum ducimus maiores maxime, nobis voluptate voluptatibus? Neque tempora esse qui. Possimus?</p>
       </div>
@@ -59,39 +69,39 @@
   <div class="landing-info-container">
     <div class="team-info">
       <h2>Meet The Team</h2>
-      <div class="features-container">
-        <div class="member-card">
-          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/Solkarim91" />
-          <h5>Solomon</h5>
-          <ul>
-            <li>📍 London</li>
-          </ul>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis quos commodi</p>
-        </div>
-        <div class="member-card">
+      <div class="members-container">
+        <a href="https://github.com/solkarim91" class="member-card">
+          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/solkarim91" />
+            <h5>Solomon</h5>
+            <ul>
+              <li>📍 London</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis quos commodi</p>
+        </a>
+        <a href="https://github.com/britishninja47" class="member-card">
           <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/britishninja47" />
-          <h5>Jeremiah</h5>
-          <ul>
-            <li>📍 London</li>
-          </ul>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis quos commodi</p>
-        </div>
-        <div class="member-card">
-        <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/taramacu" />
-          <h5>Tara</h5>
-          <ul>
-            <li>📍 London</li>
-          </ul>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis quos commodi</p>
-        </div>
-        <div class="member-card">
-        <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/awar7118" />
-          <h5>Ahmed</h5>
-          <ul>
-            <li>📍 London</li>
-          </ul>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis quos commodi</p>
-        </div>
+            <h5>Jeremiah</h5>
+            <ul>
+              <li>📍 London</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis quos commodi</p>
+        </a>
+        <a href="https://github.com/taramacu" class="member-card">
+          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/taramacu" />
+            <h5>Tara</h5>
+            <ul>
+              <li>📍 London</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis quos commodi</p>
+        </a>
+        <a href="https://github.com/awar7118" class="member-card">
+          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/awar7118" />
+            <h5>Ahmed</h5>
+            <ul>
+              <li>📍 London</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis quos commodi</p>
+        </a>
       </div>
     </div>
   </div>

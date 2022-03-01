@@ -27,10 +27,27 @@ body {
   justify-content: space-around;
 }
 
+.members-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 h2 {
-  color: #F73A30;
+  color: #EBB7B8;
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.2),
 }
 
 h5 {
   margin-top: 20px;
+}
+
+.crypto-female {
+  width:100%;
+  opacity: 0.8;
+}
+
+.feature-illustration {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
 }
