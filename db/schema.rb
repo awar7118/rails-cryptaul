@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_28_220944) do
+ActiveRecord::Schema.define(version: 2022_03_01_122855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "baskets", force: :cascade do |t|
     t.float "total_price"
@@ -25,10 +32,18 @@ ActiveRecord::Schema.define(version: 2022_02_28_220944) do
 
   create_table "cryptos", force: :cascade do |t|
     t.string "name"
-    t.float "price"
     t.string "abbreviation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "histories", force: :cascade do |t|
+    t.datetime "date"
+    t.float "price"
+    t.bigint "crypto_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["crypto_id"], name: "index_histories_on_crypto_id"
   end
 
   create_table "order_products", force: :cascade do |t|
@@ -63,6 +78,7 @@ ActiveRecord::Schema.define(version: 2022_02_28_220944) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
+    t.boolean "over18"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -77,6 +93,7 @@ ActiveRecord::Schema.define(version: 2022_02_28_220944) do
   end
 
   add_foreign_key "baskets", "users"
+  add_foreign_key "histories", "cryptos"
   add_foreign_key "order_products", "baskets"
   add_foreign_key "order_products", "cryptos"
   add_foreign_key "purchases", "cryptos"
