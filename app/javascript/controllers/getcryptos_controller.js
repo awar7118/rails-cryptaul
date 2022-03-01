@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
+import { createDependency } from "webpack/lib/SingleEntryPlugin";
 // APIURL link is from and can be altered at https://www.coingecko.com/en/api/documentation
 
 export default class extends Controller {
@@ -29,6 +30,7 @@ const setCryptoInfo = (data) => {
   });
 };
 
+card.forEach((crypto) => {
 data.forEach((crypto) => {
   <div class="card-product">
     <ul class="card-product-infos">
@@ -58,7 +60,7 @@ data.forEach((crypto) => {
 // Trying it the simple way, on connect iterate through the response and display
 // Did not work...
 // const setCryptoInfo = (data) => {
-data.forEach((crypto) => {
+card.forEach((card) => {
   <div class="card-product">
     <ul class="card-product-infos">
       <li>
