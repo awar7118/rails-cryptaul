@@ -3,7 +3,9 @@ import { createDependency } from "webpack/lib/SingleEntryPlugin";
 // APIURL link is from and can be altered at https://www.coingecko.com/en/api/documentation
 
 export default class extends Controller {
-  //select targets
+  //selecting targets
+  static targets = ["indexcontainer"];
+
   connect() {
     console.log("The 'get cryptos' controller is now loaded!");
     fetch(
@@ -12,83 +14,30 @@ export default class extends Controller {
       .then((response) => response.json())
       .then((data) => setCryptoInfo(data));
   }
+  setCryptoInfo(data) {
+    console.log(data);
+    data.forEach((crypto) => {
+      // Crypto image to be reassesed
+      // const cryptoSymbol = crypto.image;
+      const cryptoPrice = crypto.current_price;
+      const cryptoName = crypto.name;
+      const cryptoTicker = crypto.symbol;
+      const cryptoMarketCap = crypto.market_cap;
+      const element = `<ul class="card-product-infos">
+      <li>
+        <div>${crypto.symbol}</div>
+      </li>
+      <li>
+        <div>${crypto.name}</div>
+      </li>
+      <li>
+        <div>${crypto.current_price}</div>
+      </li>
+      <li>
+        <div>${crypto.market_cap}</div>
+      </li>
+    </ul>`;
+      this.indexcontainerTarget.insertAdjacentHTML("beforeend", element);
+    });
+  }
 }
-// Need to do 2 for each loops to iterate through and make sure the class changes
-const setCryptoInfo = (data) => {
-  data.forEach(data => {
-    let card = document.createElement("div class = "crypto.id ");
-    let cryptoName = document.createTextNode('Name:' + crypto.id);
-    card.appendChild(cryptoName);
-
-    let container = document.querySelector("#container");
-    container.appendChild(card);
-});
-
-};
-// data.forEach((crypto) => {
-//   const cryptoSymbol = document.querySelector("#crypto-symbol");
-//   const cryptoPrice = document.querySelector("#cryptoPrice");
-//   const cryptoName = document.querySelector("#cryptoName");
-//   const cryptoTicker = document.querySelector("#cryptoTicker");
-//   const cryptoMarketCap = document.querySelector("#cryptoMarketCap");
-
-//   cryptoSymbol.innerText = crypto.image;
-//   cryptoPrice.innerText = crypto.current_price;
-//   cryptoName.innerText = crypto.id;
-//   cryptoTicker.innerText = crypto.btc;
-//   cryptoMarketCap.innerText = crypto.location;
-// });
-
-// card.forEach((crypto) => {
-// data.forEach((crypto) => {
-//   <div class="card-product">
-//     <ul class="card-product-infos">
-//       <li>
-//         <div id="crypto-symbol">Crypto symbol</div>
-//       </li>
-//       <li>
-//         <div id="crypto-price">crypto price</div>
-//       </li>
-//       <li>
-//         <div id="crypto-name">Crypto name</div>
-//       </li>
-//       <li>
-//         <div id="crypto-ticker">Crypto Ticker</div>
-//       </li>
-//       <li>
-//         <div id="24hr-change">crypto 24hr change</div>
-//       </li>
-//       cryptoMarketCap
-//       <li>
-//         <div id="cryptoMarketCap">crypto MarketCap</div>
-//       </li>
-//     </ul>
-//   </div>;
-// });
-
-// // Trying it the simple way, on connect iterate through the response and display
-// // Did not work...
-// // const setCryptoInfo = (data) => {
-// card.forEach((card) => {
-//   <div class="card-product">
-//     <ul class="card-product-infos">
-//       <li>
-//         <div id="crypto-price">crypto.current_price</div>
-//       </li>
-//       <li>
-//         <div id="crypto-name">#{crypto.id}</div>
-//       </li>
-//       <li>
-//         <div id="crypto-ticker">#{crypto.symbol}</div>
-//       </li>
-//       <li>
-//         <div id="24hr-change">#{crypto.price_change_24h}</div>
-//       </li>
-//       cryptoMarketCap
-//       <li>
-//         <div id="cryptoMarketCap">#{crypto.market_cap}</div>
-//       </li>
-//     </ul>
-//   </div>;
-// });
-// // };
