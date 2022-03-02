@@ -2,7 +2,6 @@ class CreateCryptos < ActiveRecord::Migration[6.1]
   def change
     create_table :cryptos do |t|
       t.string :name
-      t.float :price
       t.string :abbreviation
 
       t.timestamps

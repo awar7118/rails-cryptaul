@@ -22,14 +22,6 @@ ActiveRecord::Schema.define(version: 2022_03_01_122855) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "baskets", force: :cascade do |t|
-    t.float "total_price"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_baskets_on_user_id"
-  end
-
   create_table "cryptos", force: :cascade do |t|
     t.string "name"
     t.string "abbreviation"
@@ -46,26 +38,18 @@ ActiveRecord::Schema.define(version: 2022_03_01_122855) do
     t.index ["crypto_id"], name: "index_histories_on_crypto_id"
   end
 
-  create_table "order_products", force: :cascade do |t|
-    t.float "fixed_price"
-    t.integer "quantity"
-    t.bigint "basket_id", null: false
-    t.bigint "crypto_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["basket_id"], name: "index_order_products_on_basket_id"
-    t.index ["crypto_id"], name: "index_order_products_on_crypto_id"
-  end
-
-  create_table "purchases", force: :cascade do |t|
+  create_table "holdings", force: :cascade do |t|
     t.float "purchased_price"
+    t.datetime "purchased_date"
+    t.float "sold_price"
+    t.datetime "sold_date"
     t.integer "quantity"
     t.bigint "user_id", null: false
     t.bigint "crypto_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["crypto_id"], name: "index_purchases_on_crypto_id"
-    t.index ["user_id"], name: "index_purchases_on_user_id"
+    t.index ["crypto_id"], name: "index_holdings_on_crypto_id"
+    t.index ["user_id"], name: "index_holdings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -78,7 +62,7 @@ ActiveRecord::Schema.define(version: 2022_03_01_122855) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
-    t.boolean "over18"
+    t.float "balance", default: 100.0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -92,12 +76,9 @@ ActiveRecord::Schema.define(version: 2022_03_01_122855) do
     t.index ["user_id"], name: "index_watchlists_on_user_id"
   end
 
-  add_foreign_key "baskets", "users"
   add_foreign_key "histories", "cryptos"
-  add_foreign_key "order_products", "baskets"
-  add_foreign_key "order_products", "cryptos"
-  add_foreign_key "purchases", "cryptos"
-  add_foreign_key "purchases", "users"
+  add_foreign_key "holdings", "cryptos"
+  add_foreign_key "holdings", "users"
   add_foreign_key "watchlists", "cryptos"
   add_foreign_key "watchlists", "users"
 end

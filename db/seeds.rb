@@ -12,7 +12,7 @@ require 'open-uri'
     crypto = Crypto.create!(
       name: Faker::CryptoCoin.coin_name,
       abbreviation: Faker::CryptoCoin.acronym,
-      price: [300, 400, 500, 600, 700].sample
+      # price: [300, 400, 500, 600, 700].sample
    )
    crypto.save!
   end
