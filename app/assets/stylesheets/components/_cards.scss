@@ -1,0 +1,29 @@
+=======
+.feature-card {
+  width: 300px;
+}
+
+.member-card {
+  margin-top: 40px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  border-radius: 8px;
+  width: 290px;
+  height: 350px;
+  transition: transform .2s; /* Animation */
+  text-decoration: none;
+  color: black;
+}
+
+.member-card:hover {
+  transform: scale(1.1);
+  color: black;
+}
+
+.member-card li {
+  list-style: none;
+  text-align: start;
+}
+
+.member-card img {
+  margin-top: 5px;
+}

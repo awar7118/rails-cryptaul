@@ -70,3 +70,21 @@
   </script>
 </div>
 <!-- TradingView Widget END -->
+
+<div>This is the index page for our cryptos</div>
+<div data-controller="getcryptos"></div>
+
+<%# Creating a div for all the cards - to be centered %>
+
+<div class="cards centered col-6 m-auto" data-controller="getcryptos">
+    <div class="card-product">
+      <ul class="card-product-infos">
+        <li><div id ="#{crypto-symbol}">Crypto symbol</div></li>
+        <li><div id ="crypto-price">crypto price</div></li>
+        <li><div id ="crypto-name">Crypto name</div></li>
+        <li><div id ="crypto-ticker">Crypto Ticker</div></li>
+        <li><div id ="24hr-change">crypto 24hr change</div></li>cryptoMarketCap
+        <li><div id ="cryptoMarketCap">crypto MarketCap</div></li>
+      </ul>
+    </div>
+</div>
