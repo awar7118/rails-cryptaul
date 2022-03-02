@@ -14,3 +14,8 @@ ActiveStorage.start();
 
 import "controllers";
 import "bootstrap";
+import AOS from "aos";
+
+document.addEventListener('turbolinks:load', () => {
+  AOS.init()
+});
