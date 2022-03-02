@@ -1,0 +1,31 @@
+.product-container {
+  display: flex;
+  flex-direction: column;
+}
+.product-graph {
+  min-height: 400px;
+  background-color: green;
+}
+.product-exchange {
+  min-height: 200px;
+  background-color: red;
+}
+.product-about {
+  min-height: 80px;
+  background-color: blue;
+}
+.product-stats {
+  min-height: 80px;
+  background-color: grey;
+}
+.product-action {
+  min-height: 300px;
+  background-color: pink;
+  position: sticky;
+  bottom: 0;
+  align-self: flex-end
+}
+.product-similar {
+  min-height: 200px;
+  background-color: grey;
+}
