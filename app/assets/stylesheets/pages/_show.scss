@@ -10,22 +10,56 @@
   min-height: 200px;
   background-color: red;
 }
-.product-about {
-  min-height: 80px;
-  background-color: blue;
+.product-info {
+  background-color: white;
 }
-.product-stats {
-  min-height: 80px;
-  background-color: grey;
+.product-border-top {
+  border-top: grey 2px solid;
+}
+.accordion button {
+  text-decoration: none;
+  color: black;
 }
 .product-action {
-  min-height: 300px;
-  background-color: pink;
+  height: 120px;
   position: sticky;
-  bottom: 0;
-  align-self: flex-end
+  bottom: 120px;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: white;
+  border-top: grey 2px solid;
+}
+.product-action .title-watchlist {
+  justify-content: space-between;
+  flex-direction: row;
+  display: flex;
+  margin-bottom: 10px;
+}
+.product-action .title {
+  width: 70%;
+}
+.product-action .watchlist {
+  display: flex;
+  justify-content: right;
+  max-width: 50px;
+  flex-grow: 1;
+  color: black;
+}
+.buy-button {
+  display: flex;
+  justify-content: right;
+}
+.buy-button button {
+  width: 100px;
+  padding: 0;
 }
 .product-similar {
   min-height: 200px;
   background-color: grey;
+}
+.expanded {
+  background-color: pink;
 }
