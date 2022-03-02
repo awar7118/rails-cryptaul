@@ -13,11 +13,11 @@ Turbolinks.start();
 ActiveStorage.start();
 
 import "controllers";
-import "bootstrap";
-import AOS from "aos";
+// import "bootstrap";
+// import AOS from "aos";
 
 import "chartkick/chart.js";
 
-document.addEventListener("turbolinks:load", () => {
-  AOS.init();
-});
+// document.addEventListener("turbolinks:load", () => {
+//   AOS.init();
+// });
