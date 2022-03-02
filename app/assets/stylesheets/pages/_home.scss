@@ -1,7 +1,15 @@
 // Specific CSS for your home-page
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #f7dddf2d;
+  // background-color: #f7dddf2d;
+  margin: 0;
+  background: #edc0bf;
+  background: linear-gradient(90deg, #c0caec 0,#eec992 58%);
+  font-family: 'Inter', sans-serif;
 }
 
 .landing-main {
@@ -15,11 +23,17 @@ body {
 .landing-info-container {
   background-color: white;
   width: 90vw;
-  border-radius: 6px;
   margin: auto;
   padding: 30px;
   margin-bottom: 100px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;}
+  // box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  background: rgba( 255, 255, 255, 0.3 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 3.5px );
+  -webkit-backdrop-filter: blur( 3.5px );
+  border-radius: 24px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
 
 .features-container {
   display: flex;
@@ -32,8 +46,14 @@ body {
 }
 
 h2 {
-  color: #EBB7B8;
-  text-shadow: 0px 1px 1px rgba(0,0,0,0.2),
+  font-family: 'Cabin', sans-serif;
+  color: #EE841C;
+  // text-shadow: 0px 1px 1px #d87919;
+  opacity: 1;
+}
+
+p {
+  font-family: 'Cabin', sans-serif;
 }
 
 h5 {
@@ -49,4 +69,12 @@ h5 {
   width: 150px;
   height: 150px;
   margin-bottom: 20px;
+}
+
+.feature-card-link {
+  text-decoration: none;
+}
+
+.crypto-female {
+  opacity: 1;
 }
