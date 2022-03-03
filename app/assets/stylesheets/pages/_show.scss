@@ -63,3 +63,16 @@
 .expanded {
   background-color: pink;
 }
+.purchase-modal {
+  height: 500px;
+  position: sticky;
+  bottom: 120px;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: white;
+  border-top: grey 2px solid;
+  align-items: stretch;
+}

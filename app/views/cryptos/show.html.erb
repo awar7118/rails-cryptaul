@@ -42,21 +42,25 @@
         <i class="fa-solid fa-star fa-lg"></i>
       </div>
     </div>
-    <div class="buy-button">
-      <button type="button" class="btn btn-primary"> Buy </button>
-    </div>
-  </div>
-  <div class="container purchase-modal">
-    <div class="crypto-info">
-      <div class="title-exchange">
-        <h4><%= @crypto.name%></h4>
+    <div data-controller="purchase-modal">
+      <div class="buy-button" >
+        <button type="button" class="btn btn-primary" data-action="click->purchase-modal#expand"> Buy </button>
       </div>
-      <div class="watchlist">
-        <i class="fa-solid fa-star fa-lg"></i>
+
+      <div data-purchase-modal-target="purchase" class="container purchase-modal collapse">
+        <div class="crypto-info">
+          <div class="title-exchange">
+            <h4>Buy <%= @crypto.name%></h4>
+            <p>1 <%= @crypto.name %> = £50</p>
+            <p>Please select the amount you'd like to purchase</p>
+          </div>
+          <div class="amounts">
+          </div>
+          </div>
+        <div class="buy-button">
+          <button type="button" class="btn btn-primary"> Confirm purchase </button>
+        </div>
       </div>
-    </div>
-     <div class="buy-button">
-      <button type="button" class="btn btn-primary"> Buy </button>
     </div>
   </div>
   <%# <div class="container product-similar">Optional similar or recommended coins</div> %>
