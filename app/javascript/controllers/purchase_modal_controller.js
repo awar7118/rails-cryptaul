@@ -13,5 +13,4 @@ export default class extends Controller {
     })
     this.modalTarget.classList.toggle("modal")
   }
-
 }
