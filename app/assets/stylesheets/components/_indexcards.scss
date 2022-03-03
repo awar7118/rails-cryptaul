@@ -1,63 +1,25 @@
-.cryptocard-product {
-  overflow: hidden;
-  height: 120px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  display: flex;
-}
-.cryptocard-product li {
-  display: inline;
-}
-.cryptocard-product div {
-  display: inline;
-}
-
-.cryptocard-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.cryptocard-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: 0.7;
-  margin-bottom: 0;
-  margin-top: 2px;
-}
-.cryptocard-product-infos {
-  justify-content: space-between;
-}
-.cryptocard-product .cryptocard-product-infos {
-  padding: 16px;
-  // border: 2px solid red;
-  // Claymorphism css below
-  // backdrop-filter: blur(10px);
-
-  // background-color: rgba(255, 255, 255, 1);
-
-  // border-radius: 26px;
-
-  // box-shadow: 35px 35px 68px 0px rgba(145, 192, 255, 0.5),
-  //   inset -0px -0px 16px 0px rgba(145, 192, 255, 0.6),
-  //   inset 0px 11px 28px 0px rgb(255, 255, 255);
-
-  // neumorphism below
-  -webkit-border-radius: 7px;
-  border-radius: 7px;
-  background: #ffffff;
-  -webkit-box-shadow: 9px 9px 58px #d6d6d6, -9px -9px 58px #ffffff;
-  box-shadow: 9px 9px 58px #d6d6d6, -9px -9px 58px #ffffff;
-  // Glassmorphism css below
-  // background: rgba(255, 255, 255, 0.65);
-  // box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  // backdrop-filter: blur(4px);
-  // -webkit-backdrop-filter: blur(4px);
-  // border-radius: 10px;
-  // border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
 .crypto-image img {
   height: 30px;
   width: auto;
+}
+.cryptocard-product {
+  overflow: hidden;
+  height: 150px;
+  // box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: inline;
+  li {
+    display: inline;
+  }
+  div {
+    display: inline;
+  }
+}
+.cryptocard-product-infos {
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
