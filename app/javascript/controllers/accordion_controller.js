@@ -6,9 +6,9 @@ export default class extends Controller {
   // connect() {
   //   this.hiTarget.innerHTML = 'Hello, dropdown!'
   //   console.log("accordion controller is connected")
-  
-  expand() {
-    this.contentTarget.classList.toggle("collapse")
-  }
+
+  // expand() {
+  //   this.contentTarget.classList.toggle("collapse")
+  // }
 
 }
