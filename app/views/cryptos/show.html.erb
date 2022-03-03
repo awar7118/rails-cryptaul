@@ -54,10 +54,17 @@
       <div class="crypto-info">
         <div class="title-exchange">
           <h4>Buy <%= @crypto.name%></h4>
-          <p>1 <%= @crypto.name %> = £50</p>
+          <p>1 <%= @crypto.name %> = £<%= @crypto.histories.last.price.round(2) %></p>
           <p>Please select the amount you'd like to purchase</p>
         </div>
         <div class="amounts">
+              <%= simple_form_for [ @crypto, @holding ] do |f| %>
+                <div>
+                  <%= f.input :quantity %>
+                  <%= f.submit 'Confirm Purchase', class: "buy-button btn btn-primary" %>
+                </div>
+              <% end %>
+
           <form action="#">
             <label for="amount">Amount in £</label><br>
             <input type="text" id="amount" name="amount"><br>
