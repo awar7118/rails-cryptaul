@@ -26,12 +26,12 @@ body {
   margin: auto;
   padding: 30px;
   margin-bottom: 100px;
-  background: rgba( 255, 255, 255, 0.3 );
-  box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
+  background: rgba(255, 255, 255, 0.151);
+  // box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur( 3.5px );
   -webkit-backdrop-filter: blur( 3.5px );
   border-radius: 24px;
-  border: 1px solid rgba( 255, 255, 255, 0.1 );
+  border: 1px solid rgba(255, 255, 255, 0.027);
 }
 
 .features-container {
@@ -54,6 +54,7 @@ h2 {
 }
 
 p {
+  font-size: 18px;
   font-family: 'Cabin', sans-serif;
 }
 
@@ -78,4 +79,6 @@ h5 {
 
 .crypto-female {
   opacity: 1;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.027);
 }
