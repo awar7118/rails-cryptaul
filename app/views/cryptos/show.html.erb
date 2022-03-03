@@ -1,10 +1,10 @@
 <div class="container">
   <div class="show-container">
-  <div class="product-container ">
-    <div class="container product-graph">
-      <%= line_chart @price_data%>
+  <div class="product-container">
+    <div class="container product-graph rounded">
+      <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true %>
     </div>
-    <div class="container product-exchange">Current exchange rate</div>
+    <div class="container product-exchange rounded">Current exchange rate</div>
 
     <div class="product-info">
       <div class="accordion">
