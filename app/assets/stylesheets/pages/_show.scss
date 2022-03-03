@@ -83,6 +83,12 @@
   align-self: flex-end;
   display: flex;
 }
+.sticky .modal {
+  position: sticky;
+  bottom: 0px;
+  align-self: flex-end;
+  display: flex;
+}
 // .product-action .title-watchlist {
 //   justify-content: space-between;
 //   flex-direction: row;

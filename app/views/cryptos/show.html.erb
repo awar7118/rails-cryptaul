@@ -34,7 +34,7 @@
     </div>
   </div>
   <%# Container for purchase area %>
-  <div class="sticky" data-controller="purchase-modal">
+  <div class="sticky" data-purchase-modal-target="modal" data-controller="purchase-modal">
     <%# Container for pre-buy %>
     <div class="container product-action" data-purchase-modal-target="purchase">
       <div class="title-watchlist">
@@ -53,8 +53,8 @@
     <div data-purchase-modal-target="purchase" class="container purchase-modal collapse">
       <div class="crypto-info">
         <div class="title-exchange">
-          <h4>Buy <% @crypto.name%></h4>
-          <p>1 <% @crypto.name %> = £50</p>
+          <h4>Buy <%= @crypto.name%></h4>
+          <p>1 <%= @crypto.name %> = £50</p>
           <p>Please select the amount you'd like to purchase</p>
         </div>
         <div class="amounts">

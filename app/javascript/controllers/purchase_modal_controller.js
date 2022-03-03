@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["purchase"]
+  static targets = ["purchase", "modal"]
 
   // connect() {
     // this.hiTarget.innerHTML = 'Hello, dropdown!'
@@ -11,6 +11,7 @@ export default class extends Controller {
     this.purchaseTargets.forEach((target) => {
       target.classList.toggle("collapse")
     })
+    this.modalTarget.classList.toggle("modal")
   }
 
 }
