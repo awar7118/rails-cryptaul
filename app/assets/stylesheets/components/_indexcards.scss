@@ -2,24 +2,18 @@
   height: 30px;
   width: auto;
 }
-.cryptocard-product {
-  overflow: hidden;
-  height: 150px;
-  // box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  display: inline;
-  li {
-    display: inline;
-  }
-  div {
-    display: inline;
-  }
-}
-.cryptocard-product-infos {
-  padding: 16px;
+
+.cryptocards {
+  height: 75px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   background: rgba(255, 255, 255, 0.65);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 16px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
+  border-radius: 7px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  li {
+    display: inline-block;
+  }
 }
