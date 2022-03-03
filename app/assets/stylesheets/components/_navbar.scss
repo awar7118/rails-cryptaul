@@ -16,12 +16,12 @@
 
 html {
   height:100%;
-  background-image: linear-gradient(to right top, #8e44ad 0%, #3498db 100%);
+
 }
 
 nav {
   max-width: 960px;
-  mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
+
   margin: 0 auto;
   height: 50px;
 }
@@ -46,8 +46,31 @@ nav ul li a {
   display: block;
 }
 
+nav ul li h4 {
+  justify-self: right;
+  padding: 15px;
+  font-family: "Open Sans";
+  text-transform:uppercase;
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  text-decoration: none;
+  display: block;
+  font-weight: 900;
+}
+
+nav ul li h4:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(0, 0, 0, 0.7);
+}
+
 nav ul li a:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
   background: rgba(255, 255, 255, 0.1);
   color: rgba(0, 35, 122, 0.7);
+}
+
+.nav-avatar {
+  opacity: 1;
+  width: 30px;
 }

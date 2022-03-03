@@ -21,7 +21,7 @@ cryptos.each do |c|
     # Need to remove .last(365) to save all historical data. We are only saving time now for development.
     History.create!(
       price: price[1],
-      date: Time.at(price[0]),
+      date: Time.at(price[0]/1000),
       crypto: crypto
     )
   end
