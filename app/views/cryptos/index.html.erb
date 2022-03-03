@@ -28,7 +28,7 @@
             <div><%=crypto.name%></div>
           </li>
           <li>
-            <div><%= crypto.histories.last.price %></div>
+            <div>£<%=(crypto.histories.last.price).round(2) %></div>
           </li>
           <%# <li> %>
           <%# We can add market cap data into json file in a bit %>
