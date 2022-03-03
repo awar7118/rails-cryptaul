@@ -57,7 +57,12 @@
   // border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-// TOoltip for index header
+.crypto-image img {
+  height: 50px;
+  width: auto;
+}
+
+// Tooltip for index header
 [data-tooltip] {
   position: relative;
   cursor: pointer;
