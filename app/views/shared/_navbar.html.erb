@@ -1,16 +1,32 @@
-<nav>
-  <ul>
-    <li>
-      <a href="#">Home</a>
-    </li>
-    <li>
-      <a href="#">Cryptos</a>
-    </li>
-    <li>
-      <a href="#">Portfolio</a>
-    </li>
-    <li>
-      <a href="#">Learn More</a>
-    </li>
-  </ul>
+<nav class="menu">
+  <div class="options">
+    <% if user_signed_in? %>
+      <ul>
+        <li>
+          <%= link_to 'Home', root_path%>
+        </li>
+        <li>
+          <%= link_to 'Dashboard', my_dashboard_path%>
+        </li>
+        <li>
+          <%= link_to 'Browse', cryptos_path%>
+        </li>
+        <li>
+          <%= link_to 'Learn More', articles_path%>
+        </li>
+        <li>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+      </li>
+        <li>
+          <h4>£<%= current_user.balance %></h4>
+        </li>
+        <li>
+          <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placehulder/users/solkarim91"/>
+        </li>
+      </ul>
+    <% else %>
+    <% end %>
+  </div>
 </nav>
+
+<%# render different options depending whether user signed in %>
