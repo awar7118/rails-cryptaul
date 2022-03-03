@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Cryptaul</title>
+    <script src="https://kit.fontawesome.com/5ecccf8b94.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,20 +11,30 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <div class="flex-wrapper">
+      <div>
+        <% unless request.path == '/' %>
+          <%= render 'shared/navbar' %>
+        <% end %>
 
-     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+        <%= render 'shared/flashes' %>
 
-    <%= yield %>
-    <%= render 'shared/footer' %>
+        <%= yield %>
+      </div>
+
+      <div class="footer">
+        <%= render 'shared/footer' %>
+      </div>
+
+    </div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
     </script>
   </body>
+
 </html>

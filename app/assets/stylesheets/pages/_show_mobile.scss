@@ -1,0 +1,205 @@
+.product-container {
+  display: flex;
+  flex-direction: column;
+}
+.product-graph {
+  min-height: 400px;
+  background-color: green;
+}
+.product-exchange {
+  min-height: 200px;
+  background-color: red;
+}
+.product-info {
+  background-color: white;
+}
+.product-border-top {
+  border-top: grey 2px solid;
+}
+.accordion button {
+  text-decoration: none;
+  color: black;
+}
+.product-action {
+  height: 120px;
+  width: 100vw;
+  position: sticky;
+  bottom: 120px;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: white;
+  border-top: grey 2px solid;
+}
+.product-action .title-watchlist {
+  justify-content: space-between;
+  flex-direction: row;
+  display: flex;
+  margin-bottom: 10px;
+}
+.product-action .title {
+  width: 70%;
+}
+.product-action .watchlist {
+  display: flex;
+  justify-content: right;
+  max-width: 50px;
+  flex-grow: 1;
+  color: black;
+}
+.buy-button {
+  display: flex;
+  justify-content: right;
+}
+.buy-button button {
+  width: 100px;
+  padding: 0;
+}
+.product-similar {
+  min-height: 200px;
+  background-color: grey;
+}
+.expanded {
+  background-color: pink;
+}
+.purchase-modal {
+  height: 500px;
+  width: 100vw;
+  bottom: 120px;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: white;
+  border-top: grey 2px solid;
+  align-items: stretch;
+}
+.sticky {
+  position: sticky;
+  bottom: 0px;
+  align-self: flex-end;
+  display: flex;
+}
+.sticky .modal {
+  position: sticky;
+  bottom: 0px;
+  align-self: flex-end;
+  display: flex;
+}
+// .product-action .title-watchlist {
+//   justify-content: space-between;
+//   flex-direction: row;
+//   display: flex;
+//   margin-bottom: 10px;
+// }
+// .product-action .title {
+//   width: 70%;
+// }
+// .product-action .watchlist {
+//   display: flex;
+//   justify-content: right;
+//   max-width: 50px;
+//   flex-grow: 1;
+//   color: black;
+// }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+  .product-container {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+  }
+  .product-graph {
+    min-height: 400px;
+    background-color: green;
+  }
+  .product-exchange {
+    min-height: 200px;
+    background-color: red;
+  }
+  .product-info {
+    background-color: white;
+  }
+  .product-border-top {
+    border-top: grey 2px solid;
+  }
+  .accordion button {
+    text-decoration: none;
+    color: black;
+  }
+  .product-action {
+    height: 120px;
+    width: 100vw;
+    position: sticky;
+    bottom: 120px;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: white;
+    border-top: grey 2px solid;
+  }
+  .product-action .title-watchlist {
+    justify-content: space-between;
+    flex-direction: row;
+    display: flex;
+    margin-bottom: 10px;
+  }
+  .product-action .title {
+    width: 70%;
+  }
+  .product-action .watchlist {
+    display: flex;
+    justify-content: right;
+    max-width: 50px;
+    flex-grow: 1;
+    color: black;
+  }
+  .buy-button {
+    display: flex;
+    justify-content: right;
+  }
+  .buy-button button {
+    width: 100px;
+    padding: 0;
+  }
+  .product-similar {
+    min-height: 200px;
+    background-color: grey;
+  }
+  .expanded {
+    background-color: pink;
+  }
+  .purchase-modal {
+    height: 500px;
+    width: 100vw;
+    bottom: 120px;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: white;
+    border-top: grey 2px solid;
+    align-items: stretch;
+  }
+  .sticky {
+    position: sticky;
+    bottom: 0px;
+    align-self: flex-end;
+    display: flex;
+  }
+  .sticky .modal {
+    position: sticky;
+    bottom: 0px;
+    align-self: flex-end;
+    display: flex;
+  }
+
+ }

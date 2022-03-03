@@ -1,36 +1,30 @@
-<div class="product-container">
-  <div class="container product-graph">Graph in here</div>
-  <div class="container product-exchange">Current exchange rate</div>
-  <div data-controller="dropdown">
-   <h1 data-target="dropdown.hi"></h1>
- </div>
+<div class="container">
+  <div class="show-container">
+  <div class="product-container ">
+    <div class="container product-graph">
+      <%= line_chart @price_data%>
+    </div>
+    <div class="container product-exchange">Current exchange rate</div>
 
-  <div class="container product-stats">
-    <div class="accordion">
-      <div class="card">
-        <div class="card-header" id="headingOne">
-          <h5 class="mb-0">
-            <button class="btn btn-link" data-controller="dropdown" data-action="click->dropdown#expand" aria-expanded="false" aria-controls="collapseOne">
+    <div class="product-info">
+      <div class="accordion">
+        <div data-controller="accordion" class="container product-about product-border-top">
+          <h5 class="">
+            <button class="btn btn-link" data-action="click->accordion#expand">
               About
             </button>
           </h5>
-        </div>
-        <div data-dropdown-target="about" id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-          <div class="card-body">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <div class="collapse" data-accordion-target="content">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h5 class="mb-0">
-            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <div data-controller ="accordion" class="container product-stats product-border-top">
+          <h5 class="">
+            <button class="btn btn-link" data-action="click->accordion#expand">
               Stats
             </button>
           </h5>
-        </div>
-        <div id="collapseTwo" class="collapse">
-          <div class="card-body">
+          <div class="collapse" data-accordion-target="content">
             <ul>
               <li>Stat 1</li>
               <li>Stat 2</li>
@@ -44,6 +38,66 @@
       </div>
     </div>
   </div>
-  <div class="container product-action">Sticky area with crypto.name, watchlist icon and Buy button</div>
-  <div class="container product-similar">Optional similar or recommended coins</div>
+  <div class="purchase-container">
+    <%# Container for purchase area %>
+    <div class="sticky" data-purchase-modal-target="modal" data-controller="purchase-modal">
+      <%# Container for pre-buy %>
+      <div class="container product-action" data-purchase-modal-target="purchase">
+        <div class="title-watchlist">
+          <div class="title">
+            <h4><%= @crypto.name%></h4>
+          </div>
+          <div class="watchlist">
+            <i class="fa-solid fa-star fa-lg"></i>
+          </div>
+        </div>
+        <div class="buy-button">
+          <button id="myBtn" type="button" class="btn btn-primary" data-action="click->purchase-modal#expand"> Buy </button>
+        </div>
+
+      </div>
+      <%# Container for purchase-options %>
+      <div data-purchase-modal-target="purchase" class="container purchase-modal collapse">
+        <div class="crypto-info">
+          <div class="title-exchange">
+            <h4>Buy <%= @crypto.name%></h4>
+            <p>1 <%= @crypto.name %> = £50</p>
+            <p>Please select the amount you'd like to purchase</p>
+          </div>
+          <div class="amounts">
+            <form action="#">
+              <label for="amount">Amount in £</label><br>
+              <input type="text" id="amount" name="amount"><br>
+              <input class="buy-button btn btn-primary" type="submit" value="Confirm purchase">
+            </form>
+          </div>
+          </div>
+      </div>
+    <%# <div class="container product-similar">Optional similar or recommended coins</div> %>
+  </div>
+  </div>
 </div>
+
+
+
+<!-- The Modal -->
+        <div id="myModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="title-exchange">
+            <h4>Buy <%= @crypto.name%></h4>
+            <p>1 <%= @crypto.name %> = £50</p>
+            <p>Please select the amount you'd like to purchase</p>
+          </div>
+          <div class="amounts">
+            <form action="#">
+              <label for="amount">Amount in £</label><br>
+              <input type="text" id="amount" name="amount"><br>
+              <input class="buy-button btn btn-primary" type="submit" value="Confirm purchase">
+            </form>
+          </div>
+          </div>
+
+        </div>

@@ -1,3 +1,34 @@
+<nav class="menu">
+  <div class="options">
+    <ul>
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to 'Dashboard', my_dashboard_path %>
+      </li>
+      <li>
+        <%= link_to 'Browse', cryptos_path %>
+      </li>
+      <li>
+        <%= link_to 'Learn More', articles_path %>
+      </li>
+      <li>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+      </li>
+    </ul>
+    <% else %>
+      <li>
+        <%= link_to 'Sign Up', new_user_registration_path, class: "" %>
+      </li>
+      <li>
+        <%= link_to 'Sign In', new_user_session_path, class: "" %>
+      </li>
+      <li>
+        <%= link_to 'Learn More', articles_path, class: "" %>
+      </li>
+    <% end %>
+  </div>
+</nav>
+
 <div class="banner">
   <div class="banner-info-container">
     <div class="banner-title">
@@ -10,32 +41,11 @@
       <br>
 
       <div class="banner-buttons">
-        <a href="" class="banner-btn">Browse</a>
-        <a href="" class="banner-btn">Learn More</a>
-        <a href="" class="banner-btn">Sign Up</a>
+        <%= link_to 'Learn More', articles_path, class: "banner-btn" %>
+        <%= link_to 'Sign Up', new_user_registration_path, class: "banner-btn" %>
       </div>
     </div>
   </div>
-
-
-
-
-
-    <%# <link href='https://fonts.googleapis.com/css?family=Lato|Roboto:200,900' rel='stylesheet' type='text/css'>
-    <a href="/pets" class="home-btn">
-    <svg width="277" height="62">
-    <defs>
-        <linearGradient id="grad1">
-            <stop offset="0%" stop-color="#FF8282"/>
-            <stop offset="100%" stop-color="#E178ED" />
-        </linearGradient>
-    </defs>
-    <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="54"></rect>
-  </svg>
-  <!--<span>Voir mes réalisations</span>-->
-  <span>Find Your New Friend</span>
-  </a> %>
-
 </div>
 
 
@@ -57,19 +67,20 @@
       <div class="feature-card">
         <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646215620/ed9wvp3mcgfcnwkfjlj2.svg",
         class: "feature-illustration", width: 150, height: 150) %>
-        <a class="feature-card-link" href="/"><h2>Browse</h2></a>
+        <h2><%= link_to 'Browse', cryptos_path, class: "h2" %></h2>
         <p>Take a look around! We want to make the world of crypto investment less intimidating... and more fun!</p>
       </div>
       <div class="feature-card">
         <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646215613/dr6ympijtc9ywkmpaaw0.svg",
         class: "feature-illustration", width: 150, height: 150) %>
-        <a class="feature-card-link" href="/"><h2>Learn</h2></a>
+        <h2><%= link_to 'Learn', articles_path, class: "h2" %></h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, maxime aspernatur beatae accusamus laudantium officiis! Necessitatibus sed sequi harum ducimus maiores maxime, nobis voluptate voluptatibus? Neque tempora esse qui. Possimus?</p>
       </div>
       <div class="feature-card">
         <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646215626/uuigmxv4a9ubrppjniws.svg",
         class: "feature-illustration", width: 150, height: 150) %>
-        <a class="feature-card-link" href="/"><h2>Sign Up</h2></a>
+        <h2><%= link_to 'Sign Up', new_user_registration_path, class: "h2" %></h2>
+
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, maxime aspernatur beatae accusamus laudantium officiis! Necessitatibus sed sequi harum ducimus maiores maxime, nobis voluptate voluptatibus? Neque tempora esse qui. Possimus?</p>
       </div>
     </div>
