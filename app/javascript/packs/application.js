@@ -19,6 +19,6 @@ import 'aos/dist/aos.css';
 
 import "chartkick/chart.js";
 
-// document.addEventListener("turbolinks:load", () => {
-//   AOS.init();
-// });
+document.addEventListener("turbolinks:load", () => {
+  AOS.init();
+});
