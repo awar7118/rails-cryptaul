@@ -1,7 +1,7 @@
 class CryptosController < ApplicationController
   before_action :find_crypto, only: :show
   def index
-
+    @cryptos = Crypto.all
   end
 
   def show
