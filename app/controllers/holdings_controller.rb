@@ -1,4 +1,7 @@
 class HoldingsController < ApplicationController
+  def index
+  end
+  
   def create # BUY
     @holding = Holding.new(holding_params)
     @crypto = Crypto.find(params[:crypto_id])
