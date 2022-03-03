@@ -8,7 +8,9 @@ export default class extends Controller {
     // console.log("purchase modal controller is connected")
 
   expand() {
-    this.purchaseTarget.classList.toggle("collapse")
+    this.purchaseTargets.forEach((target) => {
+      target.classList.toggle("collapse")
+    })
   }
 
 }

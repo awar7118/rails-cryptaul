@@ -22,6 +22,7 @@
 }
 .product-action {
   height: 120px;
+  width: 100vw;
   position: sticky;
   bottom: 120px;
   align-self: flex-end;
@@ -65,7 +66,7 @@
 }
 .purchase-modal {
   height: 500px;
-  position: sticky;
+  width: 100vw;
   bottom: 120px;
   align-self: flex-end;
   display: flex;
@@ -76,3 +77,25 @@
   border-top: grey 2px solid;
   align-items: stretch;
 }
+.sticky {
+  position: sticky;
+  bottom: 120px;
+  align-self: flex-end;
+  display: flex;
+}
+// .product-action .title-watchlist {
+//   justify-content: space-between;
+//   flex-direction: row;
+//   display: flex;
+//   margin-bottom: 10px;
+// }
+// .product-action .title {
+//   width: 70%;
+// }
+// .product-action .watchlist {
+//   display: flex;
+//   justify-content: right;
+//   max-width: 50px;
+//   flex-grow: 1;
+//   color: black;
+// }

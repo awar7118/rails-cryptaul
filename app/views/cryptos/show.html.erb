@@ -33,35 +33,36 @@
       </div>
     </div>
   </div>
-  <div class="container product-action">
-    <div class="title-watchlist">
-      <div class="title">
-        <h4><%= @crypto.name%></h4>
-      </div>
-      <div class="watchlist">
-        <i class="fa-solid fa-star fa-lg"></i>
-      </div>
-    </div>
-    <div data-controller="purchase-modal">
-      <div class="buy-button" >
-        <button type="button" class="btn btn-primary" data-action="click->purchase-modal#expand"> Buy </button>
-      </div>
-
-      <div data-purchase-modal-target="purchase" class="container purchase-modal collapse">
-        <div class="crypto-info">
-          <div class="title-exchange">
-            <h4>Buy <%= @crypto.name%></h4>
-            <p>1 <%= @crypto.name %> = £50</p>
-            <p>Please select the amount you'd like to purchase</p>
-          </div>
-          <div class="amounts">
-          </div>
-          </div>
-        <div class="buy-button">
-          <button type="button" class="btn btn-primary"> Confirm purchase </button>
+  <%# Container for purchase area %>
+  <div class="sticky" data-controller="purchase-modal">
+    <%# Container for pre-buy %>
+    <div class="container product-action" data-purchase-modal-target="purchase">
+      <div class="title-watchlist">
+        <div class="title">
+          <h4><%= @crypto.name%></h4>
+        </div>
+        <div class="watchlist">
+          <i class="fa-solid fa-star fa-lg"></i>
         </div>
       </div>
+      <div class="buy-button">
+        <button type="button" class="btn btn-primary" data-action="click->purchase-modal#expand"> Buy </button>
+      </div>
     </div>
-  </div>
+    <%# Container for purchase-options %>
+    <div data-purchase-modal-target="purchase" class="container purchase-modal collapse">
+      <div class="crypto-info">
+        <div class="title-exchange">
+          <h4>Buy <% @crypto.name%></h4>
+          <p>1 <% @crypto.name %> = £50</p>
+          <p>Please select the amount you'd like to purchase</p>
+        </div>
+        <div class="amounts">
+        </div>
+        </div>
+      <div class="buy-button">
+        <button type="button" class="btn btn-primary"> Confirm purchase </button>
+      </div>
+    </div>
   <%# <div class="container product-similar">Optional similar or recommended coins</div> %>
 </div>
