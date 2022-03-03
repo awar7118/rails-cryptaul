@@ -3,6 +3,19 @@
 
 <div class="cards centered col-6 m-auto" data-controller="getcryptos">
     <div class="card-product" data-getcryptos-target="indexcontainer">
-
+    <%@cryptos.each do |crypto| %>
+    <ul class="card-product-infos">
+          <li>
+            <div><%=crypto.name%></div>
+          </li>
+          <li>
+            <div><%= crypto.histories.last.price %></div>
+          </li>
+          <%# <li> %>
+          <%# We can add market cap data into json file in a bit %>
+            <%# <div>${crypto.market_cap}</div> %>
+          <%# </li> %>
+        </ul>
+      <% end %>
     </div>
 </div>
