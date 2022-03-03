@@ -1,162 +1,30 @@
-.cryptocard-product {
-  overflow: hidden;
-  height: 120px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  // display: flex;
-  // align-items: center;
-  display: inline;
-}
-.cryptocard-product li {
-  display: inline;
-}
-.cryptocard-product div {
-  display: inline;
+.crypto-image img {
+  height: 30px;
+  width: auto;
 }
 
-.cryptocard-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.cryptocard-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: 0.7;
-  margin-bottom: 0;
-  margin-top: 2px;
-}
-
-.cryptocard-product .cryptocard-product-infos {
-  padding: 16px;
-  // border: 2px solid red;
-  // Claymorphism css below
-  // backdrop-filter: blur(10px);
-
-  // background-color: rgba(255, 255, 255, 1);
-
-  // border-radius: 26px;
-
-  // box-shadow: 35px 35px 68px 0px rgba(145, 192, 255, 0.5),
-  //   inset -0px -0px 16px 0px rgba(145, 192, 255, 0.6),
-  //   inset 0px 11px 28px 0px rgb(255, 255, 255);
-
-  // neumorphism below
-  -webkit-border-radius: 7px;
+.cryptocards {
+  font-size: 20px;
+  height: 75px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 1px 1px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border-radius: 7px;
-  background: #ffffff;
-  -webkit-box-shadow: 9px 9px 58px #d6d6d6, -9px -9px 58px #ffffff;
-  box-shadow: 9px 9px 58px #d6d6d6, -9px -9px 58px #ffffff;
-  // Glassmorphism css below
-  // background: rgba(255, 255, 255, 0.65);
-  // box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  // backdrop-filter: blur(4px);
-  // -webkit-backdrop-filter: blur(4px);
-  // border-radius: 10px;
-  // border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  li {
+    display: inline-block;
+  }
+  margin: 1px;
 }
-
-// TOoltip for index header
-[data-tooltip] {
-  position: relative;
-  cursor: pointer;
-}
-[data-tooltip]:before,
-[data-tooltip]:after {
-  line-height: 1;
-  font-size: 0.9em;
-  pointer-events: none;
-  position: absolute;
-  box-sizing: border-box;
-  display: none;
-  opacity: 0;
-}
-[data-tooltip]:before {
-  content: "";
-  border: 5px solid transparent;
-  z-index: 100;
-}
-[data-tooltip]:after {
-  content: attr(data-tooltip);
-  text-align: center;
-  min-width: 3em;
-  max-width: 21em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 8px 6px;
-  border-radius: 11px;
-  background: #4621ff;
-  color: #ffffff;
-  z-index: 99;
-}
-[data-tooltip]:hover:before,
-[data-tooltip]:hover:after {
-  display: block;
-  opacity: 1;
-}
-[data-tooltip]:not([data-flow])::before,
-[data-tooltip][data-flow="top"]::before {
-  bottom: 100%;
-  border-bottom-width: 0;
-  border-top-color: #4621ff;
-}
-[data-tooltip]:not([data-flow])::after,
-[data-tooltip][data-flow="top"]::after {
-  bottom: calc(100% + 5px);
-}
-[data-tooltip]:not([data-flow])::before,
-[tooltip]:not([data-flow])::after,
-[data-tooltip][data-flow="top"]::before,
-[data-tooltip][data-flow="top"]::after {
-  left: 50%;
-  -webkit-transform: translate(-50%, -4px);
-  transform: translate(-50%, -4px);
-}
-[data-tooltip][data-flow="bottom"]::before {
-  top: 100%;
-  border-top-width: 0;
-  border-bottom-color: #4621ff;
-}
-[data-tooltip][data-flow="bottom"]::after {
-  top: calc(100% + 5px);
-}
-[data-tooltip][data-flow="bottom"]::before,
-[data-tooltip][data-flow="bottom"]::after {
-  left: 50%;
-  -webkit-transform: translate(-50%, 8px);
-  transform: translate(-50%, 8px);
-}
-[data-tooltip][data-flow="left"]::before {
-  top: 50%;
-  border-right-width: 0;
-  border-left-color: #4621ff;
-  left: calc(0em - 5px);
-  -webkit-transform: translate(-8px, -50%);
-  transform: translate(-8px, -50%);
-}
-[data-tooltip][data-flow="left"]::after {
-  top: 50%;
-  right: calc(100% + 5px);
-  -webkit-transform: translate(-8px, -50%);
-  transform: translate(-8px, -50%);
-}
-[data-tooltip][data-flow="right"]::before {
-  top: 50%;
-  border-left-width: 0;
-  border-right-color: #4621ff;
-  right: calc(0em - 5px);
-  -webkit-transform: translate(8px, -50%);
-  transform: translate(8px, -50%);
-}
-[data-tooltip][data-flow="right"]::after {
-  top: 50%;
-  left: calc(100% + 5px);
-  -webkit-transform: translate(8px, -50%);
-  transform: translate(8px, -50%);
-}
-[data-tooltip=""]::after,
-[data-tooltip=""]::before {
-  display: none !important;
+.cryptocard-product:last-child {
+  :hover {
+    box-shadow: 0 10px 10px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
 }

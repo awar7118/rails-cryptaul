@@ -2,7 +2,9 @@
 
 require 'faker'
 require 'open-uri'
+puts "Deleting all cryptos"
 Crypto.destroy_all
+puts "Completed deletion of all cryptos"
 url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&     per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C%2024h%2C%207d%2C%2030d%2C%201y"
 # Opening dataset of top 100 cryptos from the crypto.json file
 cryptos = JSON.parse(File.read("./db/jsondata/crypto.json"))
@@ -12,7 +14,8 @@ cryptos = JSON.parse(File.read("./db/jsondata/crypto.json"))
 cryptos.each do |c|
   crypto = Crypto.create!(
     name: c["name"],
-    abbreviation: c["symbol"]
+    abbreviation: c["symbol"],
+    image: c["image"]
   )
   puts "created coin #{crypto.name}"
   # Opening pircing data for each crypto and get the last 365 days of data to populate our histories table in our database with

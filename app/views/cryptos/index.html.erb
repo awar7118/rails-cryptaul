@@ -1,11 +1,8 @@
-
-
-
 <%# Creating a div for all the cards - to be centered %>
-<div class="cards centered col-6 m-auto" data-controller="getcryptos">
-<%# Heder for all the rows %>
+<div class="container centered col-6 m-auto" data-controller="getcryptos">
+<%# Header for all the rows %>
     <div class="cryptocard-product">
-            <ul class="cryptocard-product-infos">
+            <ul class="cryptocards">
               <li>
                 <div>crypto logo</div>
               </li>
@@ -16,14 +13,13 @@
                 <div>crypto histories last price</div>
               </li>
             </ul>
-
     </div>
     <%# All rows of cryptos below %>
     <div class="cryptocard-product" data-getcryptos-target="indexcontainer">
-    <%@cryptos.each do |crypto| %>
-        <ul class="cryptocard-product-infos">
+      <%@cryptos.each do |crypto| %>
+        <ul class="cryptocards">
           <li>
-            <div>crypto logo</div>
+            <div class="crypto-image"><%= link_to(image_tag(crypto.image), crypto_path(crypto))%></div>
           </li>
           <li>
             <div><%=crypto.name%></div>
@@ -31,10 +27,10 @@
           <li>
             <div>£<%=(crypto.histories.last.price).round(2) %></div>
           </li>
-          <%# <li> %>
+          <li>
           <%# We can add market cap data into json file in a bit %>
-            <div><#%= crypto.market_cap %></div>
-          <%# </li> %>
+            <div>crypto market_cap placeholder</div>
+          </li>
         </ul>
       <% end %>
     </div>
