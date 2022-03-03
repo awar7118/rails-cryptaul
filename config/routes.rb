@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  resources :cryptos, only: [:index, :show]
 
-  resources :cryptos, only: %i[index show]
   get 'my_dashboard', to: 'pages#my_dashboard'
   get 'articles', to: 'pages#articles'
 
