@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-
-  resources :cryptos, only: [:index, :show]
-
+  
+  resources :cryptos, only: [:index, :show] do
+    resources :holdings, only: [:create, :update]
+  end
+  
   resources :holdings, only: :index
  
   get 'my_dashboard', to: 'pages#my_dashboard'
