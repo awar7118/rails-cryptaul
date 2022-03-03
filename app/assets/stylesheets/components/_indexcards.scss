@@ -15,7 +15,12 @@
   border-radius: 7px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   li {
+    list-style: none;
     display: inline-block;
+    justify-content: space-evenly;
+  }
+  ul {
+    display: flex;
   }
   margin: 1px;
 }
