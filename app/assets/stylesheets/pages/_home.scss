@@ -5,10 +5,8 @@ html {
 }
 
 body {
-  // background-color: #f7dddf2d;
+  min-height: 100vh;
   margin: 0;
-  // background: #edc0bf;
-  // background: linear-gradient(90deg, #c0caec 0,#eec992 58%);
   font-family: 'Inter', sans-serif;
 }
 
@@ -89,4 +87,11 @@ h5 {
 
 .h2:hover {
   color: #ee851c7a;
+}
+
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
 }
