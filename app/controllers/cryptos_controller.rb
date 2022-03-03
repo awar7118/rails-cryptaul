@@ -7,6 +7,7 @@ class CryptosController < ApplicationController
   end
 
   def show
+    @holding = Holding.new
   end
 
   private
