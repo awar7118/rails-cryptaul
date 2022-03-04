@@ -1,7 +1,7 @@
 <div class="container page-container">
   <div class="container graph-purchase-container">
     <div class="product-graph rounded">
-      <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'] %>
+      <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "400px" %>
     </div>
     <%# <div class="container product-exchange rounded">Current exchange rate</div> %>
     <div class="purchase-container rounded">
@@ -17,6 +17,10 @@
               <i class="fa-solid fa-star fa-lg"></i>
             </div>
           </div>
+          <div class="center">
+            <img src="<%= @crypto.image %>" height="100px">
+          </div>
+          <br>
           <p class="center">1 <%= @crypto.name %> = £<%= @crypto.histories.last.price.round(2) %></p>
           <div class="buy-button center">
             <button id="myBtn" type="button" class="banner-btn" data-action="click->purchase-modal#expand"> Buy </button>
