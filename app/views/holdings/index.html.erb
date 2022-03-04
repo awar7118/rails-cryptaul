@@ -26,9 +26,13 @@
   <div class="banner-articles">
     <div class="main-title">
       <H1><b>DASHBOARD</b></H1>
-      <div class="d-flex">
-        <%= current_user.simulation_date.strftime('%m/%d/%Y') %>
-        <%= link_to '>', change_simulation_path(current_user), class: 'btn btn-success' %>
+      <div class='date-navigation'>
+        <h4>
+          <%= current_user.simulation_date.strftime('%d/%m/%Y') %>
+        </h4>
+
+          <%= link_to 'Advance 1 Day >', change_simulation_path(current_user), class:'btn btn-primary' %>
+
       </div>
     </div>
   </div>
