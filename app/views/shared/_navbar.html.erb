@@ -9,14 +9,14 @@
           <%= link_to 'Dashboard', my_dashboard_path%>
         </li>
         <li>
-          <%= link_to 'Browse', cryptos_path%>
+          <%= link_to 'Watchlist', watchlists_path%>
+        </li>
+        <li>
+          <%= link_to 'Browse Cryptos', cryptos_path%>
         </li>
         <li>
           <%= link_to 'Learn More', articles_path%>
         </li>
-        <li>
-          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-      </li>
         <li>
           <h4><%= current_user.simulation_date %></h4>
         </li>
@@ -25,6 +25,9 @@
         </li>
         <li>
           <img class="avatar-bordered nav-avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/solkarim91" />
+        </li>
+        <li>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
         </li>
       </ul>
     <% else %>
