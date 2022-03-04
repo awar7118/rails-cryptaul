@@ -18,7 +18,7 @@
             </div>
           </div>
           <div class="center">
-            <img src="<%= @crypto.image %>" height="100px">
+            <img class="rounded-circle"src="<%= @crypto.image %>" height="100px">
           </div>
           <br>
           <p class="center">1 <%= @crypto.name %> = £<%= @crypto.histories.last.price.round(2) %></p>
