@@ -7,11 +7,12 @@ Rails.application.routes.draw do
     resources :watchlists, only: [:create]
   end
 
-  resources :holdings, only: :index
+  resources :holdings, only: [:index, :update]
   resources :watchlists, only: [:index, :destroy]
 
-  get 'my_dashboard', to: 'pages#my_dashboard'
+  get 'my_dashboard', to: 'holdings#index'
   get 'articles', to: 'pages#articles'
+  get 'my_dashboard/:id', to: 'holdings#advance_date', as: 'change_simulation'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

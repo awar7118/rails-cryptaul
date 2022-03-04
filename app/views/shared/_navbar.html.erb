@@ -18,6 +18,9 @@
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
       </li>
         <li>
+          <h4><%= current_user.simulation_date %></h4>
+        </li>
+        <li>
           <h4>£<%= current_user.balance.round(2) %></h4>
         </li>
         <li>
