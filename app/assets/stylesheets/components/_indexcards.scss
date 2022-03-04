@@ -34,3 +34,13 @@ tbody > tr:hover {
   border: 1px solid rgba(255, 255, 255, 0.18);
   transform: scale(1.05);
 }
+
+// Logic to display red or green for price change
+.red-font {
+  color: #cf1f30;
+}
+.green-font {
+  color: #088551;
+}
+
+// color for symbol #5B616E
