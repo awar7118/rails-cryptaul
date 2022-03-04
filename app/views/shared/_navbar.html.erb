@@ -18,7 +18,7 @@
           <%= link_to 'Learn More', articles_path%>
         </li>
         <li>
-          <h4><%= current_user.simulation_date %></h4>
+          <h4><%= current_user.simulation_date.strftime('%m/%d/%Y') %></h4>
         </li>
         <li>
           <h4>£<%= current_user.balance.round(2) %></h4>
