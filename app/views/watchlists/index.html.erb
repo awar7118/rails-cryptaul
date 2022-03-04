@@ -1,0 +1,40 @@
+<h1>Your watchlist</h1>
+
+
+<%# Creating a div for all the cards - to be centered %>
+<div class="container centered col-6 m-auto" data-controller="getcryptos">
+<%# Header for all the rows %>
+    <div class="cryptocard-product">
+            <ul class="cryptocards">
+              <li>
+                <div>crypto logo</div>
+              </li>
+              <li>
+                <div>crypto name</div>
+              </li>
+              <li>
+                <div>crypto histories last price</div>
+              </li>
+            </ul>
+    </div>
+    <%# All rows of cryptos below %>
+    <div class="cryptocard-product" data-getcryptos-target="indexcontainer">
+      <%@watchlists.each do |watchlist| %>
+        <ul class="cryptocards">
+          <li>
+            <div class="crypto-image"><%= link_to(image_tag(watchlist.crypto.image), crypto_path(watchlist.crypto))%></div>
+          </li>
+          <li>
+            <div><%=watchlist.crypto.name%></div>
+          </li>
+          <li>
+            <div>£<%=(watchlist.crypto.histories.last.price).round(2) %></div>
+          </li>
+          <li>
+          <%# We can add market cap data into json file in a bit %>
+            <div>crypto market_cap placeholder</div>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+</div>
