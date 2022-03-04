@@ -40,7 +40,7 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">WALLET</p>
                     <h5 class="font-weight-bolder mb-0">
-                      £500.00
+                      £<%= @holdings.sum(&:purchased_price).round(2) %>
                       <span class="text-success text-sm font-weight-bolder"></span>
                     </h5>
                   </div>
@@ -65,7 +65,7 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">USER BALANCE</p>
                     <h5 class="font-weight-bolder mb-0">
-                      £1200
+                      £<%= current_user.balance.round(2) %>
                       <span class="text-success text-sm font-weight-bolder">+10%</span>
                     </h5>
                   </div>
@@ -273,4 +273,3 @@
 </body>
 
 </html>
-

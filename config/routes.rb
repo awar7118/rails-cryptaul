@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     resources :holdings, only: [:create, :update]
   end
 
-  resources :holdings, only: :index
+  resources :holdings, only: :update
 
-  get 'my_dashboard', to: 'pages#my_dashboard'
+  get 'my_dashboard', to: 'holdings#index'
   get 'articles', to: 'pages#articles'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
