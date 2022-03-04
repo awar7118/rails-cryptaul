@@ -22,6 +22,12 @@
 
   <%# TITLE %>
   <body>
+  <div class="main-title d-flex">
+    <H1><b>DASHBOARD</b></H1>
+    <%= link_to '>', change_simulation_path(current_user), class: 'btn btn-success' %>
+  </div>
+
+
   <div class="container-1">
     <div class="container-fluid py-5" style="margin-top: 84px;margin-bottom: -9px;">
       <div class="row">
@@ -36,7 +42,14 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-capitalize font-weight-bold"><b>WALLET</b></p>
                       <h5 class="font-weight-bolder mb-0">
-                        £500.00
+                        <p>Purchased Value: <br>£ <%= @holdings.sum(&:purchased_price).round(2) %></p>
+                        <% if @holdings_value > @holdings.sum(&:purchased_price) %>
+                          <p style='color: green'>Current Value: <br>£ <%= @holdings_value.round(2) %></p>
+                        <% elsif @holdings_value < @holdings.sum(&:purchased_price) %>
+                          <p style='color: red'>Current Value: <br>£ <%= @holdings_value.round(2) %></p>
+                        <% else %>
+                          <p>Current Value: <br>£ <%= @holdings_value.round(2) %></p>
+                        <% end %>
                         <span class="text-success text-sm font-weight-bolder"></span>
                       </h5>
                     </div>
@@ -55,7 +68,7 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold"><b>EARNINGS</b></p>
                     <h5 class="font-weight-bolder mb-0">
-                      £1200
+                        £<%= current_user.balance.round(2) %>
                       <span class="text-success text-sm font-weight-bolder">+10%</span>
                     </h5>
                   </div>
