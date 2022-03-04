@@ -2,9 +2,8 @@
   <table class='table'>
     <thead>
       <tr>
-        <th>crypto logo</th>
-        <th>crypto name</th>
-        <th>price</th>
+        <th>Name</th>
+        <th>Price</th>
         <th>24hr change (%)</th>
         <th>7 day chart</th>
       </tr>
@@ -13,10 +12,7 @@
     <%@cryptos.each do |crypto| %>
       <tr>
         <td>
-          <%= link_to(image_tag(crypto.image), crypto_path(crypto),class: "crypto-image")%>
-        </td>
-        <td>
-          <%=crypto.name%>
+          <%= link_to(image_tag(crypto.image), crypto_path(crypto),class: "crypto-image")%> <%=crypto.name%>
         </td>
         <td>
           £<%=(crypto.histories.last.price).round(2) %>
