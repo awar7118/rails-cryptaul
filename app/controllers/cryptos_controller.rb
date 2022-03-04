@@ -8,6 +8,7 @@ class CryptosController < ApplicationController
 
   def show
     @holding = Holding.new
+    @watchlist = Watchlist.new
   end
 
   private

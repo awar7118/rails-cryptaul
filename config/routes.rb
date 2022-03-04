@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   resources :cryptos, only: [:index, :show] do
     resources :holdings, only: [:create, :update]
+    resources :watchlists, only: [:create]
   end
 
   resources :holdings, only: :index
+  resources :watchlists, only: [:index, :destroy]
 
   get 'my_dashboard', to: 'pages#my_dashboard'
   get 'articles', to: 'pages#articles'

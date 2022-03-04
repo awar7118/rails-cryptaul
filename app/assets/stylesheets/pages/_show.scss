@@ -139,7 +139,7 @@
   }
   .purchase-container {
     width: 30vw;
-    padding: 30px;
+    padding: 15px;
     margin-left: 10px;
     background-color: white;
     height: 400px;
@@ -175,9 +175,11 @@
   .buy-button {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+
   }
   .buy-button button {
-    width: 100px;
+    // width: 100px;
     padding: 0;
   }
   .product-similar {

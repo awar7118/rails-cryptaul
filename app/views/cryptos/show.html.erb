@@ -23,46 +23,28 @@
           <br>
           <p class="center">1 <%= @crypto.name %> = £<%= @crypto.histories.last.price.round(2) %></p>
           <div class="buy-button center">
-            <button id="myBtn" type="button" class="banner-btn" data-action="click->purchase-modal#expand"> Buy </button>
+            <div>
+              <button id="myBtn" type="button" class="buy-btn-filled" data-action="click->purchase-modal#expand" > Buy </button>
+            </div>
+             <%= simple_form_for [ @crypto, @watchlist ] do |f| %>
+              <div>
+                <%= f.submit '+ Watchlist', class: "buy-btn" %>
+              </div>
+            <% end %>
           </div>
 
         </div>
       </div>
-      <%# Container for purchase-options %>
-      <div data-purchase-modal-target="purchase" class="container purchase-modal collapse">
-        <div class="crypto-info">
-          <div class="title-exchange">
-            <h4>Buy <%= @crypto.name%></h4>
-            <p>1 <%= @crypto.name %> = £<%= @crypto.histories.last.price.round(2) %></p>
-            <p>Please select the number of <%= @crypto.name %> you'd like to purchase</p>
-          </div>
-          <div class="amounts">
-                <%= simple_form_for [ @crypto, @holding ] do |f| %>
-                  <div>
-                    <%= f.input :quantity %>
-                    <%= f.submit 'Confirm Purchase', class: "buy-button banner-btn" %>
-                  </div>
-                <% end %>
-
-            <form action="#">
-              <label for="amount">Amount in £</label><br>
-              <input type="text" id="amount" name="amount"><br>
-              <input class="buy-button btn btn-primary" type="submit" value="Confirm Purchase">
-            </form>
-          </div>
-        </div>
-      </div>
-    <%# <div class="container product-similar">Optional similar or recommended coins</div> %>
-  </div>
+    </div>
 </div>
 <div>
-<div class="container product-info-container" data-controller="accordion">
-    <div class="" data-accordion-target="content">
-      <h4 class="">About</h4>
-      <p><%= @crypto.name.capitalize %> is a decentralized blockchain platform that establishes a peer-to-peer network that securely executes and verifies application code, called smart contracts. Smart contracts allow participants to transact with each other without a trusted central authority.<br><br>By mining, you can earn cryptocurrency without having to put down money for it. Bitcoin miners receive bitcoin as a reward for completing "blocks" of verified transactions, which are added to the blockchain.<br><br>Each Bitcoin is basically a computer file which is stored in a 'digital wallet' app on a smartphone or computer. People can send Bitcoins (or part of one) to your digital wallet, and you can send Bitcoins to other people. Every single transaction is recorded in a public list called the blockchain. This makes it possible to trace the history of Bitcoins to stop people from spending coins they do not own, making copies or undo-ing transactions.</p>
-    </div>
+  <div class="container product-info-container" data-controller="accordion">
+      <div class="" data-accordion-target="content">
+        <h4 class="">About</h4>
+        <p><%= @crypto.name.capitalize %> is a decentralized blockchain platform that establishes a peer-to-peer network that securely executes and verifies application code, called smart contracts. Smart contracts allow participants to transact with each other without a trusted central authority.<br><br>By mining, you can earn cryptocurrency without having to put down money for it. Bitcoin miners receive bitcoin as a reward for completing "blocks" of verified transactions, which are added to the blockchain.<br><br>Each Bitcoin is basically a computer file which is stored in a 'digital wallet' app on a smartphone or computer. People can send Bitcoins (or part of one) to your digital wallet, and you can send Bitcoins to other people. Every single transaction is recorded in a public list called the blockchain. This makes it possible to trace the history of Bitcoins to stop people from spending coins they do not own, making copies or undo-ing transactions.</p>
+      </div>
   </div>
-  </div>
+</div>
 
 
 
