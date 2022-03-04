@@ -17,19 +17,19 @@
     </ul>
     <% else %>
       <li>
-        <%= link_to 'Sign Up', new_user_registration_path, class: "" %>
+        <%= link_to 'Sign Up', new_user_registration_path %>
       </li>
       <li>
-        <%= link_to 'Sign In', new_user_session_path, class: "" %>
+        <%= link_to 'Sign In', new_user_session_path %>
       </li>
       <li>
-        <%= link_to 'Learn More', articles_path, class: "" %>
+        <%= link_to 'Learn More', articles_path %>
       </li>
     <% end %>
   </div>
 </nav>
 
-<div class="banner">
+<div class="banner-home">
   <div class="banner-info-container">
     <div class="banner-title">
       <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646143122/mvm0isuwrx6vyrvhz1rn.png",
@@ -55,8 +55,8 @@
       <h2>What is Cryptaul?</h2>
       <br>
       <p>We've all heard the hype around crypto. But what <em>is</em> crypto, and how do I get involved?<br>
-      Many of us want to find out, but don't want to gamble away our hard-earned cash in this famously unpredictable market. <br><br>
-      <strong style="color: #EE841C"> Cryptaul</strong> is a first-of-it's-kind service which simulates the world of cryptocurrency investment. <br>Here, you'll find clear answers to all of your questions and can get started right away by investing in our playground environment - no payment required!<br><br></p>
+      Many of us want to find out, but don't want to gamble away our hard-earned cash in this notoriously unpredictable market. <br><br>
+      <strong style="color: #EE841C"> Cryptaul</strong> is a first-of-it's-kind service which simulates the world of cryptocurrency investment. <br>Here, you'll find clear answers to all of your questions & can get started right away by investing in our playground environment - no payment required!<br><br></p>
       <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646218834/he0h1s8tdrxfh2dpsvaq.jpg",
        class: "crypto-female") %>
     </div>
@@ -74,14 +74,15 @@
         <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646215613/dr6ympijtc9ywkmpaaw0.svg",
         class: "feature-illustration", width: 150, height: 150) %>
         <h2><%= link_to 'Learn', articles_path, class: "h2" %></h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, maxime aspernatur beatae accusamus laudantium officiis! Necessitatibus sed sequi harum ducimus maiores maxime, nobis voluptate voluptatibus? Neque tempora esse qui. Possimus?</p>
+        <p>All of your questions, <strong>answered.</strong>
+        <br>The information online is too technical & can be pretty overwhelming. <br>Here, you'll find all the info you need to get started. </p>
       </div>
       <div class="feature-card">
         <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646215626/uuigmxv4a9ubrppjniws.svg",
         class: "feature-illustration", width: 150, height: 150) %>
         <h2><%= link_to 'Sign Up', new_user_registration_path, class: "h2" %></h2>
 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, maxime aspernatur beatae accusamus laudantium officiis! Necessitatibus sed sequi harum ducimus maiores maxime, nobis voluptate voluptatibus? Neque tempora esse qui. Possimus?</p>
+        <p>If you're ready to jump in & start trading. We'll even throw in 1000 CryptaulCredits™️ free of charge 😉<br>Click the link above!</p>
       </div>
     </div>
   </div>
@@ -93,41 +94,40 @@
         <a href="https://github.com/solkarim91" target="_blank" class="member-card">
           <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/solkarim91" />
             <h5>Solomon</h5>
-            <ul>
+            <ul class="team-member-list">
+              <li>⭐️ Crypto Newbie</li>
               <li>📍 London</li>
             </ul>
-            <p><em>"Originally from the North-East. <br>I recently made the switch to coding from a background in telecommunications & never looked back!"</em></p>
+            <p>Originally from the North-East. <br>I recently made the switch to coding from a background in telecommunications & never looked back!</p>
         </a>
         <a href="https://github.com/britishninja47" target="_blank" class="member-card">
           <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/britishninja47" />
             <h5>Jeremiah</h5>
-            <ul>
+            <ul class="team-member-list">
+              <li>🚀 Crypto Expert</li>
               <li>📍 London</li>
             </ul>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis quos commodi</p>
+            <p>I've always had a passion & interest in technology and feel excited to start my new journey in Programming and Coding with Le Wagon!</p>
         </a>
         <a href="https://github.com/taramacu" target="_blank" class="member-card">
           <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/taramacu" />
             <h5>Tara</h5>
-            <ul>
+            <ul class="team-member-list">
+              <li>⭐️ Crypto Newbie</li>
               <li>📍 London</li>
             </ul>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis quos commodi</p>
+            <p>I've been working as a product manager for the past 6 years but have always had coding in mind as something I'd love to be able to do.</p>
         </a>
         <a href="https://github.com/awar7118" target="_blank" class="member-card">
           <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/awar7118" />
             <h5>Ahmed</h5>
-            <ul>
+            <ul class="team-member-list">
+              <li>🚀 Crypto Expert</li>
               <li>📍 London</li>
             </ul>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis quos commodi</p>
+            <p>Over the past few years, I have been working in the construction industry and as much as there were so many enjoyable parts to it, I was always certain that being in tech was more for me.</p>
         </a>
       </div>
     </div>
   </div>
-
-
-<div data-controller="hello">
-<%# Testing %>
-
 </div>

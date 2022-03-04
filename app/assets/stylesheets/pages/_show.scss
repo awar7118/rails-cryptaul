@@ -1,94 +1,94 @@
-.product-container {
-  display: flex;
-  flex-direction: column;
-}
-.product-graph {
-  min-height: 400px;
-  background-color: green;
-}
-.product-exchange {
-  min-height: 200px;
-  background-color: red;
-}
-.product-info {
-  background-color: white;
-}
-.product-border-top {
-  border-top: grey 2px solid;
-}
-.accordion button {
-  text-decoration: none;
-  color: black;
-}
-.product-action {
-  height: 120px;
-  width: 100vw;
-  position: sticky;
-  bottom: 120px;
-  align-self: flex-end;
-  display: flex;
-  flex-direction: column;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: white;
-  border-top: grey 2px solid;
-}
-.product-action .title-watchlist {
-  justify-content: space-between;
-  flex-direction: row;
-  display: flex;
-  margin-bottom: 10px;
-}
-.product-action .title {
-  width: 70%;
-}
-.product-action .watchlist {
-  display: flex;
-  justify-content: right;
-  max-width: 50px;
-  flex-grow: 1;
-  color: black;
-}
-.buy-button {
-  display: flex;
-  justify-content: right;
-}
-.buy-button button {
-  width: 100px;
-  padding: 0;
-}
-.product-similar {
-  min-height: 200px;
-  background-color: grey;
-}
-.expanded {
-  background-color: pink;
-}
-.purchase-modal {
-  height: 500px;
-  width: 100vw;
-  bottom: 120px;
-  align-self: flex-end;
-  display: flex;
-  flex-direction: column;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: white;
-  border-top: grey 2px solid;
-  align-items: stretch;
-}
-.sticky {
-  position: sticky;
-  bottom: 0px;
-  align-self: flex-end;
-  display: flex;
-}
-.sticky .modal {
-  position: sticky;
-  bottom: 0px;
-  align-self: flex-end;
-  display: flex;
-}
+// .product-container {
+//   display: flex;
+//   flex-direction: column;
+// }
+// .product-graph {
+//   min-height: 400px;
+//   background-color: green;
+// }
+// .product-exchange {
+//   min-height: 200px;
+//   background-color: red;
+// }
+// .product-info {
+//   background-color: white;
+// }
+// .product-border-top {
+//   border-top: grey 2px solid;
+// }
+// .accordion button {
+//   text-decoration: none;
+//   color: black;
+// }
+// .product-action {
+//   height: 120px;
+//   width: 100vw;
+//   position: sticky;
+//   bottom: 120px;
+//   align-self: flex-end;
+//   display: flex;
+//   flex-direction: column;
+//   padding-top: 20px;
+//   padding-bottom: 20px;
+//   background-color: white;
+  // border-top: grey 2px solid;
+// }
+// .product-action .title-watchlist {
+//   justify-content: space-between;
+//   flex-direction: row;
+//   display: flex;
+//   margin-bottom: 10px;
+// }
+// .product-action .title {
+//   width: 70%;
+// }
+// .product-action .watchlist {
+//   display: flex;
+//   justify-content: right;
+//   max-width: 50px;
+//   flex-grow: 1;
+//   color: black;
+// }
+// .buy-button {
+//   display: flex;
+//   justify-content: right;
+// }
+// .buy-button button {
+//   width: 100px;
+//   padding: 0;
+// }
+// .product-similar {
+//   min-height: 200px;
+//   background-color: grey;
+// }
+// .expanded {
+//   background-color: pink;
+// }
+// .purchase-modal {
+//   height: 500px;
+//   width: 100vw;
+//   bottom: 120px;
+//   align-self: flex-end;
+//   display: flex;
+//   flex-direction: column;
+//   padding-top: 20px;
+//   padding-bottom: 20px;
+//   background-color: white;
+//   border-top: grey 2px solid;
+//   align-items: stretch;
+// }
+// .sticky {
+//   position: sticky;
+//   bottom: 0px;
+//   align-self: flex-end;
+//   display: flex;
+// }
+// .sticky .modal {
+//   position: sticky;
+//   bottom: 0px;
+//   align-self: flex-end;
+//   display: flex;
+// }
 // .product-action .title-watchlist {
 //   justify-content: space-between;
 //   flex-direction: row;
@@ -108,56 +108,59 @@
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  .show-container {
+  .page-container {
+    display: block;
+    direction: column;
+  }
+  .graph-purchase-container {
+    display: flex;
+    direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 0;
+    height: 400px;
+  }
+  .product-info-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-  }
-  .product-container {
-    display: flex;
-    flex-direction: column;
-    width: 60vw;
-    margin-right: 30px;
+    background-color: white;
+    padding: 30px;
   }
   .product-graph {
-    min-height: 400px;
+    height: 400px;
     background-color: white;
-  }
-  .product-exchange {
-    min-height: 200px;
-    background-color: red;
+    margin-bottom: 20px;
+    width: 80vw;
   }
   .product-info {
     background-color: white;
-  }
-  .product-border-top {
-    border-top: grey 2px solid;
-  }
-  .accordion button {
-    text-decoration: none;
-    color: black;
+    width: 100vw;
   }
   .purchase-container {
     width: 30vw;
-  }
-  .product-action {
-    height: 50vh;
-    width: 100vw;
-    position: sticky;
-    bottom: 120px;
-    align-self: flex-end;
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 30px;
+    margin-left: 10px;
     background-color: white;
-    border-top: grey 2px solid;
+    height: 400px;
   }
+  // .product-action {
+  //   height: 50vh;
+  //   width: 100vw;
+  //   position: sticky;
+  //   bottom: 120px;
+  //   align-self: flex-end;
+  //   display: flex;
+  //   flex-direction: column;
+  //   padding: 30px;
+  //   background-color: white;
+    // border-top: grey 2px solid;
+  // }
   .product-action .title-watchlist {
     justify-content: space-between;
     flex-direction: row;
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
   }
   .product-action .title {
     width: 70%;
@@ -171,7 +174,7 @@
   }
   .buy-button {
     display: flex;
-    justify-content: right;
+    justify-content: center;
   }
   .buy-button button {
     width: 100px;
@@ -194,20 +197,8 @@
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: white;
-    border-top: grey 2px solid;
+    // border-top: grey 2px solid;
     align-items: stretch;
-  }
-  .sticky {
-    position: sticky;
-    bottom: 0px;
-    align-self: flex-end;
-    display: flex;
-  }
-  .sticky .modall {
-    position: sticky;
-    bottom: 0px;
-    align-self: flex-end;
-    display: flex;
   }
   /* The Modal (background) */
   .modal {
