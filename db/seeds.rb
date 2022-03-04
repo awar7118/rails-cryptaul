@@ -15,7 +15,8 @@ cryptos.each do |c|
   crypto = Crypto.create!(
     name: c["name"],
     abbreviation: c["symbol"],
-    image: c["image"]
+    image: c["image"],
+    previousdaypercentagechange: c["price_change_percentage_24h"]
   )
   puts "created coin #{crypto.name}"
   # Opening pircing data for each crypto and get the last 365 days of data to populate our histories table in our database with

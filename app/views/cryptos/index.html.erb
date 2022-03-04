@@ -1,37 +1,39 @@
-<%# Creating a div for all the cards - to be centered %>
-<div class="container centered col-6 m-auto" data-controller="getcryptos">
-<%# Header for all the rows %>
-    <div class="cryptocard-product">
-            <ul class="cryptocards">
-              <li>
-                <div>crypto logo</div>
-              </li>
-              <li>
-                <div>crypto name</div>
-              </li>
-              <li>
-                <div>crypto histories last price</div>
-              </li>
-            </ul>
-    </div>
-    <%# All rows of cryptos below %>
-    <div class="cryptocard-product" data-getcryptos-target="indexcontainer">
-      <%@cryptos.each do |crypto| %>
-        <ul class="cryptocards">
-          <li>
-            <div class="crypto-image"><%= link_to(image_tag(crypto.image), crypto_path(crypto))%></div>
-          </li>
-          <li>
-            <div><%=crypto.name%></div>
-          </li>
-          <li>
-            <div>£<%=(crypto.histories.last.price).round(2) %></div>
-          </li>
-          <li>
-          <%# We can add market cap data into json file in a bit %>
-            <div>crypto market_cap placeholder</div>
-          </li>
-        </ul>
-      <% end %>
-    </div>
+<div class= "container centered col-8 m-auto">
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>crypto logo</th>
+        <th>crypto name</th>
+        <th>price</th>
+        <th>24hr change (%)</th>
+        <th>7 day chart</th>
+      </tr>
+    </thead>
+    <tbody>
+    <%@cryptos.each do |crypto| %>
+      <tr>
+        <td>
+          <%= link_to(image_tag(crypto.image), crypto_path(crypto),class: "crypto-image")%>
+        </td>
+        <td>
+          <%=crypto.name%>
+        </td>
+        <td>
+          £<%=(crypto.histories.last.price).round(2) %>
+        </td>
+        <td>
+        <% if crypto.previousdaypercentagechange.negative?() %>
+        <div class = "red-font">
+        <%= crypto.previousdaypercentagechange %>
+        </div>
+        <% else %>
+        <div class = "green-font">
+        <%= crypto.previousdaypercentagechange %>
+        </div>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>

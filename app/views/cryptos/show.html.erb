@@ -67,7 +67,7 @@
 
 
 <!-- The Modal -->
-        <div id="myModal" class="modal">
+        <div id="myModal" data-controller="purchase-modal" class="modal">
 
           <!-- Modal content -->
           <div class="modal-content">
@@ -75,14 +75,16 @@
             <div class="title-exchange">
             <h4>Buy <%= @crypto.name%></h4>
             <p>1 <%= @crypto.name %> = £<%= @crypto.histories.last.price.round(2) %></p>
-            <p>Please select the amount you'd like to purchase</p>
+            <p>Please select the number of <%= @crypto.name %> you'd like to purchase</p>
           </div>
             <%= simple_form_for [ @crypto, @holding ] do |f| %>
               <div>
-                <%= f.input :quantity %>
+                <%= f.input :quantity, input_html: {data: {action: "keyup->purchase-modal#calculatePrice"}} %>
                 <%= f.submit 'Confirm Purchase', class: "buy-button banner-btn" %>
               </div>
             <% end %>
+            <br>
+            <p data-purchase-modal-target="pounds" data-price="<%= @crypto.histories.last.price.round(2) %>" id="pounds">You're spending £0.00</p>
           </div>
 
         </div>

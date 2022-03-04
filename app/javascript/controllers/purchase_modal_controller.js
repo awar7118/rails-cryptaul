@@ -1,19 +1,26 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["purchase", "modal"]
+  static targets = ["purchase", "modal", "pounds"]
 
-  // connect() {
-    // this.hiTarget.innerHTML = 'Hello, dropdown!'
+  connect() {
     // console.log("purchase modal controller is connected")
-
+  }
   expand() {
     this.purchaseTargets.forEach((target) => {
       // target.classList.toggle("collapse")
     })
     // this.modalTarget.classList.toggle("modall")
   }
+  calculatePrice(e) {
+    // console.log(e.currentTarget.value)
+    // console.log(this.poundsTarget.dataset.price)
+    // console.log(e.currentTarget.value * this.poundsTarget.dataset.price)
+    const calculatedPrice = (e.currentTarget.value * this.poundsTarget.dataset.price)
+    this.poundsTarget.innerText = `You're spending £${calculatedPrice}`
+  }
 }
+
 
 // Get the modal
 var modal = document.getElementById("myModal");
