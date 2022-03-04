@@ -47,6 +47,10 @@
           <div class="title">
             <h4><%= @crypto.name%></h4>
           </div>
+          <%# Image scss in indexcard %>
+            <div class="crypto-image">
+            <%= link_to image_tag (@crypto.image)%>
+            </div>
           <div class="watchlist">
             <i class="fa-solid fa-star fa-lg"></i>
           </div>
