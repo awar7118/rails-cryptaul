@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2022_03_03_235807) do
     t.string "abbreviation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "image"
   end
 
   create_table "histories", force: :cascade do |t|
