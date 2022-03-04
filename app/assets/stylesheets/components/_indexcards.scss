@@ -14,6 +14,7 @@
   -webkit-backdrop-filter: blur(4px);
   border-radius: 7px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: transform 0.2s; /* Animation */
   li {
     list-style: none;
     display: inline-block;
@@ -24,12 +25,12 @@
   }
   margin: 1px;
 }
-.cryptocard-product:last-child {
-  :hover {
-    box-shadow: 0 10px 10px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border-radius: 7px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-  }
+
+tbody > tr:hover {
+  box-shadow: 0 2px 2px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transform: scale(1.05);
 }
