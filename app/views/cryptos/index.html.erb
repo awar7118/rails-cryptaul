@@ -22,7 +22,15 @@
           £<%=(crypto.histories.last.price).round(2) %>
         </td>
         <td>
-          Market Cap
+        <% if crypto.previousdaypercentagechange.negative?() %>
+        <div class = "red-font">
+        <%= crypto.previousdaypercentagechange %>
+        </div>
+        <% else %>
+        <div class = "green-font">
+        <%= crypto.previousdaypercentagechange %>
+        </div>
+        <% end %>
         </td>
       </tr>
     <% end %>
