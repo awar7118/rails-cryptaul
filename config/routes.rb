@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get 'my_dashboard', to: 'holdings#index'
   get 'articles', to: 'pages#articles'
+  get 'my_dashboard/:id', to: 'holdings#advance_date', as: 'change_simulation'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
