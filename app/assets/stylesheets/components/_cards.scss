@@ -155,4 +155,12 @@
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: auto;
+  transition: transform .2s; /* Animation */
+  text-decoration: none;
+}
+
+.card-category:hover {
+  transform: scale(1.05);
+  text-decoration: none;
+  color: white;
 }
