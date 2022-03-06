@@ -41,8 +41,12 @@
       <br>
 
       <div class="banner-buttons">
+      <% if user_signed_in? %>
+        <%= link_to 'Learn More', articles_path, class: "banner-btn" %>
+        <% else%>
         <%= link_to 'Learn More', articles_path, class: "banner-btn" %>
         <%= link_to 'Sign Up', new_user_registration_path, class: "banner-btn" %>
+        <% end %>
       </div>
     </div>
   </div>
