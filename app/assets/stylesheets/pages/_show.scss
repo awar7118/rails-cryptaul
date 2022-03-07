@@ -111,6 +111,8 @@
   .page-container {
     display: block;
     direction: column;
+    margin-top: 25px;
+    margin-bottom: 40px;
   }
   .graph-purchase-container {
     display: flex;
@@ -156,12 +158,16 @@
   //   background-color: white;
     // border-top: grey 2px solid;
   // }
-  // .product-action .title-watchlist {
-  //   justify-content: space-between;
-  //   flex-direction: row;
-  //   display: flex;
-  //   margin-bottom: 50px;
+
+  .product-action .title-watchlist {
+    justify-content: space-between;
+    flex-direction: row;
+    display: flex;
+    margin-bottom: 5px;
+    text-align: center;
+    justify-content: center;
   }
+  
   .product-action .title {
     width: 70%;
   }
@@ -253,3 +259,15 @@
     text-decoration: none;
     cursor: pointer;
   }
+ }
+
+ #date-sim-show {
+   background-color: #FF840A;
+   border-radius: 20px;
+   border: none;
+ }
+
+ #date-sim-btn {
+  border-radius: 20px;
+ }
+
