@@ -23,7 +23,7 @@
             <%= link_to(image_tag(watchlist.crypto.image), crypto_path(watchlist.crypto),class: "crypto-image")%> <%=watchlist.crypto.name%>
           </td>
           <td>
-            £<%=(watchlist.crypto.histories.last.price).round(2) %>
+            £<%= '%.2f' % (watchlist.crypto.histories.last.price) %>
           </td>
           <td>
           <% if watchlist.crypto.previousdaypercentagechange.negative?() %>

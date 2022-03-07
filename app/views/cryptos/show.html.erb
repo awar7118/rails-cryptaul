@@ -21,7 +21,7 @@
             <img class="rounded-circle"src="<%= @crypto.image %>" height="100px">
           </div>
           <br>
-          <p class="center">1 <%= @crypto.name %> = £<%= @crypto.histories.find_by(date: current_user.simulation_date).price.round(2) %></p>
+          <p class="center">1 <%= @crypto.name %> = £<%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %></p>
           <div class="buy-button center">
             <div>
               <button id="myBtn" type="button" class="buy-btn-filled" data-action="click->purchase-modal#expand" > Buy </button>
@@ -59,7 +59,7 @@
             <span class="close">&times;</span>
             <div class="title-exchange">
             <h4>Buy <%= @crypto.name%></h4>
-            <p>1 <%= @crypto.name %> = £<%= @crypto.histories.find_by(date: current_user.simulation_date).price.round(2) %></p>
+            <p>1 <%= @crypto.name %> = £<%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %></p>
 
             <p>Please select the number of <%= @crypto.name %> you'd like to purchase</p>
           </div>
@@ -70,7 +70,7 @@
               </div>
             <% end %>
             <br>
-            <p data-purchase-modal-target="pounds" data-price="<%= @crypto.histories.find_by(date: current_user.simulation_date).price.round(2) %>" id="pounds">You're spending £0.00</p>
+            <p data-purchase-modal-target="pounds" data-price="<%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %>" id="pounds">You're spending £0.00</p>
           </div>
 
         </div>
