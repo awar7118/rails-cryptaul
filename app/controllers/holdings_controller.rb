@@ -45,9 +45,12 @@ class HoldingsController < ApplicationController
   end
 
   def sum_on_date(date)
-    @holdings.sum do |holding|
+
+    holding_value = @holdings.sum do |holding|
       holding.crypto.histories.find_by(date: date).price
     end
+    balance_value = 3
+    balance_value - holding_value
   end
 
   private
