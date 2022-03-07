@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get 'my_dashboard', to: 'holdings#index'
   get 'articles', to: 'pages#articles'
+  get 'jargonbuster', to: 'pages#jargonbuster'
   get :advance_date, to: 'holdings#advance_date', as: 'change_simulation'
   get :advance_date_week, to: 'holdings#advance_date_week', as: 'change_simulation_week'
   get :advance_date_index, to: 'holdings#advance_date_index', as: 'change_simulation_index'
