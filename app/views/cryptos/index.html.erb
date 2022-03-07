@@ -7,16 +7,16 @@
 <div class= "container centered col-8 m-auto">
   <table class='table'>
     <thead>
-      <tr>
+      <th>
       <th>#</th>
         <th>Name</th>
         <th>Price</th>
         <th>24hr change (%)</th>
         <th>Graph</th>
         <%# <th>7 day chart</th> %>
-      </tr>
+      </th>
     </thead>
-    <tbody data-controller="clickableindex">
+    <tbody data-controller="clickableindex", class="cursor-pointer">
       <%counter = 0 %>
       <%@cryptos.each do |crypto| %>
         <tr data-link="<%=crypto_path(crypto)%>, "data-clickableindex-target="cryptos", data-action="click->clickableindex#clickable">

@@ -11,8 +11,7 @@ export default class extends Controller {
   clickable() {
     console.log("this clicked");
     this.cryptosTargets.forEach((crypto) => {
-      window.location = this.dataset.link;
-      // console.log(crypto);
+      window.location = crypto.dataset.link;
     });
   }
 }
