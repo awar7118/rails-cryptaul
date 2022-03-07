@@ -12,7 +12,10 @@ Rails.application.routes.draw do
 
   get 'my_dashboard', to: 'holdings#index'
   get 'articles', to: 'pages#articles'
-  get 'my_dashboard/:id', to: 'holdings#advance_date', as: 'change_simulation'
+  get :advance_date, to: 'holdings#advance_date', as: 'change_simulation'
+  get :advance_date_week, to: 'holdings#advance_date_week', as: 'change_simulation_week'
+  get :advance_date_index, to: 'holdings#advance_date_index', as: 'change_simulation_index'
+  get :advance_date_week_index, to: 'holdings#advance_date_week_index', as: 'change_simulation_week_index'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
