@@ -12,7 +12,7 @@
   </div>
 
 <div class= "container centered col-8 m-auto">
-  <table class='table'>
+  <table class='table', style="float:left">
     <thead>
       <tr>
       <th>#</th>
@@ -20,13 +20,14 @@
         <th>Price</th>
         <th>24hr change (%)</th>
         <th>Graph</th>
+        <th>Watchlist</th>
         <%# <th>7 day chart</th> %>
       </tr>
     </thead>
-    <tbody>
+    <tbody data-controller="clickableindex">
       <%counter = 0 %>
       <%@cryptos.each do |crypto| %>
-        <tr>
+        <tr data-link="<%=crypto_path(crypto)%>, "data-clickableindex-target="cryptos", data-action="click->clickableindex#clickable", class = "clicking">
         <td>  <%=counter += 1%></td>
           <td>
             <%= link_to(image_tag(crypto.image), crypto_path(crypto),class: "crypto-image")%> <%=crypto.name%>
@@ -45,13 +46,24 @@
             </div>
           <% end %>
           </td>
-          <td>
-            <% @price_data = crypto.histories.map do |price| %>
-              <% [price.date, price.price] %>
+            <td>
+          <% @price_data = crypto.histories.map do |price| %>
+            <% [price.date, price.price] %>
+          <% end %>
+          <div class="rounded">
+            <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "100px" %>
+          </div>
+        </td>
+        <td>
+             <% if crypto.watchlists.count > 0 %>
+              <%= link_to '- Watchlist', watchlist_path(crypto.watchlists.first), method: :delete, class: "wl-inactive"%>
+            <% else %>
+             <%= simple_form_for [ crypto, @watchlist ] do |f| %>
+              <div>
+                <%= f.submit '+ Watchlist', class: "wl-active" %>
+              </div>
             <% end %>
-            <div class="rounded">
-              <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "100px" %>
-            </div>
+            <% end %>
           </td>
         </tr>
      <% end %>

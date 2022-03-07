@@ -1,8 +1,8 @@
-<div class="banner-articles">
-  <div class="main-title">
-    <h1>WATCHLIST</h1>
+  <div class="banner-articles">
+    <div class="main-title">
+      <h1>WATCHLIST</h1>
+    </div>
   </div>
-</div>
 
 <div class= "container centered col-8 m-auto">
   <table class='table'>
@@ -11,33 +11,44 @@
         <th>Name</th>
         <th>Price</th>
         <th>24hr change (%)</th>
-        <%# <th>Graph</th> %>
+        <th>Graph</th>
+        <th>Watchlist</th>
         <%# <th>7 day chart</th> %>
       </tr>
     </thead>
     <tbody>
-    <%@watchlists.each do |watchlist| %>
-      <tr>
-        <td>
-          <%= link_to(image_tag(watchlist.crypto.image), crypto_path(watchlist.crypto),class: "crypto-image")%> <%=watchlist.crypto.name%>
+      <%@watchlists.each do |watchlist| %>
+        <tr>
+          <td>
+            <%= link_to(image_tag(watchlist.crypto.image), crypto_path(watchlist.crypto),class: "crypto-image")%> <%=watchlist.crypto.name%>
+          </td>
+          <td>
+            £<%= '%.2f' % (watchlist.crypto.histories.last.price) %>
+          </td>
+          <td>
+          <% if watchlist.crypto.previousdaypercentagechange.negative?() %>
+          <div class = "red-font">
+          <%= watchlist.crypto.previousdaypercentagechange %>
+          </div>
+          <% else %>
+          <div class = "green-font">
+          <%= watchlist.crypto.previousdaypercentagechange %>
+          </div>
+          <% end %>
+          </td>
+            <td>
+          <% @price_data = watchlist.crypto.histories.map do |price| %>
+            <% [price.date, price.price] %>
+          <% end %>
+          <div class="rounded">
+            <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "100px" %>
+          </div>
         </td>
         <td>
-          £<%= '%.2f' % (watchlist.crypto.histories.last.price) %>
+          <%= link_to '- Watchlist', watchlist_path(watchlist), method: :delete, class: "wl-inactive"%>
         </td>
-        <td>
-        <% if watchlist.crypto.previousdaypercentagechange.negative?() %>
-        <div class = "red-font">
-        <%= watchlist.crypto.previousdaypercentagechange %>
-        </div>
-        <% else %>
-        <div class = "green-font">
-        <%= watchlist.crypto.previousdaypercentagechange %>
-        </div>
-        <% end %>
-        </td>
-
-      </tr>
-    <% end %>
+        </tr>
+     <% end %>
     </tbody>
   </table>
 </div>
