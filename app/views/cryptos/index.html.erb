@@ -32,16 +32,16 @@
             <%= link_to(image_tag(crypto.image), crypto_path(crypto),class: "crypto-image")%> <%=crypto.name%>
           </td>
           <td>
-            £<%= crypto.price&.round(2) || 'N/A' %>
+            £<%= '%.2f' % crypto.price || 'N/A' %>
           </td>
           <td>
           <% if crypto.previousdaypercentagechange.negative?() %>
             <div class = "red-font">
-              <%= crypto.previousdaypercentagechange.round(2) %>
+              <%= '%.2f' % crypto.previousdaypercentagechange %>
             </div>
           <% else %>
             <div class = "green-font">
-              +<%= crypto.previousdaypercentagechange.round(2)%>
+              +<%= '%.2f' % crypto.previousdaypercentagechange%>
             </div>
           <% end %>
           </td>

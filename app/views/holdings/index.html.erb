@@ -53,13 +53,13 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-capitalize font-weight-bold"><b>WALLET</b></p>
                       <h5 class="font-weight-bolder mb-0">
-                        <p>Purchased Value: <br>£ <%= @holdings.sum(&:purchased_price).round(2) %></p>
+                        <p>Purchased Value: <br>£ <%= '%.2f' % @holdings.sum(&:purchased_price) %></p>
                         <% if @holdings_value > @holdings.sum(&:purchased_price) %>
-                          <p style='color: green'>Current Value: <br>£ <%= @holdings_value.round(2) %></p>
+                          <p style='color: green'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
                         <% elsif @holdings_value < @holdings.sum(&:purchased_price) %>
-                          <p style='color: red'>Current Value: <br>£ <%= @holdings_value.round(2) %></p>
+                          <p style='color: red'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
                         <% else %>
-                          <p>Current Value: <br>£ <%= @holdings_value.round(2) %></p>
+                          <p>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
                         <% end %>
                         <span class="text-success text-sm font-weight-bolder"></span>
                       </h5>
@@ -79,7 +79,7 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold"><b>BALANCE</b></p>
                     <h5 class="font-weight-bolder mb-0">
-                        £<%= current_user.balance.round(2) %>
+                        £<%= '%.2f' % current_user.balance %>
                       <span class="text-success text-sm font-weight-bolder">+10%</span>
                     </h5>
                   </div>
