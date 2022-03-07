@@ -11,6 +11,7 @@
         <th>Name</th>
         <th>Price</th>
         <th>24hr change (%)</th>
+        <%# <th>Graph</th> %>
         <%# <th>7 day chart</th> %>
       </tr>
     </thead>
@@ -39,3 +40,13 @@
     </tbody>
   </table>
 </div>
+
+
+  <%# <td>
+          <% @price_data = crypto.histories.map do |price| %>
+            <%# <% [price.date, price.price] %>
+          <%# <% end %>
+          <%# <div class="product-graph rounded">
+            <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "400px" %>
+          <%# </div>
+        </td> %>
