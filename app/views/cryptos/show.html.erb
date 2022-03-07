@@ -7,6 +7,27 @@
     <div class="purchase-container rounded">
       <%# Container for purchase area %>
       <div class="sticky" data-purchase-modal-target="modal" data-controller="purchase-modal">
+      <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="title-exchange">
+              <h4>Buy <%= @crypto.name%></h4>
+              <p>1 <%= @crypto.name %> = £<strong data-purchase-modal-target="price"><%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %></strong></p>
+              <p>Your balance is £<strong data-purchase-modal-target="balance"><%= '%.2f' % current_user.balance %></strong><p>
+              <p>Please select the number of <%= @crypto.name %> you'd like to purchase</p>
+            </div>
+            <%= simple_form_for [ @crypto, @holding ] do |f| %>
+              <div>
+                <%= f.input :quantity, input_html: {data: {action: "change->purchase-modal#calculatePrice", purchase_modal_target: "quantity"}} %>
+                <%= f.submit 'Confirm Purchase', class: "buy-button banner-btn" %>
+              </div>
+            <% end %>
+            <br>
+            <p data-purchase-modal-target="pounds" data-price="<%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %>" id="pounds">You're spending £0.00</p>
+          </div>
+        </div>
         <%# Container for pre-buy %>
         <div class="container product-action rounded" data-purchase-modal-target="purchase">
           <div class="title-watchlist">
@@ -59,27 +80,3 @@
     </div>
   </div>
 </div>
-
-
-
-<!-- The Modal -->
-        <div id="myModal" data-controller="purchase-modal" class="modal">
-          <!-- Modal content -->
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="title-exchange">
-              <h4>Buy <%= @crypto.name%></h4>
-              <p>1 <%= @crypto.name %> = £<%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %></p>
-
-              <p>Please select the number of <%= @crypto.name %> you'd like to purchase</p>
-            </div>
-            <%= simple_form_for [ @crypto, @holding ] do |f| %>
-              <div>
-                <%= f.input :quantity, input_html: {data: {action: "keyup->purchase-modal#calculatePrice"}} %>
-                <%= f.submit 'Confirm Purchase', class: "buy-button banner-btn" %>
-              </div>
-            <% end %>
-            <br>
-            <p data-purchase-modal-target="pounds" data-price="<%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %>" id="pounds">You're spending £0.00</p>
-          </div>
-        </div>
