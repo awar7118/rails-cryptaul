@@ -1,6 +1,13 @@
   <div class="banner-articles">
     <div class="main-title">
       <h1>CRYPTO STATS</h1>
+        <div class='date-navigation'>
+          <h4>
+            <%= current_user.simulation_date.strftime('%d/%m/%Y') %>
+          </h4>
+        <%= link_to 'Advance 1 Day >', change_simulation_index_path(current_user), class:'btn btn-primary' %>
+        <%= link_to 'Advance 7 Days >', change_simulation_week_index_path(current_user), class:'btn btn-primary' %>
+      </div>
     </div>
   </div>
 
@@ -21,17 +28,17 @@
             <%= link_to(image_tag(crypto.image), crypto_path(crypto),class: "crypto-image")%> <%=crypto.name%>
           </td>
           <td>
-            £<%= crypto.histories.find_by(date: current_user.simulation_date).price.round(2) %>
+            £<%= crypto.price&.round(2) || 'N/A' %>
           </td>
           <td>
           <% if crypto.previousdaypercentagechange.negative?() %>
-          <div class = "red-font">
-          <%= crypto.previousdaypercentagechange %>
-          </div>
+            <div class = "red-font">
+              <%= crypto.previousdaypercentagechange %>
+            </div>
           <% else %>
-          <div class = "green-font">
-          <%= crypto.previousdaypercentagechange %>
-          </div>
+            <div class = "green-font">
+              <%= crypto.previousdaypercentagechange %>
+            </div>
           <% end %>
           </td>
         </tr>

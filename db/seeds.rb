@@ -6,7 +6,8 @@ require 'open-uri'
 # puts "Deleting all holdings"
 # Holding.destroy_all
 # puts "Completed deletion of all holdings"
-
+puts "Deleting all holdings"
+Holding.destroy_all
 puts "Deleting all cryptos"
 Crypto.destroy_all
 puts "Completed deletion of all cryptos"
