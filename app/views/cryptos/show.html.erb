@@ -11,16 +11,18 @@
         <div class="container product-action rounded" data-purchase-modal-target="purchase">
           <div class="title-watchlist">
             <div class="title">
-              <h4><%= @crypto.name%></h4>
+              <h4><%= @crypto.name %> <br> <%= current_user.simulation_date.strftime('%d/%m/%Y') %></h4>
             </div>
             <%# <div class="watchlist">
               <i class="fa-solid fa-star fa-lg"></i>
             </div> %>
           </div>
           <div class="center">
+            <%= link_to '1 Day >', change_simulation_show_path(current_user), class:'btn btn-primary', id:'date-sim-show' %>
+            <%= link_to '7 Days >', change_simulation_week_show_path(current_user), class:'btn btn-primary', id:'date-sim-show'%>
+            <br><br>
             <img class="rounded-circle"src="<%= @crypto.image %>" height="100px">
           </div>
-          <br>
           <p class="center">1 <%= @crypto.name %> = £<%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %></p>
           <div class="buy-button center">
             <div>
