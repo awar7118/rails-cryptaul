@@ -27,11 +27,11 @@
           <td>
           <% if crypto.previousdaypercentagechange.negative?() %>
           <div class = "red-font">
-          <%= crypto.previousdaypercentagechange %>
+          <%= crypto.previousdaypercentagechange.round(2) %>
           </div>
           <% else %>
           <div class = "green-font">
-          <%= crypto.previousdaypercentagechange %>
+          +<%= crypto.previousdaypercentagechange.round(2)%>
           </div>
           <% end %>
           </td>
