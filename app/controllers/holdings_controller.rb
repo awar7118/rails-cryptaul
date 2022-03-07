@@ -5,6 +5,14 @@ class HoldingsController < ApplicationController
     @holdings_value = @holdings.sum do |holding|
       holding.crypto.histories.find_by(date: current_user.simulation_date).price
     end
+
+    @history_data = []
+    @simulation_start = Time.at(1_614_816_000)
+    date = @simulation_start
+    until date > current_user.simulation_date
+      @history_data << [date, sum_on_date(date)]
+      date += 86_400
+    end
   end
 
   def create # BUY
@@ -34,6 +42,12 @@ class HoldingsController < ApplicationController
     current_user.simulation_date = current_user.simulation_date.advance(days: 1)
     current_user.save
     redirect_to my_dashboard_path
+  end
+
+  def sum_on_date(date)
+    @holdings.sum do |holding|
+      holding.crypto.histories.find_by(date: date).price
+    end
   end
 
   private

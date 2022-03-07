@@ -115,6 +115,8 @@
                 <div class="col-lg-6" style="height: 400px">
                   <div class="d-flex flex-column h-100">
                     <p class="mb-1 pt-2 text-bold"><b>DAILY GRAPH</b></p>
+                    <%= line_chart @history_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "400px" %>
+
                     <a class="text-body text-sm font-weight-bold mb-0 icon-move-up mt-auto" href="articles">
                       What does this graph mean?
                       <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
