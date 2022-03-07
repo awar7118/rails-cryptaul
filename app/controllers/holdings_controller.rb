@@ -56,6 +56,7 @@ class HoldingsController < ApplicationController
     end
     balance_value = 3
     balance_value - holding_value
+  end
 
   def advance_date_week
     puts 'advancing date..'
