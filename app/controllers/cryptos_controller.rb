@@ -3,7 +3,14 @@ class CryptosController < ApplicationController
 
   before_action :find_crypto, only: :show
   def index
+    @watchlist = Watchlist.new
     @cryptos = Crypto.all
+    @cryptos.each do |crypto|
+      if crypto.histories.find_by(date: current_user.simulation_date)
+        crypto.price = crypto.histories.find_by(date: current_user.simulation_date).price
+      end
+      crypto.save
+    end
   end
 
   def show

@@ -6,7 +6,7 @@
         <%= link_to 'Dashboard', my_dashboard_path %>
       </li>
       <li>
-        <%= link_to 'Browse', cryptos_path %>
+        <%= link_to 'Browse Cryptos', cryptos_path %>
       </li>
       <li>
         <%= link_to 'Learn More', articles_path %>
@@ -41,8 +41,12 @@
       <br>
 
       <div class="banner-buttons">
+      <% if user_signed_in? %>
+        <%= link_to 'Learn More', articles_path, class: "banner-btn" %>
+        <% else%>
         <%= link_to 'Learn More', articles_path, class: "banner-btn" %>
         <%= link_to 'Sign Up', new_user_registration_path, class: "banner-btn" %>
+        <% end %>
       </div>
     </div>
   </div>

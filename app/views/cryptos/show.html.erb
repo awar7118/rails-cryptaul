@@ -21,20 +21,26 @@
             <img class="rounded-circle"src="<%= @crypto.image %>" height="100px">
           </div>
           <br>
-          <p class="center">1 <%= @crypto.name %> = £<%= @crypto.histories.find_by(date: current_user.simulation_date).price.round(2) %></p>
+          <p class="center">1 <%= @crypto.name %> = £<%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %></p>
           <div class="buy-button center">
             <div>
               <button id="myBtn" type="button" class="buy-btn-filled" data-action="click->purchase-modal#expand" > Buy </button>
             </div>
-            <% if current_user.watchlists.where(crypto_id: @crypto.id).count != 0 %>
+
+<!--             <% if current_user.watchlists.where(crypto_id: @crypto.id).count != 0 %>
              <i class="fas fa-heart" style="font-size:30px"></i>
             <% else  %>
-                <i class="far fa-heart" style="font-size:30px"></i>
-
-
+                <i class="far fa-heart" style="font-size:30px"></i> -->
+            <% if @crypto.watchlists.count > 0 %>
+              <%= link_to 'Remove from watchlist', watchlist_path(@crypto.watchlists.first), method: :delete, class: "add-wl-btn"%>
+            <% else %>
+             <%= simple_form_for [ @crypto, @watchlist ] do |f| %>
+              <div>
+                <%= f.submit 'Add to watchlist', class: "add-wl-btn" %>
+              </div>
+            <% end %>
             <% end %>
           </div>
-
         </div>
       </div>
     </div>
@@ -58,7 +64,7 @@
             <span class="close">&times;</span>
             <div class="title-exchange">
             <h4>Buy <%= @crypto.name%></h4>
-            <p>1 <%= @crypto.name %> = £<%= @crypto.histories.find_by(date: current_user.simulation_date).price.round(2) %></p>
+            <p>1 <%= @crypto.name %> = £<%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %></p>
 
             <p>Please select the number of <%= @crypto.name %> you'd like to purchase</p>
           </div>
@@ -69,7 +75,7 @@
               </div>
             <% end %>
             <br>
-            <p data-purchase-modal-target="pounds" data-price="<%= @crypto.histories.find_by(date: current_user.simulation_date).price.round(2) %>" id="pounds">You're spending £0.00</p>
+            <p data-purchase-modal-target="pounds" data-price="<%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %>" id="pounds">You're spending £0.00</p>
           </div>
 
         </div>

@@ -26,7 +26,15 @@
   <div class="banner-articles">
     <div class="main-title">
       <H1><b>DASHBOARD</b></H1>
-      <%= link_to '>', change_simulation_path(current_user), class: 'btn btn-success' %>
+      <div class='date-navigation'>
+        <h4>
+          <%= current_user.simulation_date.strftime('%d/%m/%Y') %>
+        </h4>
+
+          <%= link_to 'Advance 1 Day >', change_simulation_path(current_user), class:'btn btn-primary' %>
+          <%= link_to 'Advance 7 Days >', change_simulation_week_path(current_user), class:'btn btn-primary' %>
+
+      </div>
     </div>
   </div>
 
@@ -45,13 +53,13 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-capitalize font-weight-bold"><b>WALLET</b></p>
                       <h5 class="font-weight-bolder mb-0">
-                        <p>Purchased Value: <br>£ <%= @holdings.sum(&:purchased_price).round(2) %></p>
+                        <p>Purchased Value: <br>£ <%= '%.2f' % @holdings.sum(&:purchased_price) %></p>
                         <% if @holdings_value > @holdings.sum(&:purchased_price) %>
-                          <p style='color: green'>Current Value: <br>£ <%= @holdings_value.round(2) %></p>
+                          <p style='color: green'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
                         <% elsif @holdings_value < @holdings.sum(&:purchased_price) %>
-                          <p style='color: red'>Current Value: <br>£ <%= @holdings_value.round(2) %></p>
+                          <p style='color: red'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
                         <% else %>
-                          <p>Current Value: <br>£ <%= @holdings_value.round(2) %></p>
+                          <p>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
                         <% end %>
                         <span class="text-success text-sm font-weight-bolder"></span>
                       </h5>
@@ -71,7 +79,7 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold"><b>BALANCE</b></p>
                     <h5 class="font-weight-bolder mb-0">
-                        £<%= current_user.balance.round(2) %>
+                        £<%= '%.2f' % current_user.balance %>
                       <span class="text-success text-sm font-weight-bolder">+10%</span>
                     </h5>
                   </div>
@@ -134,7 +142,9 @@
 
                 </div>
                 <div class="card-info">
-                <p>newest card out today</p>
+
+                <p>STAR is the newest coin on the market. Created by the genius himself Elon Musk, this coin has the highest value in only 4 days!.</p>
+
                 <img src="https://g.foolcdn.com/editorial/images/467640/ripple-bitcoin-ethereum-blockchain-cryptocurrency-getty.jpg" alt="">
                 </div>
                 </div>
