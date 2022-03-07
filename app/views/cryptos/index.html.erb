@@ -14,7 +14,7 @@
 <div class= "container centered col-8 m-auto">
   <table class='table'>
     <thead>
-      <tr>
+      <th>
       <th>#</th>
         <th>Name</th>
         <th>Price</th>
@@ -22,12 +22,12 @@
         <th>Graph</th>
         <th>Watchlist</th>
         <%# <th>7 day chart</th> %>
-      </tr>
+      </th>
     </thead>
-    <tbody>
+    <tbody data-controller="clickableindex">
       <%counter = 0 %>
       <%@cryptos.each do |crypto| %>
-        <tr>
+        <tr data-link="<%=crypto_path(crypto)%>, "data-clickableindex-target="cryptos", data-action="click->clickableindex#clickable", class = "clicking">
         <td>  <%=counter += 1%></td>
           <td>
             <%= link_to(image_tag(crypto.image), crypto_path(crypto),class: "crypto-image")%> <%=crypto.name%>
