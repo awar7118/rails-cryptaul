@@ -36,6 +36,13 @@ class HoldingsController < ApplicationController
     redirect_to my_dashboard_path
   end
 
+  def advance_date_week
+    puts 'advancing date..'
+    current_user.simulation_date = current_user.simulation_date.advance(weeks: 1)
+    current_user.save
+    redirect_to my_dashboard_path
+  end
+
   private
 
   def holding_params
