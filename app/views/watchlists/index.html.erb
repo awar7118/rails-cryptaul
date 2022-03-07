@@ -12,6 +12,7 @@
         <th>Price</th>
         <th>24hr change (%)</th>
         <th>Graph</th>
+        <th>Watchlist</th>
         <%# <th>7 day chart</th> %>
       </tr>
     </thead>
@@ -42,6 +43,9 @@
           <div class="rounded">
             <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "100px" %>
           </div>
+        </td>
+        <td>
+          <%= link_to '- Watchlist', watchlist_path(watchlist), method: :delete, class: "wl-inactive"%>
         </td>
         </tr>
      <% end %>
