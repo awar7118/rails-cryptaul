@@ -26,6 +26,11 @@
             <div>
               <button id="myBtn" type="button" class="buy-btn-filled" data-action="click->purchase-modal#expand" > Buy </button>
             </div>
+
+<!--             <% if current_user.watchlists.where(crypto_id: @crypto.id).count != 0 %>
+             <i class="fas fa-heart" style="font-size:30px"></i>
+            <% else  %>
+                <i class="far fa-heart" style="font-size:30px"></i> -->
             <% if @crypto.watchlists.count > 0 %>
               <%= link_to 'Remove from watchlist', watchlist_path(@crypto.watchlists.first), method: :delete, class: "add-wl-btn"%>
             <% else %>
