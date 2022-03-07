@@ -1,26 +1,4 @@
-
-
-<!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-  <!-- Nucleo Icons -->
-  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- CSS Files -->
-  <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
-  </head>
-
   <%# TITLE %>
   <body>
   <div class="banner-articles">
@@ -38,137 +16,36 @@
     </div>
   </div>
 
+<div class="main-container centered col-8 m-auto">
+  <div class="dashboard-cards">
+    <%# <div class="dashboard-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> %>
+    <div class="dashboard-card">
+      Holdings
+      <p>Purchased Value: <br>£ <%= '%.2f' % @holdings.sum(&:purchased_price) %></p>
+      <% if @holdings_value > @holdings.sum(&:purchased_price) %>
+                            <p style='color: green'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
+                          <% elsif @holdings_value < @holdings.sum(&:purchased_price) %>
+                            <p style='color: red'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
+                          <% else %>
+                            <p>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
+                          <% end %>
+    </div>
 
-  <div class="container-1">
-    <div class="container-fluid py-5" style="margin-top: 84px;margin-bottom: -9px;">
-      <div class="row">
-        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
-
-          <%# WALLET CARD %>
-          <div id="wallet">
-            <div class="card">
-              <div class="card-body p-3">
-                <div class="row">
-                  <div class="col-8">
-                    <div class="numbers">
-                      <p class="text-sm mb-0 text-capitalize font-weight-bold"><b>WALLET</b></p>
-                      <h5 class="font-weight-bolder mb-0">
-                        <p>Purchased Value: <br>£ <%= '%.2f' % @holdings.sum(&:purchased_price) %></p>
-                        <% if @holdings_value > @holdings.sum(&:purchased_price) %>
-                          <p style='color: green'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
-                        <% elsif @holdings_value < @holdings.sum(&:purchased_price) %>
-                          <p style='color: red'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
-                        <% else %>
-                          <p>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
-                        <% end %>
-                        <span class="text-success text-sm font-weight-bolder"></span>
-                      </h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <%# USER BALANCE CARD %>
-        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold"><b>BALANCE</b></p>
-                    <h5 class="font-weight-bolder mb-0">
-                        £<%= '%.2f' % current_user.balance %>
-                      <span class="text-success text-sm font-weight-bolder">+10%</span>
-                    </h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <%# LATEST PURCHASE CARD %>
-        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold"><b>LASTEST PURCHASE</b></p>
-                    <h5 class="font-weight-bolder mb-0">
-                      Ethereum
-                      <span class="text-success text-sm font-weight-bolder">+15%</span>
-                    </h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <%# EARNINGS CHART %>
-         <div class="row mt-4">
-        <div class="col-lg-10 mb-lg-0 mb-4">
-          <div class="card">
-            <div class="chart-card">
-              <div class="row">
-                <div class="col-lg-6" style="height: 400px">
-                  <div class="d-flex flex-column h-100">
-                    <p class="mb-1 pt-2 text-bold"><b>DAILY GRAPH</b></p>
-                    <a class="text-body text-sm font-weight-bold mb-0 icon-move-up mt-auto" href="articles">
-                      What does this graph mean?
-                      <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-
-                    </a>
-                    </div>
-                  </div>
-                </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-
-
-
-                      <div class="row mt-5">
-                      <div class="col-lg-5" style="height: 400px">
-          <div class="card">
-            <div class="card-header pb-0">
-              <h6>COIN OF THE MONTH!</h6>
-              <p class="text-sm">
-                <i class="fa fa-arrow-up text-success"></i>
-                <span class="font-weight-bold">4% Increase this month</span> in 2022
-
-                </div>
-                <div class="card-info">
-
-                <p>STAR is the newest coin on the market. Created by the genius himself Elon Musk, this coin has the highest value in only 4 days!.</p>
-
-                <img src="https://g.foolcdn.com/editorial/images/467640/ripple-bitcoin-ethereum-blockchain-cryptocurrency-getty.jpg" alt="">
-                </div>
-                </div>
-
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  </body>
-
-</html>
+    <div class="dashboard-card" >
+      Holding
+    </div>
+    <div class="dashboard-card" >
+      balance
+          £<%= '%.2f' % current_user.balance %>
+    </div>
+    <div class="dashboard-card">
+      Graph
+    </div>
+    <div class="dashboard-card">
+      Coin of the month
+    </div>
+    <div class="dashboard-card">
+      recent purchase
+    </div>
+  </div>
+</div>
