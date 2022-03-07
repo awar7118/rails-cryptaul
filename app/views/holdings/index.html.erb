@@ -26,7 +26,14 @@
   <div class="banner-articles">
     <div class="main-title">
       <H1><b>DASHBOARD</b></H1>
-      <%= link_to '>', change_simulation_path(current_user), class: 'btn btn-success' %>
+      <div class='date-navigation'>
+        <h4>
+          <%= current_user.simulation_date.strftime('%d/%m/%Y') %>
+        </h4>
+
+          <%= link_to 'Advance 1 Day >', change_simulation_path(current_user), class:'btn btn-primary' %>
+
+      </div>
     </div>
   </div>
 
@@ -134,7 +141,9 @@
 
                 </div>
                 <div class="card-info">
-                <p>newest card out today</p>
+
+                <p>STAR is the newest coin on the market. Created by the genius himself Elon Musk, this coin has the highest value in only 4 days!.</p>
+
                 <img src="https://g.foolcdn.com/editorial/images/467640/ripple-bitcoin-ethereum-blockchain-cryptocurrency-getty.jpg" alt="">
                 </div>
                 </div>

@@ -16,28 +16,27 @@
       </tr>
     </thead>
     <tbody>
-    <%@cryptos.each do |crypto| %>
-      <tr>
-        <td>
-          <%= link_to(image_tag(crypto.image), crypto_path(crypto),class: "crypto-image")%> <%=crypto.name%>
-        </td>
-        <td>
-          £<%=(crypto.histories.last.price).round(2) %>
-        </td>
-        <td>
-        <% if crypto.previousdaypercentagechange.negative?() %>
-        <div class = "red-font">
-        <%= crypto.previousdaypercentagechange %>
-        </div>
-        <% else %>
-        <div class = "green-font">
-        <%= crypto.previousdaypercentagechange %>
-        </div>
-        <% end %>
-        </td>
-
-      </tr>
-    <% end %>
+      <%@cryptos.each do |crypto| %>
+        <tr>
+          <td>
+            <%= link_to(image_tag(crypto.image), crypto_path(crypto),class: "crypto-image")%> <%=crypto.name%>
+          </td>
+          <td>
+            £<%=(crypto.histories.last.price).round(2) %>
+          </td>
+          <td>
+          <% if crypto.previousdaypercentagechange.negative?() %>
+          <div class = "red-font">
+          <%= crypto.previousdaypercentagechange %>
+          </div>
+          <% else %>
+          <div class = "green-font">
+          <%= crypto.previousdaypercentagechange %>
+          </div>
+          <% end %>
+          </td>
+        </tr>
+     <% end %>
     </tbody>
   </table>
 </div>
