@@ -12,7 +12,7 @@ class WatchlistsController < ApplicationController
     @watchlist.crypto = @crypto
 
     if @watchlist.save!
-      redirect_to crypto_path(@crypto)
+      redirect_back(fallback_location: root_path)
     else
       render 'cryptos/show'
     end
@@ -21,7 +21,7 @@ class WatchlistsController < ApplicationController
   def destroy
     @crypto = @watchlist.crypto
     @watchlist.destroy
-    redirect_to crypto_path(@crypto)
+    redirect_back(fallback_location: root_path)
   end
 
   private
