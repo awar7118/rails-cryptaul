@@ -59,7 +59,7 @@
             <span class="close">&times;</span>
             <div class="title-exchange">
             <h4>Buy <%= @crypto.name%></h4>
-            <p>1 <%= @crypto.name %> = £<%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %></p>
+            <p>1 <%= @crypto.name %> = £<%= number_with_precision(@crypto.histories.find_by(date: current_user.simulation_date).price, :precision => 2, :delimiter => ',') %></p>
 
             <p>Please select the number of <%= @crypto.name %> you'd like to purchase</p>
           </div>
