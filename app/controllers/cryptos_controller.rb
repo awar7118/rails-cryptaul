@@ -3,6 +3,7 @@ class CryptosController < ApplicationController
 
   before_action :find_crypto, only: :show
   def index
+    @watchlist = Watchlist.new
     @cryptos = Crypto.all
   end
 

@@ -27,11 +27,11 @@
               <button id="myBtn" type="button" class="buy-btn-filled" data-action="click->purchase-modal#expand" > Buy </button>
             </div>
             <% if @crypto.watchlists.count > 0 %>
-              <%= "In your watchlist" %>
+              <%= link_to 'Remove from watchlist', watchlist_path(@crypto.watchlists.first), method: :delete, class: "add-wl-btn"%>
             <% else %>
              <%= simple_form_for [ @crypto, @watchlist ] do |f| %>
               <div>
-                <%= f.submit '+ Watchlist', class: "buy-btn" %>
+                <%= f.submit 'Add to watchlist', class: "add-wl-btn" %>
               </div>
             <% end %>
             <% end %>

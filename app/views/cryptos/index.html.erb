@@ -12,6 +12,7 @@
         <th>Price</th>
         <th>24hr change (%)</th>
         <th>Graph</th>
+        <th>Watchlist</th>
         <%# <th>7 day chart</th> %>
       </tr>
     </thead>
@@ -43,6 +44,17 @@
             <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "100px" %>
           </div>
         </td>
+        <td>
+             <% if crypto.watchlists.count > 0 %>
+              <%= link_to '- Watchlist', watchlist_path(crypto.watchlists.first), method: :delete, class: "wl-inactive"%>
+            <% else %>
+             <%= simple_form_for [ crypto, @watchlist ] do |f| %>
+              <div>
+                <%= f.submit '+ Watchlist', class: "wl-active" %>
+              </div>
+            <% end %>
+            <% end %>
+          </td>
         </tr>
      <% end %>
     </tbody>
