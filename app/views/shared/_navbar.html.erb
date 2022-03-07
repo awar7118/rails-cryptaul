@@ -18,16 +18,18 @@
           <%= link_to 'Learn More', articles_path%>
         </li>
         <li>
-          <h4><%= current_user.simulation_date.strftime('%d/%m/%Y') %></h4>
-        </li>
-        <li>
-          <h4>£<%= current_user.balance.round(2) %></h4>
-        </li>
-        <li>
           <img class="avatar-bordered nav-avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/solkarim91" />
         </li>
         <li>
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+        </li>
+      </ul>
+      <ul style="height: 25px">
+        <li style="margin-right:20px">
+          <h6><%= current_user.simulation_date.strftime('%d/%m/%Y') %></h6>
+        </li>
+        <li style="margin-left:20px">
+          <h6 style="color:#EE841C">£<%= number_with_precision(current_user.balance, :precision => 2, :delimiter => ',') %></h6>
         </li>
       </ul>
     <% else %>

@@ -4,4 +4,5 @@ class Crypto < ApplicationRecord
   has_many :holdings
   has_many :watchlists
   has_many :histories, dependent: :destroy
+  has_many :prices, through: :histories
 end

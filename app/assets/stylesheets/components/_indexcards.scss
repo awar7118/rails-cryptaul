@@ -42,5 +42,9 @@ tbody > tr:hover {
 .green-font {
   color: #088551;
 }
+// Cursor turns to hand pointer on hover over row
+.clicking td {
+  cursor: pointer;
+}
 
 // color for symbol #5B616E

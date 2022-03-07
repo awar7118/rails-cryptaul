@@ -10,7 +10,7 @@
   border-radius: 16px;
 }
 
-h2 {
+.articles-header h4 {
   color: rgba(0, 0, 0, 0.767);
   align-self: center;
   padding-top: 50px;
@@ -20,4 +20,12 @@ h2 {
   //            0px 8px 13px rgba(0,0,0,0.1),
   //            0px 18px 23px rgba(0,0,0,0.1);
   text-align: center;
+}
+
+#jargon-description {
+  text-align: center;
+}
+
+.jargon-subheaders {
+  text-decoration: underline;
 }
