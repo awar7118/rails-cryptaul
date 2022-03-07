@@ -1,6 +1,8 @@
 class WatchlistsController < ApplicationController
+  before_action :find_watchlist, only: :destroy
+
   def index
-    @watchlists = Watchlist.all
+    @watchlists = Watchlist.where(user: current_user)
   end
 
   def create
@@ -9,17 +11,23 @@ class WatchlistsController < ApplicationController
     @watchlist.user = current_user
     @watchlist.crypto = @crypto
 
-  
     if @watchlist.save!
-      redirect_to crypto_path(@crypto)
+      redirect_back(fallback_location: root_path)
     else
       render 'cryptos/show'
     end
   end
 
-  def destroy #remove watchlist
+  def destroy
+    @crypto = @watchlist.crypto
+    @watchlist.destroy
+    redirect_back(fallback_location: root_path)
   end
 
   private
+
+  def find_watchlist
+    @watchlist = Watchlist.find(params[:id])
+  end
 
 end
