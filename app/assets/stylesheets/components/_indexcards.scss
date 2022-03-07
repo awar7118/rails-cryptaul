@@ -42,8 +42,8 @@ tbody > tr:hover {
 .green-font {
   color: #088551;
 }
-// clicking not working, needs to be sorted
-.clicking tr {
+// Cursor turns to hand pointer on hover over row
+.clicking td {
   cursor: pointer;
 }
 
