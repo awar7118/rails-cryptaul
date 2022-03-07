@@ -17,10 +17,11 @@ puts "Completed deletion of all cryptos"
 url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&     per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C%2024h%2C%207d%2C%2030d%2C%201y"
 # Opening dataset of top 100 cryptos from the crypto.json file
 cryptos = JSON.parse(File.read("./db/jsondata/crypto.json"))
+first25 = cryptos.take(25)
 # p cryptos
 
 # Iterating of each of the 100 cryptos and creating a crypto from it
-cryptos.each do |c|
+first25.each do |c|
   crypto = Crypto.create!(
     name: c["name"],
     abbreviation: c["symbol"],

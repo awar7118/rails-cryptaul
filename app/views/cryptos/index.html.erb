@@ -15,15 +15,19 @@
   <table class='table'>
     <thead>
       <tr>
+      <th>#</th>
         <th>Name</th>
         <th>Price</th>
         <th>24hr change (%)</th>
+        <th>Graph</th>
         <%# <th>7 day chart</th> %>
       </tr>
     </thead>
     <tbody>
+      <%counter = 0 %>
       <%@cryptos.each do |crypto| %>
         <tr>
+        <td>  <%=counter += 1%></td>
           <td>
             <%= link_to(image_tag(crypto.image), crypto_path(crypto),class: "crypto-image")%> <%=crypto.name%>
           </td>
@@ -33,13 +37,21 @@
           <td>
           <% if crypto.previousdaypercentagechange.negative?() %>
             <div class = "red-font">
-              <%= crypto.previousdaypercentagechange %>
+              <%= crypto.previousdaypercentagechange.round(2) %>
             </div>
           <% else %>
             <div class = "green-font">
-              <%= crypto.previousdaypercentagechange %>
+              +<%= crypto.previousdaypercentagechange.round(2)%>
             </div>
           <% end %>
+          </td>
+          <td>
+            <% @price_data = crypto.histories.map do |price| %>
+              <% [price.date, price.price] %>
+            <% end %>
+            <div class="rounded">
+              <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "100px" %>
+            </div>
           </td>
         </tr>
      <% end %>
