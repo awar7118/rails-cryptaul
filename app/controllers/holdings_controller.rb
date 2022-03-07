@@ -14,12 +14,12 @@ class HoldingsController < ApplicationController
     @holding.crypto = @crypto
     @holding.user = current_user
     @date = current_user.simulation_date
-    @price = @crypto.histories.find_by(date: current_user.simulation_date).price
+    @price = @crypto.histories.find_by(date: current_user.simulation_date).price * @holding.quantity
     @holding.purchased_price = @price
     @holding.purchased_date = @date
-    if current_user.balance >= (@price * @holding.quantity)
+    if current_user.balance >= @price
       if @holding.save!
-        current_user.update(balance: current_user.balance - (@price * @holding.quantity))
+        current_user.update(balance: current_user.balance - @price)
         redirect_to my_dashboard_path
       else
         render 'cryptos/show'
