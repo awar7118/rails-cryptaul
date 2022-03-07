@@ -5,6 +5,7 @@ class HoldingsController < ApplicationController
     @holdings_value = @holdings.sum do |holding|
       holding.crypto.histories.find_by(date: current_user.simulation_date).price
     end
+
   end
 
   def create # BUY
@@ -13,13 +14,16 @@ class HoldingsController < ApplicationController
     @holding.crypto = @crypto
     @holding.user = current_user
     @date = current_user.simulation_date
-    @price = @crypto.histories.find_by(date: current_user.simulation_date).price
+    @price = @crypto.histories.find_by(date: current_user.simulation_date).price * @holding.quantity
     @holding.purchased_price = @price
     @holding.purchased_date = @date
-
-    if @holding.save!
-      current_user.update(balance: current_user.balance - (@price * @holding.quantity))
-      redirect_to my_dashboard_path
+    if current_user.balance >= @price
+      if @holding.save!
+        current_user.update(balance: current_user.balance - @price)
+        redirect_to my_dashboard_path
+      else
+        render 'cryptos/show'
+      end
     else
       render 'cryptos/show'
     end
@@ -55,6 +59,20 @@ class HoldingsController < ApplicationController
     current_user.simulation_date = current_user.simulation_date.advance(weeks: 1)
     current_user.save
     redirect_to cryptos_path
+  end
+
+  def advance_date_show
+    puts 'advancing date..'
+    current_user.simulation_date = current_user.simulation_date.advance(days: 1)
+    current_user.save
+    redirect_back(fallback_location: root_path)
+  end
+
+  def advance_date_week_show
+    puts 'advancing date..'
+    current_user.simulation_date = current_user.simulation_date.advance(weeks: 1)
+    current_user.save
+    redirect_back(fallback_location: root_path)
   end
 
   private
