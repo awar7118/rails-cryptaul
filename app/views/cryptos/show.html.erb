@@ -20,7 +20,7 @@
             </div>
             <%= simple_form_for [ @crypto, @holding ] do |f| %>
               <div>
-                <%= f.input :quantity, input_html: {data: {action: "keyup->purchase-modal#calculatePrice", purchase_modal_target: "quantity"}} %>
+                <%= f.input :quantity, input_html: {data: {action: "change->purchase-modal#calculatePrice", purchase_modal_target: "quantity"}} %>
                 <%= f.submit 'Confirm Purchase', class: "buy-button banner-btn" %>
               </div>
             <% end %>
