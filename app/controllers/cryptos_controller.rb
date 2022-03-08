@@ -22,7 +22,8 @@ class CryptosController < ApplicationController
 
   def find_crypto
     @crypto = Crypto.find(params[:id])
-    @price_data = @crypto.histories.map do |price|
+    current_date = current_user.simulation_date
+    @price_data = @crypto.histories.where('date <= ?', current_date).map do |price|
       [price.date, price.price]
     end
     p @price_data
