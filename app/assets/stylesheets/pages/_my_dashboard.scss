@@ -22,6 +22,21 @@
   display: flex;
   justify-content: space-between;
   border: 2px solid red;
+  width: 75vw;
+}
+
+.dashboard-big-card {
+  width: 25vw;
+}
+.dashboard-small-cards {
+  border: 2px solid red;
+  width: 33%;
+}
+.dashboard-card-graph {
+  width: 50vw;
+}
+.dashboard-cards-container {
+  margin-bottom: 50%;
 }
 
 // Smallest device

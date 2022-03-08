@@ -17,35 +17,36 @@
   </div>
 
 <div class="main-container centered col-8 m-auto">
-  <div class="dashboard-cards">
-  <div class = "dashboard-row">
-    <%# <div class="dashboard-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> %>
-    <div class="dashboard-big-card">
-      <h2>Holdings</h2>
-      <p>Purchased Value: <br>£ <%= '%.2f' % @holdings.sum(&:purchased_price) %></p>
-      <% if @holdings_value > @holdings.sum(&:purchased_price) %>
-                            <p style='color: green'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
-                          <% elsif @holdings_value < @holdings.sum(&:purchased_price) %>
-                            <p style='color: red'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
-                          <% else %>
-                            <p>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
-                          <% end %>
-    </div>
+  <div class="dashboard-cards-container">
+    <div class = "dashboard-row">
+      <%# <div class="dashboard-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> %>
+      <div class="dashboard-big-card">
+        <h2>Holdings</h2>
+        <p>Purchased Value: <br>£ <%= '%.2f' % @holdings.sum(&:purchased_price) %></p>
+        <% if @holdings_value > @holdings.sum(&:purchased_price) %>
+                              <p style='color: green'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
+                            <% elsif @holdings_value < @holdings.sum(&:purchased_price) %>
+                              <p style='color: red'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
+                            <% else %>
+                              <p>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
+                            <% end %>
+      </div>
     <div class="small-cards">
-      <div class="dashboard-small-cards" >
-        <h2>balance</h2>
-            <p>£<%= '%.2f' % current_user.balance %></p>
+        <div class="dashboard-small-cards" >
+            <h2>balance</h2>
+                <p>£<%= '%.2f' % current_user.balance %></p>
+          </div>
+          <div class="dashboard-small-cards">
+            <h2>recent purchase</h2>
+          </div>
+          <div class="dashboard-small-cards">
+            <h2>Coin of the month</h2>
+          </div>
+        </div>
+        </div>
+      <div class="dashboard-card-graph">
+        Graph
       </div>
-      <div class="dashboard-small-cards">
-        <h2>recent purchase</h2>
-      </div>
-      <div class="dashboard-small-cards">
-        <h2>Coin of the month</h2>
-      </div>
-    </div>
-    </div>
-    <div class="dashboard-card">
-      Graph
     </div>
   </div>
 </div>
