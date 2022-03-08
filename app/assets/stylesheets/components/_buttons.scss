@@ -57,7 +57,24 @@
   text-decoration: underline;
 
 }
-
+.sell-btn-filled {
+  border-radius: 28px;
+  font-size: 12px;
+  font-family: 'Open Sans', sans-serif;
+  padding: 5px 5px;
+  background-color: #FF840A;
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+  min-height: 30px;
+  width: 120px;
+}
+.sell-btn-filled:hover {
+  text-decoration: none;
+  opacity: 0.8;
+  color: white;
+}
 .wl-inactive {
   background-color:grey;
   color: white;
