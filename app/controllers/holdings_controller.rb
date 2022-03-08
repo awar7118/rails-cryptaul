@@ -1,12 +1,21 @@
 class HoldingsController < ApplicationController
   def index
     @holdings = Holding.where(user: current_user)
-    @active_holdings = @holdings.where(sold_date: nil)
-    @sold_holdings = @holdings.where(sold_date: !nil)
+    @active_holdings = []
+    @sold_holdings = []
+    @holdings.each do |holding|
+      if holding.sold_date.nil?
+        @active_holdings << holding
+      else
+        @sold_holdings << holding
+      end
+    end
+    
 
     @holdings_value = @holdings.sum do |holding|
       holding.crypto.histories.find_by(date: current_user.simulation_date).price * holding.quantity
     end
+
   end
 
   def create # BUY

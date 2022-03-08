@@ -59,8 +59,8 @@
             <th>#</th>
               <th>Name</th>
               <th>Return</th>
-              <th>Purchased Price</th>
-              <th>Price today</th>
+              <th>Purchased Total</th>
+              <th>Total today</th>
               <th>24hr change (%)</th>
               <th>Graph</th>
               <th>Watchlist</th>
@@ -76,13 +76,13 @@
                   <%= link_to(image_tag(holding.crypto.image), crypto_path(holding.crypto),class: "crypto-image")%> <%=holding.crypto.name%>
                 </td>
                 <td>
-                  £<%= number_with_precision(((holding.crypto.histories.find_by(date: current_user.simulation_date).price * holding.quantity) - (holding.purchased_price * holding.quantity)), :precision => 2, :delimiter => ',') %>
+                  £<%= number_with_precision(((holding.crypto.histories.find_by(date: current_user.simulation_date).price * holding.quantity) - (holding.purchased_price)), :precision => 2, :delimiter => ',') %>
                 </td>
                 <td>
                   £<%= number_with_precision(holding.purchased_price, :precision => 2, :delimiter => ',') %>
                 </td>
                 <td>
-                  £<%= number_with_precision(holding.crypto.histories.find_by(date: current_user.simulation_date).price, :precision => 2, :delimiter => ',') %>
+                  £<%= number_with_precision((holding.crypto.histories.find_by(date: current_user.simulation_date).price * holding.quantity), :precision => 2, :delimiter => ',') %>
                 </td>
                 <td>
                 <% if holding.crypto.previousdaypercentagechange.negative?() %>
@@ -100,14 +100,14 @@
                   <% [price.date, price.price] %>
                 <% end %>
                 <div class="rounded">
-                  <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "100px" %>
+                  <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "100px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
                 </div>
               </td>
               <td>
                 <%= simple_form_for [ holding ] do |f| %>
                     <div>
                       <%# <%= f.input :quantity, input_html: {data: {action: "keyup->purchase-modal#calculatePrice", purchase_modal_target: "quantity"}} %>
-                      <%= f.submit 'Confirm Sell', class: "buy-button banner-btn"%>
+                      <%= f.submit "Sell for £#{number_with_precision((holding.crypto.histories.find_by(date: current_user.simulation_date).price * holding.quantity), :precision => 2, :delimiter => ',')}", class: "buy-btn-filled"%>
                     </div>
                   <% end %>
                 <%# <div class="buy-button" data-controller="purchase-modal">
@@ -115,6 +115,60 @@
                     <button id="mySellBtn" type="button" class="buy-btn-filled"> Sell </button>
                   </div> %>
                 </td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+
+        <table class='table', style="float:left">
+          <thead>
+            <tr>
+            <th>#</th>
+              <th>Name</th>
+              <th>Return</th>
+              <th>Purchased Total</th>
+              <th>Sold Total</th>
+              <th>24hr change (%)</th>
+              <th>Graph</th>
+              <%# <th>7 day chart</th> %>
+            </tr>
+          </thead>
+          <tbody data-controller="clickableindex">
+            <%counter = 0 %>
+            <%@sold_holdings.each do |holding| %>
+              <tr data-link="<%=crypto_path(holding.crypto)%>" data-clickableindex-target="cryptos" data-action="click->clickableindex#clickable" class = "clicking">
+              <td>  <%=counter += 1%></td>
+                <td>
+                  <%= link_to(image_tag(holding.crypto.image), crypto_path(holding.crypto),class: "crypto-image")%> <%=holding.crypto.name%>
+                </td>
+                <td>
+                  £<%= number_with_precision((holding.sold_price - holding.purchased_price), :precision => 2, :delimiter => ',') %>
+                </td>
+                <td>
+                  £<%= number_with_precision(holding.purchased_price, :precision => 2, :delimiter => ',') %>
+                </td>
+                <td>
+                  £<%= number_with_precision((holding.sold_price), :precision => 2, :delimiter => ',') %>
+                </td>
+                <td>
+                <% if holding.crypto.previousdaypercentagechange.negative?() %>
+                  <div class = "red-font">
+                    <%= '%.2f' % holding.crypto.previousdaypercentagechange %>
+                  </div>
+                <% else %>
+                  <div class = "green-font">
+                    +<%= '%.2f' % holding.crypto.previousdaypercentagechange%>
+                  </div>
+                <% end %>
+                </td>
+                  <td>
+                <% @price_data = holding.crypto.histories.map do |price| %>
+                  <% [price.date, price.price] %>
+                <% end %>
+                <div class="rounded">
+                  <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "100px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
+                </div>
+              </td>
               </tr>
           <% end %>
           </tbody>
