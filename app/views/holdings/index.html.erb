@@ -1,5 +1,6 @@
   <%# <div class="dashboard-page center"> %>
   <div class="dashboard-main-container centered col-10 m-auto center">
+    <% if current_user.holdings.exists? %>
     <div class="dashboard-cards-container">
       <div class="dashboard-row-first">
         <div class="dashboard-card-graph">
@@ -184,6 +185,14 @@
       </div>
       </div>
       </div>
+    </div>
+    <% else %>
+      <div class="center">
+        <h2 id="no-holdings-card">You don't have any holdings yet. <br>
+          Hit <%= link_to 'Browse', cryptos_path, id:'dashboard-btn'%> to get started!
+        </h2>
+      </div>
+    <% end %>
     </div>
   </div>
 <%# </div> %>
