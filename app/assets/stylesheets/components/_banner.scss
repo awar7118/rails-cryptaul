@@ -53,18 +53,21 @@ h3 {
 }
 
 .banner-articles {
-  height: 52vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.0)), url("https://res.cloudinary.com/domtywpyc/image/upload/v1646339000/zkbrat72abb7ypeubvel.jpg");
-  /* Position and center the image to scale nicely on all screens */
+  height: 170px;
+  background-color: #FF840A;  /* Position and center the image to scale nicely on all screens */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   object-fit: contain;
   align-items: center;
-  padding-left: 110px;
-  padding-top: 140px;
   margin-bottom: 60px;
+}
+
+.banner-articles h1 {
+  padding-top: 50px;
+  font-size: 60px;
+  text-align: center;
 }
 
 .date-navigation {
