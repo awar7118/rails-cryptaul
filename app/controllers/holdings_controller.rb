@@ -34,9 +34,11 @@ class HoldingsController < ApplicationController
       @holding_record << [date, @holdings_value]
     end
 
-    @holdings_value = @holdings.sum do |holding|
+    @holdings_value = (@active_holdings.sum do |holding|
       holding.crypto.histories.find_by(date: current_user.simulation_date).price * holding.quantity
-    end
+    end) + (@sold_holdings.sum do |holding|
+      holding.crypto.histories.find_by(date: holding.sold_date).price * holding.quantity
+    end)
   end
 
   def create # BUY
