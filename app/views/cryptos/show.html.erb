@@ -59,7 +59,7 @@
 
             <% if @crypto.watchlists.count > 0 %>
               <%= link_to watchlist_path(@crypto.watchlists.first), method: :delete do %>
-               <i class="fas fa-heart" style="font: size 31px; color: red;"></i>
+               <i class="fas fa-heart" style="font-size: 31px; color: red;"></i>
                <% end %>
             <% else %>
 
@@ -67,7 +67,7 @@
 
 
             <button name="button" type="submit" style="border: none;background: none;">
-              <i class="far fa-heart" style="font-size:31px; color: red;"></i>
+              <i class="far fa-heart" style="font-size: 31px; color: red;"></i>
             </button>
 
             <% end %>
@@ -81,7 +81,9 @@
   <div class="container product-info-container" data-controller="accordion">
     <div class="" data-accordion-target="content">
       <h4 class="">About</h4>
-      <p><%= @crypto.name.capitalize %> is a decentralized blockchain platform that establishes a peer-to-peer network that securely executes and verifies application code, called smart contracts. Smart contracts allow participants to transact with each other without a trusted central authority.<br><br>By mining, you can earn cryptocurrency without having to put down money for it. Bitcoin miners receive bitcoin as a reward for completing "blocks" of verified transactions, which are added to the blockchain.<br><br>Each Bitcoin is basically a computer file which is stored in a 'digital wallet' app on a smartphone or computer. People can send Bitcoins (or part of one) to your digital wallet, and you can send Bitcoins to other people. Every single transaction is recorded in a public list called the blockchain. This makes it possible to trace the history of Bitcoins to stop people from spending coins they do not own, making copies or undo-ing transactions.</p>
+      <p><%= @crypto.name.capitalize %> is a decentralized
+      <a href="#" data-toggle="tooltip" title="tooltip" data-original-title="Default tooltip">blockchain</a>
+      platform that establishes a peer-to-peer network that securely executes and verifies application code, called smart contracts. Smart contracts allow participants to transact with each other without a trusted central authority.<br><br>By mining, you can earn cryptocurrency without having to put down money for it. Bitcoin miners receive bitcoin as a reward for completing "blocks" of verified transactions, which are added to the blockchain.<br><br>Each Bitcoin is basically a computer file which is stored in a 'digital wallet' app on a smartphone or computer. People can send Bitcoins (or part of one) to your digital wallet, and you can send Bitcoins to other people. Every single transaction is recorded in a public list called the blockchain. This makes it possible to trace the history of Bitcoins to stop people from spending coins they do not own, making copies or undo-ing transactions.</p>
     </div>
   </div>
 </div>
