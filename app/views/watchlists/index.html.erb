@@ -45,7 +45,9 @@
           </div>
         </td>
         <td>
-          <%= link_to '- Watchlist', watchlist_path(watchlist), method: :delete, class: "wl-inactive"%>
+          <%= link_to watchlist_path(watchlist), method: :delete do%>
+          <i class="fas fa-heart" style="font-size:25px; color: red;"></i>
+               <% end %>
         </td>
         </tr>
      <% end %>

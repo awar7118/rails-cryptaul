@@ -145,6 +145,12 @@
     margin-left: 10px;
     background-color: white;
     height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    font-family: 'Open Sans', sans-serif;
+
   }
   // .product-action {
   //   height: 50vh;
@@ -272,4 +278,3 @@
 .title h4 {
   font-size: 20px;
 }
-
