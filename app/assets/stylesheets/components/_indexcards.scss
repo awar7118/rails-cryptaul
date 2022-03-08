@@ -27,12 +27,12 @@
 }
 
 tbody > tr:hover {
-  box-shadow: 0 2px 2px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
+  // box-shadow: 0 2px 2px 0 rgba(31, 38, 135, 0.37);
+  // backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 7px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  transform: scale(1.05);
+  // border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  transform: scale(1.01);
 }
 
 // Logic to display red or green for price change
@@ -45,6 +45,10 @@ tbody > tr:hover {
 // Cursor turns to hand pointer on hover over row
 .clicking td {
   cursor: pointer;
+}
+
+.clicking {
+  vertical-align: middle;
 }
 
 // color for symbol #5B616E

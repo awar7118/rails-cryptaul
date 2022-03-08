@@ -5,19 +5,20 @@
   </div>
 
 <div class= "container centered col-8 m-auto">
-  <table class='table', style="float:left">
+  <table class='table', style="float:left mb-10">
     <thead>
       <tr>
-      <th>#</th>
+        <th>#</th>
         <th>Name</th>
         <th>Price</th>
-        <th>24hr change (%)</th>
+        <th>24hr Change</th>
         <th>Graph</th>
         <th>Watchlist</th>
         <%# <th>7 day chart</th> %>
       </tr>
     </thead>
     <tbody data-controller="clickableindex">
+      <tr>   </tr>
       <%counter = 0 %>
       <%@cryptos.each do |crypto| %>
         <tr data-link="<%=crypto_path(crypto)%>" data-clickableindex-target="cryptos" data-action="click->clickableindex#clickable" class = "clicking">
