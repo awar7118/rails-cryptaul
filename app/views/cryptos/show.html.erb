@@ -56,7 +56,7 @@
 
             <% if @crypto.watchlists.count > 0 %>
               <%= link_to watchlist_path(@crypto.watchlists.first), method: :delete do %>
-               <i class="fas fa-heart" style="font-size: 31px; color: red;"></i>
+               <i class="fas fa-heart watchlist-icon" style="font-size: 31px; color: red;"></i>
                <% end %>
             <% else %>
 
