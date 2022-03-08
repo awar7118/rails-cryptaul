@@ -1,11 +1,25 @@
 class HoldingsController < ApplicationController
+  # before_action :graph_prices, only: :index
+
   def index
     @holdings = Holding.where(user: current_user)
+
+    start_date = Date.parse(@holdings.select(:purchased_date).to_a.min.purchased_date.strftime('%d/%m/%Y'))
+    end_date = Date.parse(current_user.simulation_date.strftime('%d/%m/%Y'))
+    date_range = (start_date..end_date).to_a
+
+    @holding_record = []
+
+    date_range.each do |date|
+      @holdings_value = @holdings.sum do |holding|
+        holding.crypto.histories.find_by(date: date).price * holding.quantity
+      end
+      @holding_record << [date, @holdings_value]
+    end
 
     @holdings_value = @holdings.sum do |holding|
       holding.crypto.histories.find_by(date: current_user.simulation_date).price * holding.quantity
     end
-
   end
 
   def create # BUY
@@ -76,6 +90,14 @@ class HoldingsController < ApplicationController
   end
 
   private
+
+  # def graph_prices
+  #   current_date = current_user.simulation_date
+  #   @price_data = @crypto.histories.where('date <= ?', current_date).map do |price|
+  #     [price.date, price.price]
+  #   end
+  #   p @price_data
+  # end
 
   def holding_params
     params.require(:holding).permit(:quantity)

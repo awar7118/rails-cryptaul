@@ -46,15 +46,15 @@
             </div>
           <% end %>
           </td>
-            <td>
-          <% @price_data = crypto.histories.map do |price| %>
-            <% [price.date, price.price] %>
-          <% end %>
-          <div class="rounded">
-            <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "100px" %>
-          </div>
-        </td>
-        <td>
+          <td>
+            <% @price_data = crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
+              <% [price.date, price.price] %>
+            <% end %>
+            <div class="rounded">
+              <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "100px" %>
+            </div>
+          </td>
+          <td>
              <% if crypto.watchlists.count > 0 %>
               <%= link_to 'Remove from watchlist', watchlist_path(crypto.watchlists.first), method: :delete, class: "wl-inactive"%>
             <% else %>
