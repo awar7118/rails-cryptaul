@@ -16,7 +16,7 @@ class HoldingsController < ApplicationController
     if current_user.holdings.exists?
       start_date = Date.parse(@holdings.select(:purchased_date).to_a.min.purchased_date.strftime('%d/%m/%Y'))
     else
-      # start_date = Time.at(1614816000).strftime('%d/%m/%Y')
+      start_date = Date.parse(Time.at(1614816000).strftime('%d/%m/%Y'))
     end
     end_date = Date.parse(current_user.simulation_date.strftime('%d/%m/%Y'))
     date_range = (start_date..end_date).to_a
@@ -77,14 +77,14 @@ class HoldingsController < ApplicationController
     puts 'advancing date..'
     current_user.simulation_date = current_user.simulation_date.advance(days: 1)
     current_user.save
-    redirect_back(fallback_location: root_path)
+    redirect_to(request.referrer)
   end
 
   def advance_date_week
     puts 'advancing date..'
     current_user.simulation_date = current_user.simulation_date.advance(weeks: 1)
     current_user.save
-    redirect_back(fallback_location: root_path)
+    redirect_to(request.referrer)
   end
 
   # def advance_date_index

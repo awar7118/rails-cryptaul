@@ -1,12 +1,13 @@
 <div class="dashboard-page">
   <div class="dashboard-main-container centered col-10 m-auto">
+    <% if current_user.holdings.exists? %>
     <div class="dashboard-cards-container">
       <div class="dashboard-row-first">
         <div class="dashboard-card-graph">
           <h2>Graph</h2>
             <div class="product-graph rounded">
-    <%= line_chart @holding_record, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "400px" %>
-  </div>
+              <%= line_chart @holding_record, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "400px" %>
+            </div>
         </div>
       <div class="dashboard-row-second">
             <div class="dashboard-small-cards">
@@ -154,5 +155,8 @@
       </div>
       </div>
     </div>
+    <% else %>
+      <p>You don't have any holdings</p>
+    <% end %>
   </div>
 </div>
