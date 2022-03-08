@@ -29,5 +29,4 @@ class WatchlistsController < ApplicationController
   def find_watchlist
     @watchlist = Watchlist.find(params[:id])
   end
-
 end

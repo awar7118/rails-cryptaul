@@ -20,7 +20,7 @@
             </div>
             <%= simple_form_for [ @crypto, @holding ] do |f| %>
               <div>
-                <%= f.input :quantity, input_html: {data: {action: "keyup->purchase-modal#calculatePrice", purchase_modal_target: "quantity"}} %>
+                <%= f.input :quantity, input_html: {data: {action: "change->purchase-modal#calculatePrice keyup->purchase-modal#calculatePrice", purchase_modal_target: "quantity"}} %>
                 <%= f.submit 'Confirm Purchase', class: "buy-button banner-btn" %>
               </div>
             <% end %>
@@ -32,18 +32,13 @@
         <div class="container product-action rounded" data-purchase-modal-target="purchase">
           <div class="title-watchlist">
             <div class="title">
-              <h4>
-                <%= @crypto.name %> <br> <%= current_user.simulation_date.strftime('%d/%m/%Y') %>
-              </h4>
+              <h4><%= @crypto.name%></h4>
             </div>
             <%# <div class="watchlist">
               <i class="fa-solid fa-star fa-lg"></i>
             </div> %>
           </div>
           <div class="center">
-            <%= link_to '1 Day >', change_simulation_show_path(current_user), class:'btn btn-primary', id:'date-sim-show' %>
-            <%= link_to '7 Days >', change_simulation_week_show_path(current_user), class:'btn btn-primary', id:'date-sim-show'%>
-            <br><br>
             <img class="rounded-circle"src="<%= @crypto.image %>" height="100px">
             <br><br>
           </div>
@@ -52,11 +47,13 @@
             <div>
               <button id="myBtn" type="button" class="buy-btn-filled"> Buy </button>
             </div>
-
-            <%# <% if current_user.watchlists.where(crypto_id: @crypto.id).count != 0 %>
-             <%# <i class="fas fa-heart" style="font-size:30px"></i> %>
-            <%# <% else  %>
-            <%# <i class="far fa-heart" style="font-size:30px"></i> %>
+             <%= simple_form_for [ @crypto, @watchlist ] do |f| %>
+              <%= button_tag(type: 'submit') do %>
+                <button name="button" type="submit" style="border: none;background: none;">
+                  <i class="fas fa-heart" style="font-size:30px; color: red;"></i>
+                </button>
+              <% end %>
+            <% end %>
 
             <% if @crypto.watchlists.count > 0 %>
               <%= link_to 'Remove from watchlist', watchlist_path(@crypto.watchlists.first), method: :delete, class: "add-wl-btn"%>
@@ -68,7 +65,7 @@
               <% end %>
             <% end %>
           </div>
-        </div>
+          </div>
       </div>
     </div>
 </div>
