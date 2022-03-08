@@ -45,7 +45,7 @@
             <p class="center">1 <%= @crypto.name %> = £<%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %></p>
           <div class="buy-button center">
             <div>
-              <button id="myBtn" type="button" class="buy-btn-filled" data-action="click->purchase-modal#expand" > Buy </button>
+              <button id="myBtn" type="button" class="buy-btn-filled"> Buy </button>
             </div>
              <%= simple_form_for [ @crypto, @watchlist ] do |f| %>
               <%= button_tag(type: 'submit') do %>
