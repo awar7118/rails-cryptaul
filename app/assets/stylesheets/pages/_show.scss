@@ -200,7 +200,8 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-
+    margin: auto;
+    font-size: 16px;
   }
   .buy-button button {
     // width: 100px;
@@ -247,14 +248,18 @@
     padding: 20px;
     border: 1px solid #888;
     width: 60%; /* Could be more or less, depending on screen size */
+    border-radius: 20px;
   }
 
   /* The Close Button */
   .close {
     color: #aaa;
-    float: right;
+    position: absolute;
+    top: 10px;
+    right: 20px;
     font-size: 28px;
     font-weight: bold;
+
   }
 
   .close:hover,
@@ -277,4 +282,11 @@
 
 .title h4 {
   font-size: 20px;
+}
+
+#modal-form {
+  width: 250px;
+  margin: auto;
+  text-align: center;
+  position: relative;
 }
