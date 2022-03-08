@@ -24,4 +24,4 @@
 //   });
 // };
 
-export { initSweetalert };
+// export { initSweetalert };

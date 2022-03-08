@@ -5,8 +5,8 @@
           <h4>
             <%= current_user.simulation_date.strftime('%d/%m/%Y') %>
           </h4>
-        <%= link_to 'Advance 1 Day >', change_simulation_index_path(current_user), class:'btn btn-primary' %>
-        <%= link_to 'Advance 7 Days >', change_simulation_week_index_path(current_user), class:'btn btn-primary' %>
+        <%= link_to '1 Day >', change_simulation_index_path(current_user), class:'btn btn-primary', id:'date-sim-btn' %>
+        <%= link_to '7 Days >>', change_simulation_week_index_path(current_user), class:'btn btn-primary', id:'date-sim-btn' %>
       </div>
     </div>
   </div>
@@ -27,13 +27,13 @@
     <tbody data-controller="clickableindex">
       <%counter = 0 %>
       <%@cryptos.each do |crypto| %>
-        <tr data-link="<%=crypto_path(crypto)%>, "data-clickableindex-target="cryptos", data-action="click->clickableindex#clickable", class = "clicking">
+        <tr data-link="<%=crypto_path(crypto)%>" data-clickableindex-target="cryptos" data-action="click->clickableindex#clickable" class = "clicking">
         <td>  <%=counter += 1%></td>
           <td>
             <%= link_to(image_tag(crypto.image), crypto_path(crypto),class: "crypto-image")%> <%=crypto.name%>
           </td>
           <td>
-            £<%= '%.2f' % crypto.price || 'N/A' %>
+            £<%= number_with_precision(crypto.price, :precision => 2, :delimiter => ',') %>
           </td>
           <td>
           <% if crypto.previousdaypercentagechange.negative?() %>
