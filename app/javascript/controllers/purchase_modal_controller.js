@@ -4,8 +4,10 @@ export default class extends Controller {
   static targets = ["purchase", "modal", "pounds", "price", "balance", "quantity"]
 
   connect() {
+    console.log(parseInt(this.balanceTarget.textContent))
+    console.log(parseFloat(this.priceTarget.textContent))
     console.log("purchase modal controller is connected")
-    const maxValue = parseInt(this.balanceTarget.textContent) / parseInt(this.priceTarget.textContent)
+    const maxValue = parseInt(this.balanceTarget.textContent) / parseFloat(this.priceTarget.textContent)
     console.log(maxValue)
     this.quantityTarget.max = maxValue
     this.quantityTarget.placeholder = maxValue

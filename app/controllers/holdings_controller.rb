@@ -3,7 +3,7 @@ class HoldingsController < ApplicationController
     @holdings = Holding.where(user: current_user)
 
     @holdings_value = @holdings.sum do |holding|
-      holding.crypto.histories.find_by(date: current_user.simulation_date).price
+      holding.crypto.histories.find_by(date: current_user.simulation_date).price * holding.quantity
     end
 
   end
