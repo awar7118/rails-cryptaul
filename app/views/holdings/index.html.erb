@@ -28,18 +28,71 @@
               <h2>Coin of the month</h2>
             </div>
           <div class="dashboard-small-cards" >
-              <h2>balance</h2>
+              <h2>Balance</h2>
                   <p>£<%= '%.2f' % current_user.balance %></p>
             </div>
             <div class="dashboard-small-cards">
-              <h2>recent purchase</h2>
+              <h2>Recent purchase</h2>
             </div>
           </div>
       </div>
       <div class="dashboard-row-third">
         <div class="dashboard-card-graph">
-          Graph
+          <h2>Graph</h2>
         </div>
+      </div>
+      <div class="dashboard-row-fourth">
+<div class= "container centered col-8 m-auto">
+  <table class='table', style="float:left">
+    <thead>
+      <tr>
+      <th>#</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>24hr change (%)</th>
+        <th>Graph</th>
+        <th>Watchlist</th>
+        <%# <th>7 day chart</th> %>
+      </tr>
+    </thead>
+    <tbody data-controller="clickableindex">
+      <%counter = 0 %>
+      <%@cryptos.take(10).each do |crypto| %>
+        <tr data-link="<%=crypto_path(crypto)%>" data-clickableindex-target="cryptos" data-action="click->clickableindex#clickable" class = "clicking">
+        <td>  <%=counter += 1%></td>
+          <td>
+            <%= link_to(image_tag(crypto.image), crypto_path(crypto),class: "crypto-image")%> <%=crypto.name%>
+          </td>
+          <td>
+            £<%= number_with_precision(crypto.price, :precision => 2, :delimiter => ',') %>
+          </td>
+          <td>
+          <% if crypto.previousdaypercentagechange.negative?() %>
+            <div class = "red-font">
+              <%= '%.2f' % crypto.previousdaypercentagechange %>
+            </div>
+          <% else %>
+            <div class = "green-font">
+              +<%= '%.2f' % crypto.previousdaypercentagechange%>
+            </div>
+          <% end %>
+          </td>
+            <td>
+          <% @price_data = crypto.histories.map do |price| %>
+            <% [price.date, price.price] %>
+          <% end %>
+          <div class="rounded">
+            <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "100px" %>
+          </div>
+        </td>
+        <td>
+
+          </td>
+        </tr>
+     <% end %>
+    </tbody>
+  </table>
+</div>
       </div>
     </div>
   </div>
