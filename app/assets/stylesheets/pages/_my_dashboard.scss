@@ -1,16 +1,30 @@
+.dashboard-page {
+  background-color: #f3f3f3;
+}
+.simulation-buttons {
+  text-align: center;
+}
 .dashboard-cards-container {
-  margin-bottom: 50%;
+  margin-bottom: 25px;
 }
 .dashboard-holding-card {
   width: 100%;
-  border: 2px solid blue;
   height: 250px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+.dashboard-holding-card,
+.dashboard-small-cards {
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 26px;
+  box-shadow: 5px 5px 25px 0px rgba(145, 193, 255, 0.309);
+  border-radius: 5px;
+  padding: 5px;
 }
 .dashboard-row-second {
   display: flex;
   justify-content: space-between;
-  border: 2px solid green;
 }
 
 .dashboard-coin-of-the-month {
