@@ -1,11 +1,12 @@
 class HoldingsController < ApplicationController
   def index
     @holdings = Holding.where(user: current_user)
+    @active_holdings = @holdings.where(sold_date: nil)
+    @sold_holdings = @holdings.where(sold_date: !nil)
 
     @holdings_value = @holdings.sum do |holding|
       holding.crypto.histories.find_by(date: current_user.simulation_date).price
     end
-
   end
 
   def create # BUY
@@ -30,7 +31,16 @@ class HoldingsController < ApplicationController
   end
 
   def update # SELL
-    current_user.update(balance: current_user.balance + params[:amount])
+    @holding = Holding.find(params[:id])
+    @price = @holding.crypto.histories.find_by(date: current_user.simulation_date).price * @holding.quantity
+    @holding.sold_price = @price
+    @holding.sold_date = current_user.simulation_date
+    if @holding.save
+      current_user.update(balance: current_user.balance + @price)
+      redirect_to my_dashboard_path
+    else
+      render 'my_dashboard'
+    end
   end
 
   def advance_date

@@ -34,12 +34,33 @@
     <div class="dashboard-card" >
       holdings
       <%# <div class= "container centered col-8 m-auto"> %>
+
+      <%# </div> %>
+    </div>
+    <div class="dashboard-card" >
+      balance
+          £<%= '%.2f' % current_user.balance %>
+    </div>
+    <div class="dashboard-card">
+      Graph
+    </div>
+    <div class="dashboard-card">
+      Coin of the month
+    </div>
+    <div class="dashboard-card">
+      recent purchase
+    </div>
+  </div>
+</div>
+
         <table class='table', style="float:left">
           <thead>
             <tr>
             <th>#</th>
               <th>Name</th>
-              <th>Price</th>
+              <th>Return</th>
+              <th>Purchased Price</th>
+              <th>Price today</th>
               <th>24hr change (%)</th>
               <th>Graph</th>
               <th>Watchlist</th>
@@ -48,35 +69,20 @@
           </thead>
           <tbody data-controller="clickableindex">
             <%counter = 0 %>
-            <%@holdings.each do |holding| %>
-              <!-- The Modal -->
-              <div id="mySellModal" class="modal">
-                <!-- Modal content -->
-                <div class="modal-content">
-                  <span class="close">&times;</span>
-                  <div class="title-exchange">
-                    <h4>Sell <%= holding.crypto.name%></h4>
-                    <p>1 <%= holding.crypto.name %> = £<strong data-purchase-modal-target="price"><%= '%.2f' % holding.crypto.histories.find_by(date: current_user.simulation_date).price %></strong></p>
-                    <p>You have <strong data-purchase-modal-target="balance"><%= '%.2f' % current_user.balance %></strong> <% holding.crypto.name %><p>
-                    <p>Please select the number of <%= holding.crypto.name %> you'd like to sell</p>
-                  </div>
-                  <%= simple_form_for [ holding.crypto ] do |f| %>
-                    <div>
-                      <%# <%= f.input :quantity, input_html: {data: {action: "keyup->purchase-modal#calculatePrice", purchase_modal_target: "quantity"}} %>
-                      <%= f.submit 'Confirm Sell', class: "buy-button banner-btn", method: :patch %>
-                    </div>
-                  <% end %>
-                  <br>
-                  <p data-purchase-modal-target="pounds" data-price="<%= '%.2f' % holding.crypto.histories.find_by(date: current_user.simulation_date).price %>" id="pounds">You're spending £0.00</p>
-                </div>
-              </div>
+            <%@active_holdings.each do |holding| %>
               <tr data-link="<%=crypto_path(holding.crypto)%>" data-clickableindex-target="cryptos" data-action="click->clickableindex#clickable" class = "clicking">
               <td>  <%=counter += 1%></td>
                 <td>
                   <%= link_to(image_tag(holding.crypto.image), crypto_path(holding.crypto),class: "crypto-image")%> <%=holding.crypto.name%>
                 </td>
                 <td>
-                  £<%= number_with_precision(holding.crypto.price, :precision => 2, :delimiter => ',') %>
+                  £<%= number_with_precision(((holding.crypto.histories.find_by(date: current_user.simulation_date).price * holding.quantity) - (holding.purchased_price * holding.quantity)), :precision => 2, :delimiter => ',') %>
+                </td>
+                <td>
+                  £<%= number_with_precision(holding.purchased_price, :precision => 2, :delimiter => ',') %>
+                </td>
+                <td>
+                  £<%= number_with_precision(holding.crypto.histories.find_by(date: current_user.simulation_date).price, :precision => 2, :delimiter => ',') %>
                 </td>
                 <td>
                 <% if holding.crypto.previousdaypercentagechange.negative?() %>
@@ -98,29 +104,18 @@
                 </div>
               </td>
               <td>
-                <div class="buy-button" data-controller="purchase-modal">
+                <%= simple_form_for [ holding ] do |f| %>
+                    <div>
+                      <%# <%= f.input :quantity, input_html: {data: {action: "keyup->purchase-modal#calculatePrice", purchase_modal_target: "quantity"}} %>
+                      <%= f.submit 'Confirm Sell', class: "buy-button banner-btn"%>
+                    </div>
+                  <% end %>
+                <%# <div class="buy-button" data-controller="purchase-modal">
                   <div>
                     <button id="mySellBtn" type="button" class="buy-btn-filled"> Sell </button>
-                  </div>
+                  </div> %>
                 </td>
               </tr>
           <% end %>
           </tbody>
         </table>
-      <%# </div> %>
-    </div>
-    <div class="dashboard-card" >
-      balance
-          £<%= '%.2f' % current_user.balance %>
-    </div>
-    <div class="dashboard-card">
-      Graph
-    </div>
-    <div class="dashboard-card">
-      Coin of the month
-    </div>
-    <div class="dashboard-card">
-      recent purchase
-    </div>
-  </div>
-</div>
