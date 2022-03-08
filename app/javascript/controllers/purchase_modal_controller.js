@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ["purchase", "modal", "pounds", "price", "balance", "quantity"]
 
   connect() {
-    // console.log("purchase modal controller is connected")
+    console.log("purchase modal controller is connected")
     const maxValue = parseInt(this.balanceTarget.textContent) / parseInt(this.priceTarget.textContent)
     console.log(maxValue)
     this.quantityTarget.max = maxValue
@@ -24,12 +24,11 @@ export default class extends Controller {
   }
 
   calculatePrice(e) {
-    // console.log(e.currentTarget.value)
-    // console.log(this.poundsTarget.dataset.price)
-    // console.log(e.currentTarget.value * this.poundsTarget.dataset.price)
+    console.log(e.currentTarget.value)
+    console.log(this.poundsTarget.dataset.price)
+    console.log(e.currentTarget.value * this.poundsTarget.dataset.price)
     const calculatedPrice = (e.currentTarget.value * this.poundsTarget.dataset.price)
     this.poundsTarget.innerText = `You're spending £${calculatedPrice.toFixed(2)}`
-    console.log(calculatedPrice.class)
   }
 }
 
