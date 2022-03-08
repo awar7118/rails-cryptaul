@@ -14,9 +14,24 @@
 //   border: 2px solid red;
 //   justify-content: space-around;
 // }
-.dashboard-row {
+
+.dashboard-row-first {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+}
+.dashboard-row-second {
+  display: block;
+  justify-content: space-between;
+}
+
+.dashboard-coin-of-the-month {
+  width: 25%;
+}
+.dashboard-holding-card {
+  width: 50vw;
+  border: 2px solid blue;
+  height: 250px;
 }
 .small-cards {
   display: flex;
@@ -26,7 +41,9 @@
 }
 
 .dashboard-big-card {
-  width: 25vw;
+  width: 50vw;
+  border: 2px solid blue;
+  height: 250px;
 }
 .dashboard-small-cards {
   border: 2px solid red;
