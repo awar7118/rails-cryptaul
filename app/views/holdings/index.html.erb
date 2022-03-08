@@ -1,5 +1,4 @@
 <html>
-  <%# TITLE %>
   <body>
   <div class="banner-articles">
     <div class="main-title">
@@ -9,7 +8,6 @@
 
 <div class="main-container centered col-8 m-auto">
   <div class="dashboard-cards">
-    <%# <div class="dashboard-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> %>
     <div class="dashboard-card">
       Holdings
       <p>Purchased Value: <br>£ <%= '%.2f' % @holdings.sum(&:purchased_price) %></p>
