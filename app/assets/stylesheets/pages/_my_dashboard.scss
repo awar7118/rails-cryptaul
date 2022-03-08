@@ -37,9 +37,12 @@
   border: 1px solid grey;
 }
 .dashboard-card-graph {
-  width: 50vw;
+  width: 100%;
   border: 2px solid red;
   height: 250px;
+}
+.dashboard-row-third {
+  margin-bottom: 25px;
 }
 
 // Smallest device
