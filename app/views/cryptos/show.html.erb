@@ -58,15 +58,16 @@
               <%# <i class="far fa-heart" style="font-size:30px"></i> %>
 
             <% if @crypto.watchlists.count > 0 %>
-              <%= link_to 'remove from watchlist', watchlist_path(@crypto.watchlists.first), method: :delete %>
-               <i class="fas fa-heart" style="font-size:25px; color: red;"></i>
+              <%= link_to watchlist_path(@crypto.watchlists.first), method: :delete do %>
+               <i class="fas fa-heart" style="font: size 31px; color: red;"></i>
+               <% end %>
             <% else %>
 
              <%= simple_form_for [ @crypto, @watchlist ] do |f| %>
 
 
             <button name="button" type="submit" style="border: none;background: none;">
-              <i class="far fa-heart" style="font-size:30px; color: red;"></i>
+              <i class="far fa-heart" style="font-size:31px; color: red;"></i>
             </button>
 
             <% end %>
