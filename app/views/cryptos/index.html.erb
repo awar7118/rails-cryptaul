@@ -1,13 +1,6 @@
   <div class="banner-articles">
     <div class="main-title">
       <h1>CRYPTO STATS</h1>
-        <div class='date-navigation'>
-          <h4>
-            <%= current_user.simulation_date.strftime('%d/%m/%Y') %>
-          </h4>
-        <%= link_to '1 Day >', change_simulation_index_path(current_user), class:'btn btn-primary', id:'date-sim-btn' %>
-        <%= link_to '7 Days >>', change_simulation_week_index_path(current_user), class:'btn btn-primary', id:'date-sim-btn' %>
-      </div>
     </div>
   </div>
 
@@ -46,15 +39,15 @@
             </div>
           <% end %>
           </td>
-            <td>
-          <% @price_data = crypto.histories.map do |price| %>
-            <% [price.date, price.price] %>
-          <% end %>
-          <div class="rounded">
-            <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "100px" %>
-          </div>
-        </td>
-        <td>
+          <td>
+            <% @price_data = crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
+              <% [price.date, price.price] %>
+            <% end %>
+            <div class="rounded">
+              <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "100px" %>
+            </div>
+          </td>
+          <td>
              <% if crypto.watchlists.count > 0 %>
               <%= link_to watchlist_path(crypto.watchlists.first), method: :delete do %>
                 <i class="fas fa-heart" style="font-size:25px; color: red;"></i>

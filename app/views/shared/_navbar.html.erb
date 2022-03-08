@@ -26,7 +26,16 @@
       </ul>
       <ul style="height: 25px">
         <li style="margin-right:20px">
-          <h6><%= current_user.simulation_date.strftime('%d/%m/%Y') %></h6>
+          <h6><strong>Simulation Date: <%= current_user.simulation_date.strftime('%d/%m/%Y') %></strong></h6>
+        </li>
+        <li>
+          <%= link_to '+1 Day', change_simulation_path(current_user), style:'color:#EE841C', id:'date-sim-btn' %>
+        </li>
+        <li>
+          <h6>|</h6>
+        </li>
+        <li>
+          <%= link_to '+7 Days', change_simulation_week_path(current_user), style:'color:#EE841C', id:'date-sim-btn' %>
         </li>
         <li style="margin-left:20px">
           <h6 style="color:#EE841C">£<%= number_with_precision(current_user.balance, :precision => 2, :delimiter => ',') %></h6>
