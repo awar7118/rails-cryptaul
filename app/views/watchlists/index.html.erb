@@ -16,9 +16,9 @@
         <%# <th>7 day chart</th> %>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="mb-100">
       <%@watchlists.each do |watchlist| %>
-        <tr>
+        <tr class="clicking">
           <td>
             <%= link_to(image_tag(watchlist.crypto.image), crypto_path(watchlist.crypto),class: "crypto-image")%> <%=watchlist.crypto.name%>
           </td>
