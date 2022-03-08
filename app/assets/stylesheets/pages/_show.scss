@@ -167,7 +167,7 @@
     text-align: center;
     justify-content: center;
   }
-  
+
   .product-action .title {
     width: 70%;
   }
@@ -179,17 +179,15 @@
   //   color: black;
   // }
 
-  .loveMe .fa-heart {
-    position: absolute;
-    animation: grow 0.6s linear;
-    transform: translate(-50%, -50%) scale(0);
 
-  }
-
-  .fa-heart {
-    size: 10px;
+  .button {
     color: #FF0000;
+    background-color: #f4f4f4;
+    background: none;
+    border: #f2f2f2;
   }
+
+
 
 
   .buy-button {
@@ -270,4 +268,3 @@
  #date-sim-btn {
   border-radius: 20px;
  }
-
