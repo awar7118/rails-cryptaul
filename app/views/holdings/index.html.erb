@@ -1,9 +1,6 @@
-<html>
-  <%# TITLE %>
-  <body>
-  <div class="banner-articles">
-    <div class="main-title">
-      <H1><b>DASHBOARD</b></H1>
+<div class="dashboard-page">
+
+  <div class="simulation-buttons">
       <div class='date-navigation'>
         <h4>
           <%= current_user.simulation_date.strftime('%d/%m/%Y') %>
@@ -11,42 +8,40 @@
 
           <%= link_to '1 Day >', change_simulation_path(current_user), class:'btn btn-primary', id:'date-sim-btn' %>
           <%= link_to '7 Days >>', change_simulation_week_path(current_user), class:'btn btn-primary', id:'date-sim-btn' %>
+  </div>
 
+  <div class="dashboard-main-container centered col-10 m-auto">
+    <div class="dashboard-cards-container">
+      <div class="dashboard-row-first">
+        <div class="dashboard-card-graph">
+          <h2>Graph</h2>
+        </div>
+      <div class="dashboard-row-second">
+            <div class="dashboard-small-cards">
+              <h2>Coin Of The Day 🚀</h2>
+            </div>
+          <div class="dashboard-small-cards" >
+              <h2>Balance 💰</h2>
+                  <p>£<%= '%.2f' % current_user.balance %></p>
+            </div>
+            <div class="dashboard-small-cards">
+              <h2>Place for another card?Recent purchase</h2>
+            </div>
+          </div>
+      </div>
+        <div class="dashboard-holding-card">
+          <h2>Holdings</h2>
+          <p>Purchased Value: <br>£ <%= '%.2f' % @holdings.sum(&:purchased_price) %></p>
+          <% if @holdings_value > @holdings.sum(&:purchased_price) %>
+                                <p style='color: green'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
+                              <% elsif @holdings_value < @holdings.sum(&:purchased_price) %>
+                                <p style='color: red'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
+                              <% else %>
+                                <p>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
+                              <% end %>
+      </div>
       </div>
     </div>
   </div>
 
-<div class="main-container centered col-8 m-auto">
-  <div class="dashboard-cards">
-    <%# <div class="dashboard-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> %>
-    <div class="dashboard-card">
-      Holdings
-      <p>Purchased Value: <br>£ <%= '%.2f' % @holdings.sum(&:purchased_price) %></p>
-      <% if @holdings_value > @holdings.sum(&:purchased_price) %>
-                            <p style='color: green'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
-                          <% elsif @holdings_value < @holdings.sum(&:purchased_price) %>
-                            <p style='color: red'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
-                          <% else %>
-                            <p>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
-                          <% end %>
-    </div>
-
-    <div class="dashboard-card" >
-      Holding
-    </div>
-    <div class="dashboard-card" >
-      balance
-          £<%= '%.2f' % current_user.balance %>
-    </div>
-    <div class="dashboard-card">
-      Graph
-    </div>
-    <div class="dashboard-card">
-      Coin of the month
-    </div>
-    <div class="dashboard-card">
-      recent purchase
-    </div>
-  </div>
 </div>
-

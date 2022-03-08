@@ -5,6 +5,7 @@ class HoldingsController < ApplicationController
     @holdings_value = @holdings.sum do |holding|
       holding.crypto.histories.find_by(date: current_user.simulation_date).price * holding.quantity
     end
+    @cryptos = Crypto.all
 
   end
 
