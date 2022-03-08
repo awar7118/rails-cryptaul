@@ -1,5 +1,6 @@
   <%# <div class="dashboard-page center"> %>
   <div class="dashboard-main-container centered col-10 m-auto center">
+    <% if current_user.holdings.exists? %>
     <div class="dashboard-cards-container">
       <div class="dashboard-row-first">
         <div class="dashboard-card-graph">
@@ -192,5 +193,6 @@
         </h2>
       </div>
     <% end %>
+    </div>
   </div>
 <%# </div> %>
