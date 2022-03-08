@@ -11,6 +11,7 @@ class CryptosController < ApplicationController
       end
       crypto.save
     end
+    @cryptos = @cryptos.sort_by { |crypto| crypto.id.to_i }
   end
 
   def show

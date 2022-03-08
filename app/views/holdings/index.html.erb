@@ -185,5 +185,12 @@
       </div>
       </div>
     </div>
+    <% else %>
+      <div class="center">
+        <h2 id="no-holdings-card">You don't have any holdings yet. <br>
+          Hit <%= link_to 'Browse', cryptos_path, id:'dashboard-btn'%> to get started!
+        </h2>
+      </div>
+    <% end %>
   </div>
 <%# </div> %>

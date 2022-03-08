@@ -1,7 +1,7 @@
 <div class="container page-container">
   <div class="container graph-purchase-container">
     <div class="product-graph rounded">
-      <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "400px" %>
+      <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#FF840A'], height: "400px" %>
     </div>
     <%# <div class="container product-exchange rounded">Current exchange rate</div> %>
     <div class="purchase-container rounded">
@@ -10,16 +10,17 @@
       <!-- The Modal -->
         <div id="myModal" class="modal">
           <!-- Modal content -->
-          <div class="modal-content">
+          <div class="modal-content center">
             <span class="close">&times;</span>
             <div class="title-exchange">
-              <h4>Buy <%= @crypto.name%></h4>
+              <br>
+              <h4 style='color'>Buy <%= @crypto.name%></h4>
               <p>1 <%= @crypto.name %> = £<strong data-purchase-modal-target="price"><%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %></strong></p>
               <p>Your balance is £<strong data-purchase-modal-target="balance"><%= '%.2f' % current_user.balance %></strong><p>
               <p>Please select the number of <%= @crypto.name %> you'd like to purchase</p>
             </div>
             <%= simple_form_for [ @crypto, @holding ] do |f| %>
-              <div>
+              <div id='modal-form'>
                 <%= f.input :quantity, input_html: {data: {action: "change->purchase-modal#calculatePrice keyup->purchase-modal#calculatePrice", purchase_modal_target: "quantity"}} %>
                 <%= f.submit 'Confirm Purchase', class: "buy-button banner-btn" %>
               </div>
@@ -55,7 +56,7 @@
 
             <% if @crypto.watchlists.count > 0 %>
               <%= link_to watchlist_path(@crypto.watchlists.first), method: :delete do %>
-               <i class="fas fa-heart" style="font-size: 31px; color: red;"></i>
+               <i class="fas fa-heart watchlist-icon" style="font-size: 31px; color: red;"></i>
                <% end %>
             <% else %>
 
@@ -63,7 +64,7 @@
 
 
             <button name="button" type="submit" style="border: none;background: none;">
-              <i class="far fa-heart" style="font-size: 31px; color: red;"></i>
+              <i class="far fa-heart watchlist-icon" style="font-size: 31px; color: red;"></i>
             </button>
 
             <% end %>
