@@ -14,7 +14,8 @@
   margin-top: 25px;
 }
 .dashboard-holding-card,
-.dashboard-small-cards {
+.dashboard-small-cards,
+.dashboard-card-graph {
   backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 1);
   border-radius: 26px;
@@ -41,8 +42,13 @@
   border: 2px solid red;
   height: 250px;
 }
-.dashboard-row-third {
-  margin-bottom: 25px;
+.dashboard-row-second {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.dashboard-row-first {
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 // Smallest device

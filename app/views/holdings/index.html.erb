@@ -1,6 +1,6 @@
 <div class="dashboard-page">
 
-    <div class="simulation-buttons">
+  <div class="simulation-buttons">
       <div class='date-navigation'>
         <h4>
           <%= current_user.simulation_date.strftime('%d/%m/%Y') %>
@@ -8,21 +8,14 @@
 
           <%= link_to '1 Day >', change_simulation_path(current_user), class:'btn btn-primary', id:'date-sim-btn' %>
           <%= link_to '7 Days >>', change_simulation_week_path(current_user), class:'btn btn-primary', id:'date-sim-btn' %>
-    </div>
+  </div>
 
   <div class="dashboard-main-container centered col-10 m-auto">
     <div class="dashboard-cards-container">
-        <div class="dashboard-holding-card">
-          <h2>Holdings</h2>
-          <p>Purchased Value: <br>£ <%= '%.2f' % @holdings.sum(&:purchased_price) %></p>
-          <% if @holdings_value > @holdings.sum(&:purchased_price) %>
-                                <p style='color: green'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
-                              <% elsif @holdings_value < @holdings.sum(&:purchased_price) %>
-                                <p style='color: red'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
-                              <% else %>
-                                <p>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
-                              <% end %>
-      </div>
+      <div class="dashboard-row-first">
+        <div class="dashboard-card-graph">
+          <h2>Graph</h2>
+        </div>
       <div class="dashboard-row-second">
             <div class="dashboard-small-cards">
               <h2>Coin Of The Day 🚀</h2>
@@ -36,10 +29,17 @@
             </div>
           </div>
       </div>
-      <div class="dashboard-row-third">
-        <div class="dashboard-card-graph">
-          <h2>Graph</h2>
-        </div>
+        <div class="dashboard-holding-card">
+          <h2>Holdings</h2>
+          <p>Purchased Value: <br>£ <%= '%.2f' % @holdings.sum(&:purchased_price) %></p>
+          <% if @holdings_value > @holdings.sum(&:purchased_price) %>
+                                <p style='color: green'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
+                              <% elsif @holdings_value < @holdings.sum(&:purchased_price) %>
+                                <p style='color: red'>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
+                              <% else %>
+                                <p>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
+                              <% end %>
+      </div>
       </div>
     </div>
   </div>
