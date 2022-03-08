@@ -15,6 +15,9 @@
       <div class="dashboard-row-first">
         <div class="dashboard-card-graph">
           <h2>Graph</h2>
+            <div class="product-graph rounded">
+    <%= line_chart @holding_record, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "400px" %>
+  </div>
         </div>
       <div class="dashboard-row-second">
             <div class="dashboard-small-cards">
@@ -43,5 +46,4 @@
       </div>
     </div>
   </div>
-
 </div>
