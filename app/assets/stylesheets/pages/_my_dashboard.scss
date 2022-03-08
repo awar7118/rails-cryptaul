@@ -1,40 +1,31 @@
+.dashboard-cards-container {
+  margin-bottom: 50%;
+}
 .dashboard-holding-card {
   width: 100%;
   border: 2px solid blue;
   height: 250px;
+  margin-bottom: 50px;
 }
 .dashboard-row-second {
   display: flex;
   justify-content: space-between;
-  border: 2px solid blue;
+  border: 2px solid green;
 }
 
 .dashboard-coin-of-the-month {
   width: 25%;
 }
-.small-cards {
-  display: flex;
-  justify-content: space-between;
-  border: 2px solid red;
-  width: 75vw;
-}
 
-.dashboard-big-card {
-  width: 50vw;
-  border: 2px solid blue;
-  height: 250px;
-}
 .dashboard-small-cards {
-  border: 2px solid red;
   width: 33%;
+  height: 100px;
+  border: 1px solid grey;
 }
 .dashboard-card-graph {
   width: 50vw;
   border: 2px solid red;
   height: 250px;
-}
-.dashboard-cards-container {
-  margin-bottom: 50%;
 }
 
 // Smallest device
