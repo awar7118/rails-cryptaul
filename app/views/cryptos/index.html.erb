@@ -1,13 +1,6 @@
   <div class="banner-articles">
     <div class="main-title">
       <h1>CRYPTO STATS</h1>
-        <div class='date-navigation'>
-          <h4>
-            <%= current_user.simulation_date.strftime('%d/%m/%Y') %>
-          </h4>
-        <%= link_to '1 Day >', change_simulation_index_path(current_user), class:'btn btn-primary', id:'date-sim-btn' %>
-        <%= link_to '7 Days >>', change_simulation_week_index_path(current_user), class:'btn btn-primary', id:'date-sim-btn' %>
-      </div>
     </div>
   </div>
 
