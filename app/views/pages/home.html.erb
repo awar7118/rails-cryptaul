@@ -1,33 +1,22 @@
-<nav class="menu">
-  <div class="options">
-    <ul>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to 'Dashboard', my_dashboard_path %>
-      </li>
-      <li>
-        <%= link_to 'Browse Cryptos', cryptos_path %>
-      </li>
-      <li>
-        <%= link_to 'Learn More', articles_path %>
-      </li>
-      <li>
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-      </li>
-    </ul>
-    <% else %>
-      <li>
-        <%= link_to 'Sign Up', new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to 'Sign In', new_user_session_path %>
-      </li>
-      <li>
-        <%= link_to 'Learn More', articles_path %>
-      </li>
-    <% end %>
-  </div>
-</nav>
+<% if user_signed_in? %>
+  <%= render 'shared/navbar' %>
+<% else %>
+  <nav class="menu">
+    <div class="options">
+      <ul>
+        <li>
+          <%= link_to 'Sign Up', new_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to 'Sign In', new_user_session_path %>
+        </li>
+        <li>
+          <%= link_to 'Learn More', articles_path %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<% end %>
 
 <div class="banner-home">
   <div class="banner-info-container">
@@ -60,7 +49,7 @@
       <br>
       <p>We've all heard the hype around crypto. But what <em>is</em> crypto, and how do I get involved?<br>
       Many of us want to find out, but don't want to gamble away our hard-earned cash in this notoriously unpredictable market. <br><br>
-      <strong style="color: #EE841C"> Cryptaul</strong> is a first-of-it's-kind service which simulates the world of cryptocurrency investment. <br>Here, you'll find clear answers to all of your questions & can get started right away by investing in our playground environment - no payment required!<br><br></p>
+      <strong style="color: #FF840A"> Cryptaul</strong> is a first-of-it's-kind service which simulates the world of cryptocurrency investment. <br>Here, you'll find clear answers to all of your questions & can get started right away by investing in our playground environment - no payment required!<br><br></p>
       <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646218834/he0h1s8tdrxfh2dpsvaq.jpg",
        class: "crypto-female") %>
     </div>

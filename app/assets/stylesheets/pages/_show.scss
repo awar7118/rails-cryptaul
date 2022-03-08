@@ -199,8 +199,8 @@
   .buy-button {
     display: flex;
     justify-content: center;
-    flex-direction: column;
-
+    margin: auto;
+    font-size: 16px;
   }
   .buy-button button {
     // width: 100px;
@@ -243,18 +243,22 @@
   /* Modal Content/Box */
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 10% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 60%; /* Could be more or less, depending on screen size */
+    width: 40%; /* Could be more or less, depending on screen size */
+    border-radius: 20px;
   }
 
   /* The Close Button */
   .close {
     color: #aaa;
-    float: right;
+    position: absolute;
+    top: 10px;
+    right: 20px;
     font-size: 28px;
     font-weight: bold;
+
   }
 
   .close:hover,
@@ -277,4 +281,21 @@
 
 .title h4 {
   font-size: 20px;
+}
+
+#modal-form {
+  width: 250px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+}
+
+.watchlist-icon {
+  border-radius: 35px;
+  font-size: 18px;
+  padding: 10px 0px;
+  text-decoration: none;
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+  height: 50px;
+  width: 40px;
 }

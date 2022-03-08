@@ -1,17 +1,17 @@
   <div class="banner-articles">
     <div class="main-title">
-      <h1>CRYPTO STATS</h1>
+      <h1>Crypto Stats</h1>
     </div>
   </div>
 
 <div class= "container centered col-8 m-auto">
-  <table class='table', style="float:left">
+  <table class='table', style="float:left mb-10">
     <thead>
       <tr>
-      <th>#</th>
+        <th>#</th>
         <th>Name</th>
         <th>Price</th>
-        <th>24hr change (%)</th>
+        <th>24hr Change</th>
         <th>Graph</th>
         <th>Watchlist</th>
         <%# <th>7 day chart</th> %>
@@ -21,7 +21,9 @@
       <%counter = 0 %>
       <%@cryptos.each do |crypto| %>
         <tr data-link="<%=crypto_path(crypto)%>" data-clickableindex-target="cryptos" data-action="click->clickableindex#clickable" class = "clicking">
-        <td>  <%=counter += 1%></td>
+          <td>
+            <%=counter += 1%>
+          </td>
           <td>
             <%= link_to(image_tag(crypto.image), crypto_path(crypto),class: "crypto-image")%> <%=crypto.name%>
           </td>
@@ -29,40 +31,39 @@
             £<%= number_with_precision(crypto.price, :precision => 2, :delimiter => ',') %>
           </td>
           <td>
-          <% if crypto.previousdaypercentagechange.negative?() %>
-            <div class = "red-font">
-              <%= '%.2f' % crypto.previousdaypercentagechange %>
-            </div>
-          <% else %>
-            <div class = "green-font">
-              +<%= '%.2f' % crypto.previousdaypercentagechange%>
-            </div>
-          <% end %>
+            <% if crypto.previousdaypercentagechange.negative?() %>
+              <div class = "red-font">
+                <%= '%.2f' % crypto.previousdaypercentagechange %>
+              </div>
+            <% else %>
+              <div class = "green-font">
+                +<%= '%.2f' % crypto.previousdaypercentagechange%>
+              </div>
+            <% end %>
           </td>
           <td>
             <% @price_data = crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
               <% [price.date, price.price] %>
             <% end %>
             <div class="rounded">
-              <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "100px" %>
+              <%= line_chart @price_data, points: false, colors: ['#EE841C'], height: "100px" %>
             </div>
           </td>
           <td>
-             <% if crypto.watchlists.count > 0 %>
+            <% if crypto.watchlists.count > 0 %>
               <%= link_to watchlist_path(crypto.watchlists.first), method: :delete do %>
                 <i class="fas fa-heart" style="font-size:25px; color: red;"></i>
-               <% end %>
+              <% end %>
             <% else %>
-             <%= simple_form_for [ crypto, @watchlist ] do |f| %>
-
-            <button name="button" type="submit" style="border: none;background: none;">
-              <i class="far fa-heart" style="font-size:25px; color: red;"></i>
-            </button>
-            <% end %>
+              <%= simple_form_for [ crypto, @watchlist ] do |f| %>
+                <button name="button" type="submit" style="border: none;background: none;">
+                  <i class="far fa-heart" style="font-size:25px; color: red;"></i>
+                </button>
+              <% end %>
             <% end %>
           </td>
         </tr>
-     <% end %>
+      <% end %>
     </tbody>
   </table>
 </div>

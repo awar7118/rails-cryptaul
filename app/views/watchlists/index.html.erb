@@ -1,6 +1,6 @@
   <div class="banner-articles">
     <div class="main-title">
-      <h1>WATCHLIST</h1>
+      <h1>Watchlist</h1>
     </div>
   </div>
 
@@ -16,9 +16,9 @@
         <%# <th>7 day chart</th> %>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="mb-100">
       <%@watchlists.each do |watchlist| %>
-        <tr>
+        <tr class="clicking">
           <td>
             <%= link_to(image_tag(watchlist.crypto.image), crypto_path(watchlist.crypto),class: "crypto-image")%> <%=watchlist.crypto.name%>
           </td>
@@ -41,7 +41,7 @@
             <% [price.date, price.price] %>
           <% end %>
           <div class="rounded">
-            <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "100px" %>
+            <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#FF840A'], height: "100px" %>
           </div>
         </td>
         <td>

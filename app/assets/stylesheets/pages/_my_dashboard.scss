@@ -101,3 +101,30 @@ table {
   }
 }
 
+#no-holdings-card {
+  padding-top: 250px;
+  margin: auto;
+//   margin-top: 100px;
+//   margin-bottom: 100px;
+//   margin: auto;
+//   background-color: white;
+//   width: 90vw;
+//   padding: 30px;
+//   backdrop-filter: blur( 3.5px );
+//   -webkit-backdrop-filter: blur( 3.5px );
+//   border-radius: 24px;
+//   border: 1px solid rgba(255, 255, 255, 0.027);
+}
+
+.dashboard-main-container {
+  min-height: 75vh;
+  // background: rgba(255, 255, 255, 0.63);
+}
+
+#dashboard-btn {
+  color: #FF840A;
+}
+
+#dashboard-btn:hover {
+  opacity: 0.8;
+}

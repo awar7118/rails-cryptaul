@@ -30,7 +30,13 @@ export default class extends Controller {
     console.log(this.poundsTarget.dataset.price)
     console.log(e.currentTarget.value * this.poundsTarget.dataset.price)
     const calculatedPrice = (e.currentTarget.value * this.poundsTarget.dataset.price)
-    this.poundsTarget.innerText = `You're spending £${calculatedPrice.toFixed(2)}`
+    if (calculatedPrice > parseInt(this.balanceTarget.textContent)){
+      this.poundsTarget.innerText = `Insufficient balance`
+    }
+
+    if (calculatedPrice <= parseInt(this.balanceTarget.textContent)){
+      this.poundsTarget.innerText = `You're spending £${calculatedPrice.toFixed(2)}`
+    }
   }
 }
 
