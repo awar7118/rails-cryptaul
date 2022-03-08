@@ -47,14 +47,9 @@
             <div>
               <button id="myBtn" type="button" class="buy-btn-filled" data-action="click->purchase-modal#expand" > Buy </button>
             </div>
-             <%= simple_form_for [ @crypto, @watchlist ] do |f| %>
 
-            <%= button_tag(type: 'submit') do %>
-            <button name="button" type="submit" style="border: none;background: none;">
-              <i class="fas fa-heart" style="font-size:30px; color: red;"></i>
-            </button>
 
-                <% end %>
+
 
 
             <%# <% if current_user.watchlists.where(crypto_id: @crypto.id).count != 0 %>
@@ -63,13 +58,18 @@
               <%# <i class="far fa-heart" style="font-size:30px"></i> %>
 
             <% if @crypto.watchlists.count > 0 %>
-              <%= link_to 'Remove from watchlist', watchlist_path(@crypto.watchlists.first), method: :delete, class: "add-wl-btn"%>
+              <%= link_to 'remove from watchlist', watchlist_path(@crypto.watchlists.first), method: :delete %>
+               <i class="fas fa-heart" style="font-size:25px; color: red;"></i>
             <% else %>
-              <%= simple_form_for [ @crypto, @watchlist ] do |f| %>
-                <div>
-                  <%= f.submit 'Add to watchlist', class: "add-wl-btn" %>
-                </div>
-              <% end %>
+
+             <%= simple_form_for [ @crypto, @watchlist ] do |f| %>
+
+
+            <button name="button" type="submit" style="border: none;background: none;">
+              <i class="far fa-heart" style="font-size:30px; color: red;"></i>
+            </button>
+
+            <% end %>
             <% end %>
           </div>
           </div>
