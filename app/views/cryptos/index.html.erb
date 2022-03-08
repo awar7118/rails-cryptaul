@@ -27,7 +27,7 @@
     <tbody data-controller="clickableindex">
       <%counter = 0 %>
       <%@cryptos.each do |crypto| %>
-        <tr data-link="<%=crypto_path(crypto)%>, "data-clickableindex-target="cryptos", data-action="click->clickableindex#clickable", class = "clicking">
+        <tr data-link="<%=crypto_path(crypto)%>", data-clickableindex-target="cryptos", data-action="click->clickableindex#clickable", class = "clicking">
         <td>  <%=counter += 1%></td>
           <td>
             <%= link_to(image_tag(crypto.image), crypto_path(crypto),class: "crypto-image")%> <%=crypto.name%>
