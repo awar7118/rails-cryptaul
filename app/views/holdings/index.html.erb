@@ -17,8 +17,6 @@
 
 <div class="dashboard-main-container centered col-8 m-auto">
   <div class="dashboard-cards-container">
-    <div class = "dashboard-row-first">
-      <%# <div class="dashboard-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> %>
       <div class="dashboard-holding-card">
         <h2>Holdings</h2>
         <p>Purchased Value: <br>£ <%= '%.2f' % @holdings.sum(&:purchased_price) %></p>
@@ -29,11 +27,11 @@
                             <% else %>
                               <p>Current Value: <br>£ <%= '%.2f' % @holdings_value %></p>
                             <% end %>
-      </div>
+    </div>
+    <div class="dashboard-row-second">
           <div class="dashboard-coin-of-the-month">
             <h2>Coin of the month</h2>
           </div>
-    <div class="dashboard-row-second">
         <div class="dashboard-small-cards" >
             <h2>balance</h2>
                 <p>£<%= '%.2f' % current_user.balance %></p>
