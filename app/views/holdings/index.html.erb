@@ -98,7 +98,7 @@
                     <% [price.date, price.price] %>
                   <% end %>
                   <div class="rounded">
-                    <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "70px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
+                    <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "200px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
                   </div>
                 </td>
                 <td>
@@ -173,7 +173,7 @@
                     <% [price.date, price.price] %>
                   <% end %>
                   <div class="rounded">
-                    <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "70px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
+                    <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "200px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
                   </div>
                 </td>
                 </tr>

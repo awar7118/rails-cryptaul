@@ -70,6 +70,11 @@
   min-height: 30px;
   width: 120px;
 }
+.sell-btn-filled:hover {
+  text-decoration: none;
+  opacity: 0.8;
+  color: white;
+}
 .wl-inactive {
   background-color:grey;
   color: white;
