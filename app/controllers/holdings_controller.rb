@@ -12,9 +12,12 @@ class HoldingsController < ApplicationController
         @sold_holdings << holding
       end
     end
-    
 
-    start_date = Date.parse(@holdings.select(:purchased_date).to_a.min.purchased_date.strftime('%d/%m/%Y'))
+    if current_user.holdings.exists?
+      start_date = Date.parse(@holdings.select(:purchased_date).to_a.min.purchased_date.strftime('%d/%m/%Y'))
+    else
+      # start_date = Time.at(1614816000).strftime('%d/%m/%Y')
+    end
     end_date = Date.parse(current_user.simulation_date.strftime('%d/%m/%Y'))
     date_range = (start_date..end_date).to_a
 
