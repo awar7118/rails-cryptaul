@@ -12,7 +12,11 @@ class HoldingsController < ApplicationController
 
     date_range.each do |date|
       @holdings_value = @holdings.sum do |holding|
-        holding.crypto.histories.find_by(date: date).price * holding.quantity
+        if date >= holding.purchased_date
+          holding.crypto.histories.find_by(date: date).price * holding.quantity
+        else
+          0
+        end
       end
       @holding_record << [date, @holdings_value]
     end
