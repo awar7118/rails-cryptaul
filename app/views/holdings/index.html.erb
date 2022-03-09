@@ -89,11 +89,11 @@
                   <td>
                   <% if holding.crypto.previousdaypercentagechange.negative?() %>
                     <div class = "red-font">
-                      <%= '%.2f' % holding.crypto.previousdaypercentagechange %>
+                      <%= '%.2f' % holding.crypto.previousdaypercentagechange %>%
                     </div>
                   <% else %>
                     <div class = "green-font">
-                      +<%= '%.2f' % holding.crypto.previousdaypercentagechange%>
+                      +<%= '%.2f' % holding.crypto.previousdaypercentagechange%>%
                     </div>
                   <% end %>
                   </td>
