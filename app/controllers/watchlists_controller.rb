@@ -8,9 +8,13 @@ class WatchlistsController < ApplicationController
       if watchlist.crypto.histories.find_by(date: current_user.simulation_date)
         price_today = watchlist.crypto.histories.find_by(date: current_user.simulation_date).price
         yesterday = current_user.simulation_date - 86_400
-        price_yesterday = watchlist.crypto.histories.find_by(date: yesterday).price
-        watchlist.crypto.price = price_today
-        watchlist.crypto.previousdaypercentagechange = ((price_today - price_yesterday) / price_yesterday) * 100
+        if watchlist.crypto.histories.find_by(date: yesterday).nil?
+          watchlist.crypto.previousdaypercentagechange = 0
+        else
+          price_yesterday = watchlist.crypto.histories.find_by(date: yesterday).price
+          watchlist.crypto.price = price_today
+          watchlist.crypto.previousdaypercentagechange = ((price_today - price_yesterday) / price_yesterday) * 100
+        end
       end
       watchlist.crypto.save
     end
