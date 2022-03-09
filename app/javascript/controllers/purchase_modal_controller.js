@@ -36,7 +36,7 @@ export default class extends Controller {
     }
 
     if (calculatedPrice <= parseInt(this.balanceTarget.textContent)){
-      this.poundsTarget.innerText = `You're spending £${calculatedPrice.toFixed(2)}`
+      this.poundsTarget.innerText = `You're spending £${calculatedPrice.toLocaleString('en-US')}`
       this.confirmTarget.classList.remove("disabled")
     }
   }
