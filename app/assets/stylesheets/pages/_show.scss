@@ -126,15 +126,26 @@
   .product-info-container {
     display: flex;
     flex-direction: row;
-    background-color: white;
     padding: 30px;
+    background-color: white;
+    // box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3.5px );
+    -webkit-backdrop-filter: blur( 3.5px );
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.027);
   }
   .product-graph {
     height: 400px;
-    background-color: white;
     margin-bottom: 20px;
     width: 80vw;
+    background-color: white;
+    // box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3.5px );
+    -webkit-backdrop-filter: blur( 3.5px );
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.027);
   }
+
   .product-info {
     background-color: white;
     width: 100vw;
@@ -143,14 +154,18 @@
     width: 30vw;
     padding: 15px;
     margin-left: 10px;
-    background-color: white;
     height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2em;
     font-family: 'Open Sans', sans-serif;
-
+    background-color: white;
+    // box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3.5px );
+    -webkit-backdrop-filter: blur( 3.5px );
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.027);
   }
   // .product-action {
   //   height: 50vh;
@@ -298,4 +313,22 @@
   text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
   height: 50px;
   width: 40px;
+}
+
+#rounded-graph {
+  background-color: white;
+  // box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 3.5px );
+  -webkit-backdrop-filter: blur( 3.5px );
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.027);
+}
+
+#rounded-graph * {
+  background-color: white;
+  // box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 3.5px );
+  -webkit-backdrop-filter: blur( 3.5px );
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.027);
 }

@@ -16,8 +16,8 @@ import "controllers";
 import "bootstrap";
 import AOS from "aos";
 import 'aos/dist/aos.css';
-
-import "chartkick/chart.js";
+import 'chartkick';
+// import "chartkick/chart.js";
 
 document.addEventListener("turbolinks:load", () => {
   AOS.init();

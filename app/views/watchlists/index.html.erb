@@ -41,7 +41,8 @@
             <% [price.date, price.price] %>
           <% end %>
           <div class="rounded">
-            <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#FF840A'], height: "100px" %>
+            <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
+            hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, colors: ['#EE841C'], height: "100px", width: "350px" %>
           </div>
         </td>
         <td>
