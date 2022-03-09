@@ -4,7 +4,7 @@
     <div class="dashboard-cards-container">
       <div class="dashboard-row-first">
         <div class="dashboard-card-graph">
-          <h2>GRAPH</h2>
+          <h2>ACTIVE HOLDINGS</h2>
             <div class="">
     <%= line_chart @holding_record, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "200px" %>
   </div>
@@ -13,12 +13,21 @@
             <div class="dashboard-small-cards">
               <h2>COIN OF THE DAY 🚀</h2>
             </div>
-          <div class="dashboard-small-cards" >
-              <h2>BALANCE 💰</h2>
-                  <p>£<%= '%.2f' % current_user.balance %></p>
+          <div class="dashboard-small-cards">
+              <h2>ACTIVE HOLDINGS</h2>
+              <div class="small-card-body">
+              <p>You've spent <br>£ <%= '%.2f' % @holdings.sum(&:purchased_price) %></p>
+              <% if @holdings_value > @holdings.sum(&:purchased_price) %>
+                <p style='color: green'>Current return <br>£ <%= '%.2f' % @holdings_value %></p>
+              <% elsif @holdings_value < @holdings.sum(&:purchased_price) %>
+                <p style='color: red'>Current return <br>£ <%= '%.2f' % @holdings_value %></p>
+              <% else %>
+                <p>Current return<br>£ <%= '%.2f' % @holdings_value %></p>
+              <% end %>
+              </div>
             </div>
             <div class="dashboard-small-cards">
-              <h2>HOLDINGS</h2>
+              <h2>SOLD HOLDINGS</h2>
               <div class="small-card-body">
               <p>You've spent <br>£ <%= '%.2f' % @holdings.sum(&:purchased_price) %></p>
               <% if @holdings_value > @holdings.sum(&:purchased_price) %>
