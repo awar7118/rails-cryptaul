@@ -12,7 +12,7 @@
         <th>Name</th>
         <th>Price</th>
         <th>24hr Change</th>
-        <th>Graph</th>
+        <th><span class="white-space">aaaaaaaaaaa</span>Graph<span class="white-space">aaaaaaaaaaa</span></th>
         <th>Watchlist</th>
         <%# <th>7 day chart</th> %>
       </tr>
@@ -41,13 +41,13 @@
               </div>
             <% end %>
           </td>
-          <td>
+          <td class="graph-td">
             <% @price_data = crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
               <% [price.date, price.price] %>
             <% end %>
-            <div class="rounded center">
+            <div class="graph-img-cryptos">
               <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
-              hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, colors: ['#EE841C'], height: "100px", width: "350px" %>
+              hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, colors: ['#EE841C'], height: "80px", width: "350px" %>
             </div>
           </td>
           <td>
