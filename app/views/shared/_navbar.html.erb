@@ -24,12 +24,13 @@
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+
             <li><%= link_to 'Reset Holdings',reset_holdings_path, class: "dropdown-item" %></li>
           </ul>
         </div>
         </li>
       </ul>
-      <ul style="height: 25px">
+      <ul class="simulation-navbar">
         <li style="margin-right:20px">
           <h6>Simulation Date: <%= current_user.simulation_date.strftime('%d/%m/%Y') %></h6>
         </li>
