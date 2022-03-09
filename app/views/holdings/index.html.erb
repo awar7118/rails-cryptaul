@@ -16,26 +16,27 @@
           <div class="dashboard-small-cards">
               <h2>ACTIVE HOLDINGS</h2>
               <div class="small-card-body">
-              <p>You've spent <br>£ <%= '%.2f' % @holdings.sum(&:purchased_price) %></p>
-              <% if @holdings_value > @holdings.sum(&:purchased_price) %>
-                <p style='color: green'>Current return <br>£ <%= '%.2f' % @holdings_value %></p>
-              <% elsif @holdings_value < @holdings.sum(&:purchased_price) %>
-                <p style='color: red'>Current return <br>£ <%= '%.2f' % @holdings_value %></p>
+              <p>You've spent <br>£ <%= '%.2f' % @active_holdings.sum(&:purchased_price) %></p>
+              <% if @active_holdings_value > @active_holdings.sum(&:purchased_price) %>
+                <p style='color: green'>Current return <br>£ <%= '%.2f' % @active_holdings_value %></p>
+              <% elsif @active_holdings_value < @active_holdings.sum(&:purchased_price) %>
+                <p style='color: red'>Current return <br>£ <%= '%.2f' % @active_holdings_value %></p>
               <% else %>
-                <p>Current return<br>£ <%= '%.2f' % @holdings_value %></p>
+                <p>Current return<br>£ <%= '%.2f' % @active_holdings_value %></p>
               <% end %>
               </div>
             </div>
             <div class="dashboard-small-cards">
-              <h2>SOLD HOLDINGS</h2>
+              <h2>OVERALL RETURN</h2>
               <div class="small-card-body">
-              <p>You've spent <br>£ <%= '%.2f' % @holdings.sum(&:purchased_price) %></p>
-              <% if @holdings_value > @holdings.sum(&:purchased_price) %>
-                <p style='color: green'>Current return <br>£ <%= '%.2f' % @holdings_value %></p>
-              <% elsif @holdings_value < @holdings.sum(&:purchased_price) %>
-                <p style='color: red'>Current return <br>£ <%= '%.2f' % @holdings_value %></p>
+              <% sum_spent = (@sold_holdings.sum(&:purchased_price) + @active_holdings.sum(&:purchased_price))%>
+              <p>You've spent <br>£ <%= '%.2f' % sum_spent %></p>
+              <% if @sold_holdings_value > sum_spent %>
+                <p style='color: green'>You've earnt <br>£ <%= '%.2f' % @sold_holdings_value %></p>
+              <% elsif @sold_holdings_value < sum_spent %>
+                <p style='color: red'>You've earnt <br>£ <%= '%.2f' % @sold_holdings_value %></p>
               <% else %>
-                <p>Current return<br>£ <%= '%.2f' % @holdings_value %></p>
+                <p>You've earnt<br>£ <%= '%.2f' % @sold_holdings_value %></p>
               <% end %>
               </div>
             </div>
@@ -132,7 +133,7 @@
       <div class="dashboard-holding-card">
       <h2>SOLD HOLDINGS</h2>
         <% if @sold_holdings.count == 0 %>
-          <p>You haven't sold any cryptos yet.</p><br>
+          <p>You haven't sold any cryptos yet.</p>
           <p>When you do, they'll appear here.</p>
         <% else %>
           <table class='table'>

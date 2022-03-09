@@ -35,6 +35,9 @@ class HoldingsController < ApplicationController
       @holding_record << [date, holdings_value]
     end
     #  Data for the active holdings card
+    @active_holdings_value = @active_holdings.sum do |holding|
+      holding.crypto.histories.find_by(date: current_user.simulation_date).price * holding.quantity
+    end
 
     # Data for the sold holdings card
     @sold_holdings_value = @sold_holdings.sum do |holding|
