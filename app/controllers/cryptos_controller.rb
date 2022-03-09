@@ -5,9 +5,15 @@ class CryptosController < ApplicationController
   def index
     @watchlist = Watchlist.new
     @cryptos = Crypto.all
+
+    # 24 hour percentage change
     @cryptos.each do |crypto|
       if crypto.histories.find_by(date: current_user.simulation_date)
-        crypto.price = crypto.histories.find_by(date: current_user.simulation_date).price
+        price_today = crypto.histories.find_by(date: current_user.simulation_date).price
+        yesterday = current_user.simulation_date - 86_400
+        price_yesterday = crypto.histories.find_by(date: yesterday).price
+        crypto.price = price_today
+        crypto.previousdaypercentagechange = ((price_today - price_yesterday) / price_yesterday) * 100
       end
       crypto.save
     end
