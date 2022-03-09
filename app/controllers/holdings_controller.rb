@@ -18,12 +18,18 @@ class HoldingsController < ApplicationController
       if holding.crypto.histories.find_by(date: current_user.simulation_date)
         price_today = holding.crypto.histories.find_by(date: current_user.simulation_date).price
         yesterday = current_user.simulation_date - 86_400
-        price_yesterday = holding.crypto.histories.find_by(date: yesterday).price
-        holding.crypto.price = price_today
-        holding.crypto.previousdaypercentagechange = ((price_today - price_yesterday) / price_yesterday) * 100
+        if holding.crypto.histories.find_by(date: yesterday).nil?
+          holding.crypto.previousdaypercentagechange = 0
+        else
+          price_yesterday = holding.crypto.histories.find_by(date: yesterday).price
+          holding.crypto.price = price_today
+          holding.crypto.previousdaypercentagechange = ((price_today - price_yesterday) / price_yesterday) * 100
+        end
       end
       holding.crypto.save
     end
+
+
 
     if current_user.holdings.exists?
       start_date = Date.parse(@holdings.select(:purchased_date).to_a.min.purchased_date.strftime('%d/%m/%Y'))
