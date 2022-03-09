@@ -17,11 +17,23 @@ import "bootstrap";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import 'chartkick';
+import { initSweetalert } from './init_sweetalert';
+
+
+
 // import "chartkick/chart.js";
 
 document.addEventListener("turbolinks:load", () => {
   AOS.init();
   $('[data-toggle="tooltip"]').tooltip()
+  initSweetalert('#sweet-alert-demo', {
+    title: "A nice alert",
+    text: "This is a great alert, isn't it?",
+    icon: "success"
+  }, () => {
+    const link = document.querySelector('#confirm_link');
+    link.click();
+  });
 });
 
 // $(function () {
