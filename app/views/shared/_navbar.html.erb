@@ -17,16 +17,21 @@
         <li>
           <%= link_to 'Learn More', articles_path%>
         </li>
-        <li>
-          <img class="avatar-bordered nav-avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/solkarim91" />
-        </li>
-        <li>
-          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+        <li class ="nav-item dropdown">
+        <div class="dropdown">
+          <button class="btn btn-basic dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img class="avatar-bordered nav-avatar" alt="avatar" src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1610312873/fuotzoy9lzmv0rppau6j.jpg" />
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+            <li><%= link_to 'Reset Holdings',reset_holdings_path, class: "dropdown-item" %></li>
+          </ul>
+        </div>
         </li>
       </ul>
       <ul style="height: 25px">
         <li style="margin-right:20px">
-          <h6><strong>Simulation Date: <%= current_user.simulation_date.strftime('%d/%m/%Y') %></strong></h6>
+          <h6>Simulation Date: <%= current_user.simulation_date.strftime('%d/%m/%Y') %></h6>
         </li>
         <li>
           <%= link_to '+1 Day', change_simulation_path(current_user), style:'color:#FF840A', id:'date-sim-btn' %>
@@ -45,5 +50,3 @@
     <% end %>
   </div>
 </nav>
-
-<%# render different options depending whether user signed in %>

@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["purchase", "modal", "pounds", "price", "balance", "quantity", "sell"]
+  static targets = ["purchase", "modal", "pounds", "price", "balance", "quantity", "confirm"]
 
   connect() {
     console.log(parseInt(this.balanceTarget.textContent))
@@ -32,10 +32,12 @@ export default class extends Controller {
     const calculatedPrice = (e.currentTarget.value * this.poundsTarget.dataset.price)
     if (calculatedPrice > parseInt(this.balanceTarget.textContent)){
       this.poundsTarget.innerText = `Insufficient balance`
+      this.confirmTarget.classList.add("disabled")
     }
 
     if (calculatedPrice <= parseInt(this.balanceTarget.textContent)){
       this.poundsTarget.innerText = `You're spending £${calculatedPrice.toFixed(2)}`
+      this.confirmTarget.classList.remove("disabled")
     }
   }
 }
@@ -67,41 +69,5 @@ if (span) {
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
-  }
-}
-
-// Get the sell modal
-var sellmodal = document.getElementById("mySellModal");
-
-// Get the sell modal
-var mymodal = document.getElementById("myModal");
-
-// Get the button that opens the sell modal
-var btn = document.getElementById("mySellBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-if (btn) {
-  btn.onclick = function() {
-  sellmodal.style.display = "block";
-  }
-}
-// When the user clicks on <span> (x), close the modal
-if (span) {
-  span.onclick = function() {
-    if (mymodal) {
-      mymodal.style.display = "none";
-    }
-  }
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    if (mymodal) {
-      mymodal.style.display = "none";
-    }
   }
 }

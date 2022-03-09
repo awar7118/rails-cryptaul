@@ -94,6 +94,18 @@
   padding: 10px 20px;
   border: none;
 }
+.disabled{
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
+  background-color: rgb(187, 184, 184);
+  color: grey;
+  border-color: rgb(187, 184, 184);
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-shadow: none;
+}
 
 #date-sim-show {
   background-color: #FF840A;
