@@ -139,31 +139,76 @@
     background-color: white;
     width: 100vw;
   }
+}
+
+
+  // BUY & WATCHLIST(HEART) CARD
+  //  .body {
+  //   -webkit-transform: perspective(500px);
+  //   -webkit-transform-style: preserve-3d;
+  // }
+
+
   .purchase-container {
     width: 30vw;
     padding: 15px;
     margin-left: 10px;
-    background-color: white;
     height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2em;
+    padding-top: 45px;
     font-family: 'Open Sans', sans-serif;
-
-  }
-  // .product-action {
-  //   height: 50vh;
-  //   width: 100vw;
-  //   position: sticky;
-  //   bottom: 120px;
-  //   align-self: flex-end;
-  //   display: flex;
-  //   flex-direction: column;
-  //   padding: 30px;
-  //   background-color: white;
-    // border-top: grey 2px solid;
+    border-radius: 50px;
+    width: 30rem;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+  //   overflow: hidden;
+  //   transform: rotatex(80deg) translatey(-200px) translatez(-100px);
+  //   box-shadow: 0px 30px 70px rgba(0,0,0, 0.5);
+  //   transition:.7s;
   // }
+  // .rounded {
+  //   border-radius: 40px !important;
+   }
+
+
+
+
+  // .purchase-container:before {
+  //   content: "";
+  //   position: absolute;
+    // background: inherit;
+    // z-index: -1;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
+    // box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+    // filter: blur(10px);
+    // margin: -20px;
+    // }
+
+    // .purchase-container:hover{
+    //   transform: rotatex(0deg);
+    //   transform: rotatez(0deg);
+    //   transition:.6s;
+    //   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+
+    // }
+
+
+    .product-action {
+    height: 50vh;
+    width: 100vw;
+    position: sticky;
+    bottom: 120px;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: white;
+    border-top: grey 2px solid;
+  }
 
   .product-action .title-watchlist {
     justify-content: space-between;
@@ -267,7 +312,7 @@
     text-decoration: none;
     cursor: pointer;
   }
- }
+
 
  #date-sim-show {
    background-color: #FF840A;
