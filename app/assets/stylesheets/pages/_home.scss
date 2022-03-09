@@ -8,12 +8,11 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background-color: #ffffff;
+  background: rgba(209, 208, 208, 0.185);
 }
 
 .landing-main {
   padding-top: 100px;
-  background: rgba(255, 255, 255, 0.452);
 }
 
 .center {
@@ -21,13 +20,12 @@ body {
 }
 
 .info-container {
-  background-color: white;
   width: 90vw;
   margin: auto;
   padding: 30px;
   margin-bottom: 100px;
-  background: rgba(243, 243, 243, 0.267);
-  // box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
+  background-color: white;
+  box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.164);
   backdrop-filter: blur( 3.5px );
   -webkit-backdrop-filter: blur( 3.5px );
   border-radius: 24px;
@@ -97,4 +95,18 @@ h5 {
   min-height: 100vh;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.table {
+  background-color: white;
+  // box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 3.5px );
+  -webkit-backdrop-filter: blur( 3.5px );
+  border-radius: 12px;
+  border: 20px solid rgba(255, 255, 255, 0.027);
+}
+
+#cryptos-table, #watchlist-table {
+  box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.164);
+  margin-bottom: 50px;
 }

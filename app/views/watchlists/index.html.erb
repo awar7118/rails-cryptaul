@@ -5,7 +5,7 @@
   </div>
 
 <div class= "container centered col-8 m-auto">
-  <table class='table center'>
+  <table class='table center', id="watchlist-table">
     <thead>
       <tr>
         <th>Name</th>
@@ -28,27 +28,28 @@
           <td>
           <% if watchlist.crypto.previousdaypercentagechange.negative?() %>
           <div class = "red-font">
-          <%= '%.2f' %watchlist.crypto.previousdaypercentagechange %>%
+          <%= number_with_precision(watchlist.crypto.previousdaypercentagechange, :precision => 2, :delimiter => ',') %>%
           </div>
           <% else %>
           <div class = "green-font">
-          <%= '%.2f' %watchlist.crypto.previousdaypercentagechange %>%
+          <%= number_with_precision(watchlist.crypto.previousdaypercentagechange, :precision => 2, :delimiter => ',') %>%
           </div>
           <% end %>
           </td>
-            <td>
-             <% @price_data = watchlist.crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
-              <% [price.date, price.price] %>
-            <% end %>
-            <div class="rounded">
-              <%= line_chart @price_data, points: false, colors: ['#EE841C'], height: "100px" %>
-            </div>
-          </td>
           <td>
-            <%= link_to watchlist_path(watchlist), method: :delete do%>
-            <i class="fas fa-heart" style="font-size:25px; color: red;"></i>
-                <% end %>
-          </td>
+          <% @price_data = watchlist.crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
+            <% [price.date, price.price] %>
+          <% end %>
+          <div class="rounded">
+            <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
+            hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, colors: ['#EE841C'], height: "100px", width: "350px" %>
+          </div>
+        </td>
+        <td>
+          <%= link_to watchlist_path(watchlist), method: :delete do%>
+          <i class="fas fa-heart" style="font-size:25px; color: red;"></i>
+               <% end %>
+        </td>
         </tr>
      <% end %>
     </tbody>

@@ -6,7 +6,7 @@
         <div class="dashboard-card-graph">
           <h2>PORTFOLIO PROGRESS</h2>
             <div class="">
-    <%= line_chart @holding_record, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "200px" %>
+    <%= line_chart @holding_record, library: { hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "200px" %>
   </div>
         </div>
       <div class="dashboard-row-second">
@@ -22,13 +22,13 @@
           <div class="dashboard-small-cards">
               <h2>ACTIVE HOLDINGS (<%= @active_holdings.count %>)</h2>
               <div class="small-card-body">
-              <p>You've spent <br>£ <%= '%.2f' % @active_holdings.sum(&:purchased_price) %></p>
+              <p>You've spent <br>£ <%= number_with_precision(@active_holdings.sum(&:purchased_price), :precision => 2, :delimiter => ',') %></p>
               <% if @active_holdings_value > @active_holdings.sum(&:purchased_price) %>
-                <p style='color: green'>Current return <br>£ <%= '%.2f' % @active_holdings_value %></p>
+                <p style='color: green'>Current return <br>£ <%= number_with_precision(@active_holdings_value, :precision => 2, :delimiter => ',') %></p>
               <% elsif @active_holdings_value < @active_holdings.sum(&:purchased_price) %>
-                <p style='color: red'>Current return <br>£ <%= '%.2f' % @active_holdings_value %></p>
+                <p style='color: red'>Current return <br>£ <%= number_with_precision(@active_holdings_value, :precision => 2, :delimiter => ',') %></p>
               <% else %>
-                <p>Current return<br>£ <%= '%.2f' % @active_holdings_value %></p>
+                <p>Current return<br>£ <%= number_with_precision(@active_holdings_value, :precision => 2, :delimiter => ',') %></p>
               <% end %>
               </div>
             </div>
@@ -36,16 +36,16 @@
               <h2>SOLD HOLDINGS (<%= @sold_holdings.count %>)</h2>
               <div class="small-card-body">
               <% sum_spent = (@sold_holdings.sum(&:purchased_price) + @active_holdings.sum(&:purchased_price))%>
-              <p>You've spent <br>£ <%= '%.2f' % sum_spent %></p>
+              <p>You've spent <br>£ <%= number_with_precision(sum_spent, :precision => 2, :delimiter => ',') %></p>
               <% if @sold_holdings_value > sum_spent %>
-                <p style='color: green'>You've sold <br>£ <%= '%.2f' % @sold_holdings_value %></p>
+                <p style='color: green'>You've sold <br>£ <%= number_with_precision(@sold_holdings_value, :precision => 2, :delimiter => ',') %></p>
               <% elsif @sold_holdings_value < sum_spent %>
-                <p style='color: red'>You've sold <br>£ <%= '%.2f' % @sold_holdings_value %></p>
+                <p style='color: red'>You've sold <br>£ <%= number_with_precision(@sold_holdings_value, :precision => 2, :delimiter => ',') %></p>
               <% else %>
-                <p>You've sold<br>£ <%= '%.2f' % @sold_holdings_value %></p>
+                <p>You've sold<br>£ <%= number_with_precision(@sold_holdings_value, :precision => 2, :delimiter => ',') %></p>
               <% end %>
               <p>Return<br>
-              £<%= '%.2f' % (@sold_holdings_value - sum_spent) %></p>
+              £<%= number_with_precision((@sold_holdings_value - sum_spent), :precision => 2, :delimiter => ',') %></p>
               </div>
             </div>
           </div>
@@ -97,11 +97,11 @@
                   <td>
                   <% if holding.crypto.previousdaypercentagechange.negative?() %>
                     <div class = "red-font">
-                      <%= '%.2f' % holding.crypto.previousdaypercentagechange %>%
+                      <%= number_with_precision(holding.crypto.previousdaypercentagechange, :precision => 2, :delimiter => ',') %>%
                     </div>
                   <% else %>
                     <div class = "green-font">
-                      +<%= '%.2f' % holding.crypto.previousdaypercentagechange%>%
+                      +<%= number_with_precision(holding.crypto.previousdaypercentagechange, :precision => 2, :delimiter => ',')%>%
                     </div>
                   <% end %>
                   </td>
@@ -117,7 +117,8 @@
                     <% [price.date, price.price] %>
                   <% end %>
                   <div class="rounded">
-                    <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "200px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
+                    <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
+              hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "300px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
                   </div>
                 </td>
                 <td>
@@ -192,7 +193,8 @@
                     <% [price.date, price.price] %>
                   <% end %>
                   <div class="rounded">
-                    <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "200px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
+                    <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
+                    hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "300px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
                   </div>
                 </td>
                 </tr>

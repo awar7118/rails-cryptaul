@@ -1,10 +1,10 @@
 <div class="container page-container">
   <div class="container graph-purchase-container">
-    <div class="product-graph rounded">
-      <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#FF840A'], height: "400px", width: "1000px" %>
+    <div class="product-graph">
+      <%= line_chart @price_data, id: 'rounded-graph', library: { hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#FF840A'], height: "400px" %>
     </div>
     <%# <div class="container product-exchange rounded">Current exchange rate</div> %>
-    <div class="purchase-container rounded">
+    <div class="purchase-container">
       <%# Container for purchase area %>
       <div class="sticky" data-purchase-modal-target="modal" data-controller="purchase-modal">
       <!-- The Modal -->
@@ -15,8 +15,8 @@
             <div class="title-exchange">
               <br>
               <h4 style='color'>Buy <%= @crypto.name%></h4>
-              <p>1 <%= @crypto.name %> = £<strong data-purchase-modal-target="price"><%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %></strong></p>
-              <p>Your balance is £<strong data-purchase-modal-target="balance"><%= '%.2f' % current_user.balance %></strong><p>
+              <p>1 <%= @crypto.name %> = £<strong data-purchase-modal-target="price"><%= number_with_precision(@crypto.histories.find_by(date: current_user.simulation_date).price, :precision => 2, :delimiter => ',') %></strong></p>
+              <p>Your balance is £<strong data-purchase-modal-target="balance"><%= number_with_precision(current_user.balance, :precision => 2, :delimiter => ',') %></strong><p>
               <p>Please select the number of <%= @crypto.name %> you'd like to purchase</p>
             </div>
             <%= simple_form_for [ @crypto, @holding ] do |f| %>
@@ -30,7 +30,7 @@
           </div>
         </div>
         <%# Container for pre-buy %>
-        <div class="container product-action rounded" data-purchase-modal-target="purchase">
+        <div class="container product-action" data-purchase-modal-target="purchase">
           <div class="title-watchlist">
             <div class="title">
               <h4><%= @crypto.name%></h4>
@@ -43,7 +43,7 @@
             <img class="rounded-circle"src="<%= @crypto.image %>" height="100px">
             <br><br>
           </div>
-            <p class="center" style="margin-right: -30px; margin-bottom: -1rem;">1 <%= @crypto.name %> = £<%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %></p>
+            <p class="center" style="margin-right: -30px; margin-bottom: -1rem;">1 <%= @crypto.name %> = £<%= number_with_precision(@crypto.histories.find_by(date: current_user.simulation_date).price, :precision => 2, :delimiter => ',') %></p>
           <div class="buy-button center">
             <div>
               <button id="myBtn" type="button" class="buy-btn-filled"> Buy </button>
