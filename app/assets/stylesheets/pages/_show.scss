@@ -128,7 +128,7 @@
     flex-direction: row;
     padding: 30px;
     background-color: white;
-    // box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
+    box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.164);
     backdrop-filter: blur( 3.5px );
     -webkit-backdrop-filter: blur( 3.5px );
     border-radius: 24px;
@@ -139,7 +139,7 @@
     margin-bottom: 20px;
     width: 80vw;
     background-color: white;
-    // box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
+    box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.164);
     backdrop-filter: blur( 3.5px );
     -webkit-backdrop-filter: blur( 3.5px );
     border-radius: 24px;
@@ -161,7 +161,7 @@
     padding: 2em;
     font-family: 'Open Sans', sans-serif;
     background-color: white;
-    // box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
+    box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.164);
     backdrop-filter: blur( 3.5px );
     -webkit-backdrop-filter: blur( 3.5px );
     border-radius: 24px;
@@ -316,8 +316,11 @@
 }
 
 #rounded-graph {
+  height: 400px;
+  margin-bottom: 20px;
+  width: 80vw;
   background-color: white;
-  // box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
+  box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.164);
   backdrop-filter: blur( 3.5px );
   -webkit-backdrop-filter: blur( 3.5px );
   border-radius: 24px;
@@ -325,10 +328,10 @@
 }
 
 #rounded-graph * {
-  background-color: white;
-  // box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 3.5px );
-  -webkit-backdrop-filter: blur( 3.5px );
+  // background-color: white;
+  // box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.164);
+  // backdrop-filter: blur( 3.5px );
+  // -webkit-backdrop-filter: blur( 3.5px );
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.027);
+  // border: 1px solid rgba(255, 255, 255, 0.027);
 }
