@@ -28,6 +28,9 @@
   list-style: none;
   text-align: center;
 }
+.member-card li:first-child {
+  margin-top: 10px;
+}
 
 .member-card img {
   margin-top: 5px;
