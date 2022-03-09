@@ -98,6 +98,7 @@ class HoldingsController < ApplicationController
     current_user.balance = 100
     current_user.holdings.destroy_all
     current_user.save
+    redirect_to my_dashboard_path
   end
 
 
