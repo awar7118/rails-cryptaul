@@ -5,7 +5,7 @@
   </div>
 
 <div class= "container centered col-8 m-auto">
-  <table class='center table', style="float:left mb-10">
+  <table class='center table', id="cryptos-table", style="float:left mb-10">
     <thead>
       <tr>
         <th>#</th>
@@ -45,8 +45,9 @@
             <% @price_data = crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
               <% [price.date, price.price] %>
             <% end %>
-            <div class="rounded">
-              <%= line_chart @price_data, points: false, colors: ['#EE841C'], height: "100px" %>
+            <div class="rounded center">
+              <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
+              hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, colors: ['#EE841C'], height: "100px", width: "350px" %>
             </div>
           </td>
           <td>

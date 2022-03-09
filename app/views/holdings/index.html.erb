@@ -6,7 +6,7 @@
         <div class="dashboard-card-graph">
           <h2>PORTFOLIO PROGRESS</h2>
             <div class="">
-    <%= line_chart @holding_record, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "200px" %>
+    <%= line_chart @holding_record, library: { hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "200px" %>
   </div>
         </div>
       <div class="dashboard-row-second">
@@ -117,7 +117,8 @@
                     <% [price.date, price.price] %>
                   <% end %>
                   <div class="rounded">
-                    <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "200px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
+                    <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
+              hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "300px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
                   </div>
                 </td>
                 <td>
@@ -192,7 +193,8 @@
                     <% [price.date, price.price] %>
                   <% end %>
                   <div class="rounded">
-                    <%= line_chart @price_data, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "200px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
+                    <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
+                    hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "300px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
                   </div>
                 </td>
                 </tr>
