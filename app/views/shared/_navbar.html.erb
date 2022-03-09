@@ -49,4 +49,21 @@
     <% else %>
     <% end %>
   </div>
+  <%# Script to make it scroll back down to the part of the page you was on when it was clicked. %>
+  <%# the if statement says for it to only run on the cryptos controller index page %>
+  <% if params[:controller] == 'cryptos' && params[:action] == 'index' %>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            var scrollpos = sessionStorage.getItem('scrollpos');
+            if (scrollpos) {
+                window.scrollTo(0, scrollpos);
+                sessionStorage.removeItem('scrollpos');
+            }
+        });
+
+        window.addEventListener("beforeunload", function (e) {
+            sessionStorage.setItem('scrollpos', window.scrollY);
+        });
+    </script>
+  <% end %>
 </nav>
