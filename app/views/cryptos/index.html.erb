@@ -41,7 +41,7 @@
               </div>
             <% end %>
           </td>
-          <td>
+          <td id="graph-td">
             <% @price_data = crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
               <% [price.date, price.price] %>
             <% end %>

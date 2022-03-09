@@ -188,7 +188,7 @@
                       <%= ((holding.sold_date - holding.purchased_date).to_i)/86400%> days
                     <% end  %>
                   </td>
-                    <td>
+                    <td id="graph-td">
                   <% @price_data = holding.crypto.histories.map do |price| %>
                     <% [price.date, price.price] %>
                   <% end %>
