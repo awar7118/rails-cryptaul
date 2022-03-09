@@ -28,11 +28,11 @@
           <td>
           <% if watchlist.crypto.previousdaypercentagechange.negative?() %>
           <div class = "red-font">
-          <%= watchlist.crypto.previousdaypercentagechange %>
+          <%= '%.2f' %watchlist.crypto.previousdaypercentagechange %>%
           </div>
           <% else %>
           <div class = "green-font">
-          <%= watchlist.crypto.previousdaypercentagechange %>
+          <%= '%.2f' %watchlist.crypto.previousdaypercentagechange %>%
           </div>
           <% end %>
           </td>
