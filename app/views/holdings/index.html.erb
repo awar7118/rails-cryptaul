@@ -4,7 +4,7 @@
     <div class="dashboard-cards-container">
       <div class="dashboard-row-first">
         <div class="dashboard-card-graph">
-          <h2>ACTIVE HOLDINGS</h2>
+          <h2>PORTFOLIO PROGRESS</h2>
             <div class="">
     <%= line_chart @holding_record, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "200px" %>
   </div>
@@ -20,7 +20,7 @@
 
             </div>
           <div class="dashboard-small-cards">
-              <h2>ACTIVE HOLDINGS</h2>
+              <h2>ACTIVE HOLDINGS (<%= @active_holdings.count %>)</h2>
               <div class="small-card-body">
               <p>You've spent <br>£ <%= '%.2f' % @active_holdings.sum(&:purchased_price) %></p>
               <% if @active_holdings_value > @active_holdings.sum(&:purchased_price) %>
@@ -33,23 +33,25 @@
               </div>
             </div>
             <div class="dashboard-small-cards">
-              <h2>OVERALL RETURN</h2>
+              <h2>SOLD HOLDINGS (<%= @sold_holdings.count %>)</h2>
               <div class="small-card-body">
               <% sum_spent = (@sold_holdings.sum(&:purchased_price) + @active_holdings.sum(&:purchased_price))%>
               <p>You've spent <br>£ <%= '%.2f' % sum_spent %></p>
               <% if @sold_holdings_value > sum_spent %>
-                <p style='color: green'>You've earnt <br>£ <%= '%.2f' % @sold_holdings_value %></p>
+                <p style='color: green'>You've sold <br>£ <%= '%.2f' % @sold_holdings_value %></p>
               <% elsif @sold_holdings_value < sum_spent %>
-                <p style='color: red'>You've earnt <br>£ <%= '%.2f' % @sold_holdings_value %></p>
+                <p style='color: red'>You've sold <br>£ <%= '%.2f' % @sold_holdings_value %></p>
               <% else %>
-                <p>You've earnt<br>£ <%= '%.2f' % @sold_holdings_value %></p>
+                <p>You've sold<br>£ <%= '%.2f' % @sold_holdings_value %></p>
               <% end %>
+              <p>Return<br>
+              £<%= '%.2f' % (@sold_holdings_value - sum_spent) %></p>
               </div>
             </div>
           </div>
       </div>
         <div class="dashboard-holding-card">
-          <h2>ACTIVE HOLDINGS</h2>
+          <h2>YOUR PORTFOLIO</h2>
           <% if @active_holdings.count == 0 %>
             <p>You don't have any active holdings at the moment. Choose a coin to invest in!</p>
             <%= link_to "Browse cryptos", cryptos_path, class: "sell-btn-filled" %>
