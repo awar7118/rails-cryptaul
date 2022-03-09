@@ -73,6 +73,9 @@ window.onclick = function(event) {
 // Get the sell modal
 var sellmodal = document.getElementById("mySellModal");
 
+// Get the sell modal
+var mymodal = document.getElementById("myModal");
+
 // Get the button that opens the sell modal
 var btn = document.getElementById("mySellBtn");
 
@@ -88,13 +91,17 @@ if (btn) {
 // When the user clicks on <span> (x), close the modal
 if (span) {
   span.onclick = function() {
-  sellmodal.style.display = "none";
+    if (mymodal) {
+      mymodal.style.display = "none";
+    }
   }
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
-    sellmodal.style.display = "none";
+    if (mymodal) {
+      mymodal.style.display = "none";
+    }
   }
 }
