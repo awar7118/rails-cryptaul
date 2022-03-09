@@ -76,9 +76,9 @@
                     £<%= number_with_precision(holding.purchased_price, :precision => 2, :delimiter => ',') %>
                   </td>
                   <td style="background-color:#D3D3D3">
-                    £<%= number_with_precision((holding.crypto.histories.find_by(date: current_user.simulation_date).price * holding.quantity), :precision => 2, :delimiter => ',') %>
+                    £<%= number_with_precision((holding.crypto.price * holding.quantity), :precision => 2, :delimiter => ',') %>
                   </td>
-                  <% current_return = ((holding.crypto.histories.find_by(date: current_user.simulation_date).price * holding.quantity) - holding.purchased_price) %>
+                  <% current_return = ((holding.crypto.price * holding.quantity) - holding.purchased_price) %>
                   <% if (current_return < 0)  %>
                     <td style="color:red">
                   <% else %>
@@ -89,11 +89,11 @@
                   <td>
                   <% if holding.crypto.previousdaypercentagechange.negative?() %>
                     <div class = "red-font">
-                      <%= '%.2f' % holding.crypto.previousdaypercentagechange %>
+                      <%= '%.2f' % holding.crypto.previousdaypercentagechange %>%
                     </div>
                   <% else %>
                     <div class = "green-font">
-                      +<%= '%.2f' % holding.crypto.previousdaypercentagechange%>
+                      +<%= '%.2f' % holding.crypto.previousdaypercentagechange%>%
                     </div>
                   <% end %>
                   </td>
