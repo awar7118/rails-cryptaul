@@ -28,11 +28,11 @@
           <td>
           <% if watchlist.crypto.previousdaypercentagechange.negative?() %>
           <div class = "red-font">
-          <%= '%.2f' %watchlist.crypto.previousdaypercentagechange %>%
+          <%= number_with_precision(watchlist.crypto.previousdaypercentagechange, :precision => 2, :delimiter => ',') %>%
           </div>
           <% else %>
           <div class = "green-font">
-          <%= '%.2f' %watchlist.crypto.previousdaypercentagechange %>%
+          <%= number_with_precision(watchlist.crypto.previousdaypercentagechange, :precision => 2, :delimiter => ',') %>%
           </div>
           <% end %>
           </td>
