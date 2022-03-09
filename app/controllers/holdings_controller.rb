@@ -6,9 +6,9 @@ class HoldingsController < ApplicationController
     @active_holdings = []
     @sold_holdings = []
     @holdings.each do |holding|
-      if holding.sold_date.nil?
+      if current_user.simulation_date >= holding.purchased_date && (holding.sold_date == nil || current_user.simulation_date < holding.sold_date)
         @active_holdings << holding
-      else
+      elsif current_user.simulation_date >= holding.purchased_date && (holding.sold_date != nil || current_user.simulation_date >= holding.sold_date)
         @sold_holdings << holding
       end
     end
@@ -23,19 +23,25 @@ class HoldingsController < ApplicationController
 
     @holding_record = []
 
+    # Data for the graph - active holdings
     date_range.each do |date|
-      @holdings_value = @holdings.sum do |holding|
-        if date >= holding.purchased_date
+      holdings_value = @holdings.sum do |holding|
+        if date >= holding.purchased_date && (holding.sold_date == nil || date < holding.sold_date)
           holding.crypto.histories.find_by(date: date).price * holding.quantity
         else
           0
         end
       end
-      @holding_record << [date, @holdings_value]
+      @holding_record << [date, holdings_value]
+    end
+    #  Data for the active holdings card
+    @active_holdings_value = @active_holdings.sum do |holding|
+      holding.crypto.histories.find_by(date: current_user.simulation_date).price * holding.quantity
     end
 
-    @holdings_value = @holdings.sum do |holding|
-      holding.crypto.histories.find_by(date: current_user.simulation_date).price * holding.quantity
+    # Data for the sold holdings card
+    @sold_holdings_value = @sold_holdings.sum do |holding|
+      holding.crypto.histories.find_by(date: holding.sold_date).price * holding.quantity
     end
   end
 
