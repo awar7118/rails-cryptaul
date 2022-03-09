@@ -93,6 +93,15 @@ class HoldingsController < ApplicationController
     redirect_to(request.referrer)
   end
 
+  def reset_holdings
+    current_user.set_simulation_date
+    current_user.balance = 100
+    current_user.holdings.destroy_all
+    current_user.save
+    redirect_to my_dashboard_path
+  end
+
+
   # def advance_date_index
   #   puts 'advancing date..'
   #   current_user.simulation_date = current_user.simulation_date.advance(days: 1)
