@@ -110,13 +110,13 @@
                       <%= ((current_user.simulation_date - holding.purchased_date).to_i)/86400%> days
                     <% end  %>
                   </td>
-                    <td>
-                  <% @price_data = holding.crypto.histories.map do |price| %>
+                  <td>
+                    <% @price_data = holding.crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
                     <% [price.date, price.price] %>
                   <% end %>
                   <div>
                     <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
-              hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "300px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
+            hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "300px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
                   </div>
                 </td>
                 <td>
@@ -187,8 +187,8 @@
                     <% end  %>
                   </td>
                   <td class="graph-td">
-                      <% @price_data = holding.crypto.histories.map do |price| %>
-                        <% [price.date, price.price] %>
+                    <% @price_data = holding.crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
+                      <% [price.date, price.price] %>
                       <% end %>
                     <div class="graph-img-dashboard">
                       <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
