@@ -65,7 +65,7 @@
    }
 
   .title {
-    margin-bottom: 20px;
+    margin: 40px 0px 20px 0px;
   }
 
   .button {
@@ -80,29 +80,6 @@
     justify-content: center;
     margin: auto;
     font-size: 16px;
-  }
-  .buy-button button {
-    padding: 0;
-  }
-  .product-similar {
-    min-height: 200px;
-    background-color: grey;
-  }
-  .expanded {
-    background-color: pink;
-  }
-  .purchase-modal {
-    height: 500px;
-    width: 100vw;
-    bottom: 120px;
-    align-self: flex-end;
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: white;
-    // border-top: grey 2px solid;
-    align-items: stretch;
   }
   /* The Modal (background) */
   .modal {
@@ -168,15 +145,15 @@
   position: relative;
 }
 
-.watchlist-icon {
-  border-radius: 35px;
-  font-size: 18px;
-  padding: 10px 0px;
-  text-decoration: none;
-  text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
-  height: 50px;
-  width: 40px;
-}
+// .watchlist-icon {
+//   border-radius: 35px;
+//   font-size: 18px;
+//   padding: 10px 0px;
+//   text-decoration: none;
+//   text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+//   height: 50px;
+//   width: 40px;
+// }
 
 #rounded-graph {
   height: 400px;
@@ -201,4 +178,9 @@
 
 .p:center {
   margin-right: -30px;
+}
+#watchlist-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
