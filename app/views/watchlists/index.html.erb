@@ -6,52 +6,56 @@
 
 <div class= "container centered col-8 m-auto">
   <table class='table center', id="watchlist-table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>24hr change (%)</th>
-        <th><span class="white-space">aaaaaaaaaaa</span>Graph<span class="white-space">aaaaaaaaaaa</span></th>
-        <th>Watchlist</th>
-        <%# <th>7 day chart</th> %>
-      </tr>
-    </thead>
-    <tbody class="mb-100">
-      <%@watchlists.each do |watchlist| %>
-        <tr class="clicking">
-          <td>
-            <%= link_to(image_tag(watchlist.crypto.image), crypto_path(watchlist.crypto),class: "crypto-image")%> <%=watchlist.crypto.name%>
-          </td>
-          <td>
-            £<%= number_with_precision(watchlist.crypto.histories.last.price, :precision => 2, :delimiter => ',') %>
-          </td>
-          <td>
-          <% if watchlist.crypto.previousdaypercentagechange.negative?() %>
-          <div class = "red-font">
-          <%= number_with_precision(watchlist.crypto.previousdaypercentagechange, :precision => 2, :delimiter => ',') %>%
-          </div>
-          <% else %>
-          <div class = "green-font">
-          <%= number_with_precision(watchlist.crypto.previousdaypercentagechange, :precision => 2, :delimiter => ',') %>%
-          </div>
-          <% end %>
-          </td>
-          <td class="graph-td">
-          <% @price_data = watchlist.crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
-            <% [price.date, price.price] %>
-          <% end %>
-          <div class="graph-img-watchlist">
-            <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
-            hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, colors: ['#EE841C'], height: "80px", width: "350px" %>
-          </div>
-        </td>
-        <td>
-          <%= link_to watchlist_path(watchlist), method: :delete do%>
-          <i class="fas fa-heart" style="font-size:25px; color: red;"></i>
-               <% end %>
-        </td>
+    <% if @watchlists.count == 0 %>
+      <p class="center">Add coins to your watchlist and they'll appear here.</p>
+    <% else %>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>24hr change (%)</th>
+          <th><span class="white-space">aaaaaaaaaaa</span>Graph<span class="white-space">aaaaaaaaaaa</span></th>
+          <th>Watchlist</th>
+          <%# <th>7 day chart</th> %>
         </tr>
-     <% end %>
-    </tbody>
+      </thead>
+      <tbody class="mb-100" data-controller="clickableindex">
+        <%@watchlists.each do |watchlist| %>
+          <tr data-link="<%=crypto_path(watchlist.crypto)%>" data-clickableindex-target="cryptos" data-action="click->clickableindex#clickable" class = "clicking">
+            <td>
+            <img class="rounded-circle"src="<%= watchlist.crypto.image %>" height="30px"> <%=watchlist.crypto.name%>
+            </td>
+            <td>
+              £<%= number_with_precision(watchlist.crypto.histories.last.price, :precision => 2, :delimiter => ',') %>
+            </td>
+            <td>
+            <% if watchlist.crypto.previousdaypercentagechange.negative?() %>
+            <div class = "red-font">
+            <%= number_with_precision(watchlist.crypto.previousdaypercentagechange, :precision => 2, :delimiter => ',') %>%
+            </div>
+            <% else %>
+            <div class = "green-font">
+            <%= number_with_precision(watchlist.crypto.previousdaypercentagechange, :precision => 2, :delimiter => ',') %>%
+            </div>
+            <% end %>
+            </td>
+            <td class="graph-td">
+            <% @price_data = watchlist.crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
+              <% [price.date, price.price] %>
+            <% end %>
+              <div class="graph-img-watchlist">
+                <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
+                hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, colors: ['#EE841C'], height: "80px", width: "350px" %>
+              </div>
+            </td>
+            <td>
+              <%= link_to watchlist_path(watchlist), method: :delete do%>
+              <i class="fas fa-heart" style="font-size:25px; color: red;"></i>
+              <% end %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    <% end %>
   </table>
 </div>
