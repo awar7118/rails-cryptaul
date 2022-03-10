@@ -13,9 +13,9 @@
       </div>
       <%= simple_form_for [ @crypto, @holding ] do |f| %>
         <div id='modal-form'>
-          <%= f.input :quantity, input_html: {data: {action: "change->purchase-modal#calculatePrice keyup->purchase-modal#calculatePrice", purchase_modal_target: "quantity"}} %>
+          <%= f.input :quantity, label: "How much #{@crypto.name}?", input_html: {data: {action: "change->purchase-modal#calculatePrice keyup->purchase-modal#calculatePrice", purchase_modal_target: "quantity"}} %>
           <%= f.submit 'Confirm Purchase', data: {purchase_modal_target: "confirm"}, class: "d-none", id: "confirm_link" %>
-                <div id="sweet-alert-demo" class="buy-button banner-btn">Confirm Purchase</div>
+          <div id="sweet-alert-demo" class="buy-button banner-btn">Confirm Purchase</div>
         </div>
       <% end %>
       <br>
