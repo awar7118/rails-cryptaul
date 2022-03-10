@@ -1,0 +1,7 @@
+meta_product_name: "Cryptaul"
+meta_title: "Cryptaul - The investment playground for
+crypto newbies"
+meta_description: "Cryptaul is a first-of-it's-kind service which simulates the world of cryptocurrency investment."
+meta_image: "crypto_coin.png" # should exist in `app/assets/images/`
+meta_url: "https://www.cryptaul.xyz/"
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
