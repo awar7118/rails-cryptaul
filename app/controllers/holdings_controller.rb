@@ -119,35 +119,6 @@ class HoldingsController < ApplicationController
     redirect_to my_dashboard_path
   end
 
-
-  # def advance_date_index
-  #   puts 'advancing date..'
-  #   current_user.simulation_date = current_user.simulation_date.advance(days: 1)
-  #   current_user.save
-  #   redirect_to cryptos_path
-  # end
-
-  # def advance_date_week_index
-  #   puts 'advancing date..'
-  #   current_user.simulation_date = current_user.simulation_date.advance(weeks: 1)
-  #   current_user.save
-  #   redirect_to cryptos_path
-  # end
-
-  # def advance_date_show
-  #   puts 'advancing date..'
-  #   current_user.simulation_date = current_user.simulation_date.advance(days: 1)
-  #   current_user.save
-  #   redirect_back(fallback_location: root_path)
-  # end
-
-  # def advance_date_week_show
-  #   puts 'advancing date..'
-  #   current_user.simulation_date = current_user.simulation_date.advance(weeks: 1)
-  #   current_user.save
-  #   redirect_back(fallback_location: root_path)
-  # end
-
   private
 
   def holding_params

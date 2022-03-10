@@ -51,6 +51,10 @@ nav ul li h4 {
   display: block;
 }
 
+nav ul li a:hover {
+  color: #FF840A;
+}
+
 nav ul li button {
   padding: 15px;
   font-family: "Open Sans";
@@ -72,7 +76,7 @@ nav ul li h4:hover {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.1),
     inset 0 0 1px rgba(255, 255, 255, 0.6);
   background: rgba(255, 255, 255, 0.1);
-  color: rgba(0, 0, 0, 0.7);
+  color: #FF840A;
 }
 
 // nav ul li a:hover {
@@ -86,7 +90,7 @@ nav ul li button:hover {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.1),
   inset 0 0 1px rgba(255, 255, 255, 0.6);
   background: rgba(255, 255, 255, 0.1);
-  color: blue;
+  color: #FF840A;
 }
 
 .nav-avatar {
@@ -136,7 +140,7 @@ nav ul li button:hover {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.1),
   inset 0 0 1px rgba(255, 255, 255, 0.6);
   background: rgba(255, 255, 255, 0.1);
-  color: blue;
+  color: #FF840A;
 }
 
 /* Show the dropdown menu on hover */
