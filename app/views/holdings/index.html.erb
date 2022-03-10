@@ -37,15 +37,13 @@
               <div class="small-card-body">
               <% sum_spent = (@sold_holdings.sum(&:purchased_price) + @active_holdings.sum(&:purchased_price))%>
               <p>You've spent <br>£ <%= number_with_precision(sum_spent, :precision => 2, :delimiter => ',') %></p>
-              <% if @sold_holdings_value > sum_spent %>
-                <p style='color: green'>You've sold <br>£ <%= number_with_precision(@sold_holdings_value, :precision => 2, :delimiter => ',') %></p>
-              <% elsif @sold_holdings_value < sum_spent %>
-                <p style='color: red'>You've sold <br>£ <%= number_with_precision(@sold_holdings_value, :precision => 2, :delimiter => ',') %></p>
+              <p>You've sold <br>£ <%= number_with_precision(@sold_holdings_value, :precision => 2, :delimiter => ',') %></p>
+              <% total_return = @sold_holdings_value - sum_spent %>
+              <% if total_return.positive? || total_return == 0 %>
+                <p style='color: green'>Return <br>£ <%= number_with_precision(total_return, :precision => 2, :delimiter => ',') %></p>
               <% else %>
-                <p>You've sold<br>£ <%= number_with_precision(@sold_holdings_value, :precision => 2, :delimiter => ',') %></p>
+                <p style='color: red'>Return <br>£ <%= number_with_precision(total_return, :precision => 2, :delimiter => ',') %></p>
               <% end %>
-              <p>Return<br>
-              £<%= number_with_precision((@sold_holdings_value - sum_spent), :precision => 2, :delimiter => ',') %></p>
               </div>
             </div>
           </div>
@@ -112,13 +110,13 @@
                       <%= ((current_user.simulation_date - holding.purchased_date).to_i)/86400%> days
                     <% end  %>
                   </td>
-                    <td>
-                  <% @price_data = holding.crypto.histories.map do |price| %>
+                  <td>
+                    <% @price_data = holding.crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
                     <% [price.date, price.price] %>
                   <% end %>
-                  <div class="rounded">
+                  <div>
                     <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
-              hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "300px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
+            hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "300px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
                   </div>
                 </td>
                 <td>
@@ -154,11 +152,11 @@
                 <th>Sold for</th>
                 <th>Return</th>
                 <th>Length of holding</th>
-                <th>Graph</th>
+                <th><span class="white-space">aaaaaaaaaaa</span>Graph<span class="white-space">aaaaaaaaaaa</span></th>
                 <%# <th>7 day chart</th> %>
               </tr>
             </thead>
-            <tbody data-controller="clickableindex">
+            <tbody data-controller="clickableindex" style="padding: 0;">
               <%@sold_holdings.each do |holding| %>
                 <tr data-link="<%=crypto_path(holding.crypto)%>" data-clickableindex-target="cryptos" data-action="click->clickableindex#clickable" class = "clicking">
                   <td>
@@ -188,15 +186,15 @@
                       <%= ((holding.sold_date - holding.purchased_date).to_i)/86400%> days
                     <% end  %>
                   </td>
-                    <td>
-                  <% @price_data = holding.crypto.histories.map do |price| %>
-                    <% [price.date, price.price] %>
-                  <% end %>
-                  <div class="rounded">
-                    <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
-                    hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "300px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
-                  </div>
-                </td>
+                  <td class="graph-td">
+                    <% @price_data = holding.crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
+                      <% [price.date, price.price] %>
+                      <% end %>
+                    <div class="graph-img-dashboard">
+                      <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
+                      hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "300px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
+                    </div>
+                  </td>
                 </tr>
             <% end %>
             </tbody>

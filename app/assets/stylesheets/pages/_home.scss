@@ -104,9 +104,54 @@ h5 {
   -webkit-backdrop-filter: blur( 3.5px );
   border-radius: 12px;
   border: 20px solid rgba(255, 255, 255, 0.027);
+  // font-size: 16px;
+}
+
+.table tr {
+  height: 60px;
 }
 
 #cryptos-table, #watchlist-table {
   box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.164);
   margin-bottom: 50px;
+  font-size: 16px;
+}
+
+#cryptos-table tr {
+  height: 95px;
+}
+
+#cryptos-table, #watchlist-table tr {
+  height: 100px;
+}
+
+th td .graph-td {
+  position: relative;
+}
+
+.graph-td {
+  display: inline-block;
+}
+
+.graph-img-dashboard {
+  position: absolute;
+  left: 73% !important;
+}
+
+th .graph-header {
+  margin-left: 30px !important;
+}
+
+.white-space {
+  color: white;
+}
+
+.graph-img-cryptos {
+  position: absolute;
+  left: 53% !important;
+}
+
+.graph-img-watchlist {
+  position: absolute;
+  left: 51% !important;
 }

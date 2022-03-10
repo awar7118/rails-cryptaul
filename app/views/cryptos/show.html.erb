@@ -1,9 +1,34 @@
 <div class="container page-container">
+  <!-- The Modal -->
+  <div id="myModal" class="modal" data-controller="purchase-modal">
+    <!-- Modal content -->
+    <div class="modal-content center">
+      <span class="close">&times;</span>
+      <div class="title-exchange">
+        <br>
+        <h4 style='color'>Buy <%= @crypto.name%></h4>
+        <p>1 <%= @crypto.name %> = £<strong data-purchase-modal-target="price"><%= number_with_precision(@crypto.histories.find_by(date: current_user.simulation_date).price, :precision => 2, :delimiter => ',') %></strong></p>
+        <p>Your balance is £<strong data-purchase-modal-target="balance"><%= number_with_precision(current_user.balance, :precision => 2, :delimiter => ',') %></strong><p>
+        <p>Please select the number of <%= @crypto.name %> you'd like to purchase</p>
+      </div>
+      <%= simple_form_for [ @crypto, @holding ] do |f| %>
+        <div id='modal-form'>
+          <%= f.input :quantity, input_html: {data: {action: "change->purchase-modal#calculatePrice keyup->purchase-modal#calculatePrice", purchase_modal_target: "quantity"}} %>
+          <%= f.submit 'Confirm Purchase', data: {purchase_modal_target: "confirm"}, class: "buy-button banner-btn" %>
+        </div>
+      <% end %>
+      <br>
+      <p data-purchase-modal-target="pounds" data-price="<%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %>" id="pounds">You're spending £0.00</p>
+    </div>
+  </div>
+
+  <%# Graph and purchase container %>
   <div class="container graph-purchase-container">
+    <%# Container for graph %>
     <div class="product-graph">
       <%= line_chart @price_data, id: 'rounded-graph', library: { hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#FF840A'], height: "400px" %>
     </div>
-    <%# <div class="container product-exchange rounded">Current exchange rate</div> %>
+    <%# Container for purchase area %>
     <div class="purchase-container">
       <%# Container for purchase area %>
       <div class="sticky" data-purchase-modal-target="modal" data-controller="purchase-modal">
@@ -26,62 +51,22 @@
                 <div id="sweet-alert-demo" class="buy-button banner-btn">confrim purchase</div>
               </div>
             <% end %>
-            <br>
-            <p data-purchase-modal-target="pounds" data-price="<%= '%.2f' % @crypto.histories.find_by(date: current_user.simulation_date).price %>" id="pounds">You're spending £0.00</p>
-          </div>
-        </div>
-        <%# Container for pre-buy %>
-        <div class="container product-action" data-purchase-modal-target="purchase">
-          <div class="title-watchlist">
-            <div class="title">
-              <h4><%= @crypto.name%></h4>
-            </div>
-            <%# <div class="watchlist">
-              <i class="fa-solid fa-star fa-lg"></i>
-            </div> %>
-          </div>
-          <div class="center">
-            <img class="rounded-circle"src="<%= @crypto.image %>" height="100px">
-            <br><br>
-          </div>
-            <p class="center" style="margin-right: -30px; margin-bottom: -1rem;">1 <%= @crypto.name %> = £<%= number_with_precision(@crypto.histories.find_by(date: current_user.simulation_date).price, :precision => 2, :delimiter => ',') %></p>
-          <div class="buy-button center">
-            <div>
-              <button id="myBtn" type="button" class="buy-btn-filled"> Buy </button>
-            </div>
-
-            <%# <% if current_user.watchlists.where(crypto_id: @crypto.id).count != 0 %>
-              <%# <i class="fas fa-heart" style="font-size:30px"></i> %>
-            <%# <% else  %>
-              <%# <i class="far fa-heart" style="font-size:30px"></i> %>
-
-            <% if @crypto.watchlists.count > 0 %>
-              <%= link_to watchlist_path(@crypto.watchlists.first), method: :delete do %>
-               <i class="fas fa-heart watchlist-icon" style="font-size: 31px; color: red;"></i>
-               <% end %>
-            <% else %>
-
-             <%= simple_form_for [ @crypto, @watchlist ] do |f| %>
-
-
-            <button name="button" type="submit" style="border: none;background: none;">
+          <% else %>
+            <%= simple_form_for [ @crypto, @watchlist ] do |f| %>
+              <button name="button" type="submit" style="border: none;background: none;">
               <i class="far fa-heart watchlist-icon" style="font-size: 31px; color: red;"></i>
-            </button>
-
+              </button>
             <% end %>
-            <% end %>
-          </div>
-          </div>
+          <% end %>
       </div>
     </div>
-</div>
-<div>
+  </div>
   <div class="container product-info-container" data-controller="accordion">
     <div class="" data-accordion-target="content">
       <h4 class="">About</h4>
       <p><%= @crypto.name.capitalize %> is a decentralized
       <a href="#" data-toggle="tooltip" title="Blockchain can be described as a huge information file which lists all transactions that were ever made. Blockchain is the heart of the Bitcoin network and serves as a kind of a ledger. " data-original-title="Default tooltip">blockchain</a>
-      platform that establishes a peer-to-peer network that securely executes and verifies application code, called smart contracts. Smart contracts allow participants to transact with each other without a trusted central authority.<br><br>By  <a href="#" data-toggle="tooltip" title="Mining is the backbone of a cryptocurrency network as it guarantees consensus among participants." data-original-title="Default tooltip">mining</a>, you can earn cryptocurrency without having to put down money for it. Bitcoin miners receive bitcoin as a reward for completing  <a href="#" data-toggle="tooltip" title="A block records some piece of information that has not previously been entered into another block." data-original-title="Default tooltip">blocks</a> of verified transactions, which are added to the blockchain.<br><br>Each Bitcoin is basically a computer file which is stored in a 'digital wallet' containing your <a href="#" data-toggle="tooltip" title=" Your digital identity is made up of every piece of information about you on the internet, that when added together paints a picture of “you”." data-original-title="Default tooltip">Digital identity</a> on a smartphone or computer. People can send Bitcoins (or part of one) to your digital wallet, and you can send Bitcoins to other people. Every single transaction is recorded in a public list called the blockchain. This makes it possible to trace the history of Bitcoins to stop people from spending coins they do not own, making copies or undo-ing transactions.</p>
+      platform that establishes a peer-to-peer network that securely executes and verifies application code, called smart contracts. Smart contracts allow participants to transact with each other without a trusted central authority.<br><br>By  <a href="#" data-toggle="tooltip" title="Mining is the backbone of a cryptocurrency network as it guarantees consensus among participants." data-original-title="Default tooltip">mining</a>, you can earn cryptocurrency without having to put down money for it. <%= @crypto.name.capitalize %> miners receive <%= @crypto.name.capitalize %> as a reward for completing  <a href="#" data-toggle="tooltip" title="A block records some piece of information that has not previously been entered into another block." data-original-title="Default tooltip">blocks</a> of verified transactions, which are added to the blockchain.<br><br>Each <%= @crypto.name.capitalize %> is basically a computer file which is stored in a 'digital wallet' containing your <a href="#" data-toggle="tooltip" title=" Your digital identity is made up of every piece of information about you on the internet, that when added together paints a picture of “you”." data-original-title="Default tooltip">Digital identity</a> on a smartphone or computer. People can send <%= @crypto.name.capitalize %>s (or part of one) to your digital wallet, and you can send <%= @crypto.name.capitalize %>s to other people. Every single transaction is recorded in a public list called the blockchain. This makes it possible to trace the history of Bitcoins to stop people from spending coins they do not own, making copies or undo-ing transactions.</p>
     </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["purchase", "modal", "pounds", "price", "balance", "quantity", "confirm"]
+  static targets = ["pounds", "price", "balance", "quantity", "confirm"]
 
   connect() {
     console.log(parseInt(this.balanceTarget.textContent))
@@ -18,13 +18,6 @@ export default class extends Controller {
     }
   }
 
-  // expand() {
-    // this.purchaseTargets.forEach((target) => {
-      // target.classList.toggle("collapse")
-    // })
-    // this.modalTarget.classList.toggle("modall")
-  // }
-
   calculatePrice(e) {
     console.log(e.currentTarget.value)
     console.log(this.poundsTarget.dataset.price)
@@ -36,7 +29,7 @@ export default class extends Controller {
     }
 
     if (calculatedPrice <= parseInt(this.balanceTarget.textContent)){
-      this.poundsTarget.innerText = `You're spending £${calculatedPrice.toLocaleString('en-US')}`
+      this.poundsTarget.innerText = `You're spending £${calculatedPrice.toFixed(2)}`
       this.confirmTarget.classList.remove("disabled")
     }
   }

@@ -14,22 +14,28 @@
         <li>
           <%= link_to 'Browse Cryptos', cryptos_path%>
         </li>
-        <li>
-          <%= link_to 'Learn More', articles_path%>
+        <li class="dropdown">
+            <button class="dropbtn">Learn More</button>
+            <div class="dropdown-content">
+              <%= link_to 'Jargon Buster', jargon_buster_path%>
+              <%= link_to 'Articles', articles_path%>
+            </div>
         </li>
         <li class ="nav-item dropdown">
         <div class="dropdown">
           <button class="btn btn-basic dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img class="avatar-bordered nav-avatar" alt="avatar" src="https://avatars.githubusercontent.com/u/93667920?v=4" />
+
+            <img class="avatar-bordered nav-avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/solkarim91" />
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
-            <li><%= link_to 'Reset Holdings',reset_holdings_path, class: "dropdown-item" %></li>
+
+            <li><%= link_to 'Reset Holdings',reset_holdings_path, data: { confirm: "Are you sure?" }, class: "dropdown-item" %></li>
           </ul>
         </div>
         </li>
       </ul>
-      <ul style="height: 25px">
+      <ul class="simulation-navbar">
         <li style="margin-right:20px">
           <h6>Simulation Date: <%= current_user.simulation_date.strftime('%d/%m/%Y') %></h6>
         </li>
@@ -49,4 +55,21 @@
     <% else %>
     <% end %>
   </div>
+  <%# Script to make it scroll back down to the part of the page you was on when it was clicked. %>
+  <%# the if statement says for it to only run on the cryptos controller index page %>
+  <% if params[:controller] == 'cryptos' && params[:action] == 'index' %>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            var scrollpos = sessionStorage.getItem('scrollpos');
+            if (scrollpos) {
+                window.scrollTo(0, scrollpos);
+                sessionStorage.removeItem('scrollpos');
+            }
+        });
+
+        window.addEventListener("beforeunload", function (e) {
+            sessionStorage.setItem('scrollpos', window.scrollY);
+        });
+    </script>
+  <% end %>
 </nav>

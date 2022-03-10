@@ -1,4 +1,4 @@
-  <div class="banner-articles">
+  <div class="banner-pages">
     <div class="main-title">
       <h1>Watchlist</h1>
     </div>
@@ -11,7 +11,7 @@
         <th>Name</th>
         <th>Price</th>
         <th>24hr change (%)</th>
-        <th>Graph</th>
+        <th><span class="white-space">aaaaaaaaaaa</span>Graph<span class="white-space">aaaaaaaaaaa</span></th>
         <th>Watchlist</th>
         <%# <th>7 day chart</th> %>
       </tr>
@@ -36,13 +36,13 @@
           </div>
           <% end %>
           </td>
-          <td>
+          <td class="graph-td">
           <% @price_data = watchlist.crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
             <% [price.date, price.price] %>
           <% end %>
-          <div class="rounded">
+          <div class="graph-img-watchlist">
             <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
-            hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, colors: ['#EE841C'], height: "100px", width: "350px" %>
+            hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, colors: ['#EE841C'], height: "80px", width: "350px" %>
           </div>
         </td>
         <td>
