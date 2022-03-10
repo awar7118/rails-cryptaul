@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>Uh Oh</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   .rails-default-error-page {
@@ -32,9 +32,15 @@
   }
 
   .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+    font-size: 20px;
+    color: #FF840A;
+    line-height: 1.9em;;
+    align-self: center;
+    margin-left: 15px;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    font-family: 'Sora', sans-serif;
+    font-size: 3rem;
   }
 
   .rails-default-error-page div.dialog > p {
@@ -51,16 +57,28 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  .info-container {
+  width: 50vw;
+  margin: auto;
+  padding: 30px;
+  margin-top: 250px;
+  background-color: white;
+  box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.164);
+  backdrop-filter: blur( 3.5px );
+  -webkit-backdrop-filter: blur( 3.5px );
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.027);
+}
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
+  <div class="info-container">
     <div>
-      <h1>We're sorry, but something went wrong.</h1>
+      <h1>Whoops - something went wrong!</h1>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
 </body>
 </html>
