@@ -14,13 +14,16 @@
         <li>
           <%= link_to 'Browse Cryptos', cryptos_path%>
         </li>
+          <li>
+          <%= link_to 'Jargon Buster', jargon_buster_path%>
+        </li>
         <li>
           <%= link_to 'Learn More', articles_path%>
         </li>
         <li class ="nav-item dropdown">
         <div class="dropdown">
           <button class="btn btn-basic dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img class="avatar-bordered nav-avatar" alt="avatar" src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1610312873/fuotzoy9lzmv0rppau6j.jpg" />
+            <img class="avatar-bordered nav-avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/solkarim91" />
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
