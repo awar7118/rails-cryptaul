@@ -13,7 +13,7 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
-  conig.force_ssl = true
+  config.force_ssl = true
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
