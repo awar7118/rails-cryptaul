@@ -1,110 +1,3 @@
-// .product-container {
-//   display: flex;
-//   flex-direction: column;
-// }
-// .product-graph {
-//   min-height: 400px;
-//   background-color: green;
-// }
-// .product-exchange {
-//   min-height: 200px;
-//   background-color: red;
-// }
-// .product-info {
-//   background-color: white;
-// }
-// .product-border-top {
-//   border-top: grey 2px solid;
-// }
-// .accordion button {
-//   text-decoration: none;
-//   color: black;
-// }
-// .product-action {
-//   height: 120px;
-//   width: 100vw;
-//   position: sticky;
-//   bottom: 120px;
-//   align-self: flex-end;
-//   display: flex;
-//   flex-direction: column;
-//   padding-top: 20px;
-//   padding-bottom: 20px;
-//   background-color: white;
-  // border-top: grey 2px solid;
-// }
-// .product-action .title-watchlist {
-//   justify-content: space-between;
-//   flex-direction: row;
-//   display: flex;
-//   margin-bottom: 10px;
-// }
-// .product-action .title {
-//   width: 70%;
-// }
-// .product-action .watchlist {
-//   display: flex;
-//   justify-content: right;
-//   max-width: 50px;
-//   flex-grow: 1;
-//   color: black;
-// }
-// .buy-button {
-//   display: flex;
-//   justify-content: right;
-// }
-// .buy-button button {
-//   width: 100px;
-//   padding: 0;
-// }
-// .product-similar {
-//   min-height: 200px;
-//   background-color: grey;
-// }
-// .expanded {
-//   background-color: pink;
-// }
-// .purchase-modal {
-//   height: 500px;
-//   width: 100vw;
-//   bottom: 120px;
-//   align-self: flex-end;
-//   display: flex;
-//   flex-direction: column;
-//   padding-top: 20px;
-//   padding-bottom: 20px;
-//   background-color: white;
-//   border-top: grey 2px solid;
-//   align-items: stretch;
-// }
-// .sticky {
-//   position: sticky;
-//   bottom: 0px;
-//   align-self: flex-end;
-//   display: flex;
-// }
-// .sticky .modal {
-//   position: sticky;
-//   bottom: 0px;
-//   align-self: flex-end;
-//   display: flex;
-// }
-// .product-action .title-watchlist {
-//   justify-content: space-between;
-//   flex-direction: row;
-//   display: flex;
-//   margin-bottom: 10px;
-// }
-// .product-action .title {
-//   width: 70%;
-// }
-// .product-action .watchlist {
-//   display: flex;
-//   justify-content: right;
-//   max-width: 50px;
-//   flex-grow: 1;
-//   color: black;
-// }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
@@ -117,16 +10,15 @@
   .graph-purchase-container {
     display: flex;
     direction: row;
-    width: 100%;
     justify-content: space-between;
     margin-bottom: 10px;
     padding: 0;
     height: 400px;
   }
-  .product-info-container {
-    display: flex;
-    flex-direction: row;
-    padding: 30px;
+  .product-graph {
+    height: 400px;
+    margin-bottom: 20px;
+    width: 80vw;
     background-color: white;
     box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.164);
     backdrop-filter: blur( 3.5px );
@@ -134,10 +26,10 @@
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.027);
   }
-  .product-graph {
-    height: 400px;
-    margin-bottom: 20px;
-    width: 80vw;
+  .product-info-container {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
     background-color: white;
     box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.164);
     backdrop-filter: blur( 3.5px );
@@ -153,19 +45,13 @@
 }
 
 
-  // BUY & WATCHLIST(HEART) CARD
-  //  .body {
-  //   -webkit-transform: perspective(500px);
-  //   -webkit-transform-style: preserve-3d;
-  // }
-
-
   .purchase-container {
-    width: auto;
+    width: 20vw;
     padding: 15px;
     margin-left: 10px;
     height: 400px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding-top: 45px;
@@ -176,67 +62,11 @@
     -webkit-backdrop-filter: blur( 3.5px );
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.027);
-    padding-left: 0px;
    }
 
-
-
-
-  // .purchase-container:before {
-  //   content: "";
-  //   position: absolute;
-    // background: inherit;
-    // z-index: -1;
-    // top: 0;
-    // left: 0;
-    // right: 0;
-    // bottom: 0;
-    // box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
-    // filter: blur(10px);
-    // margin: -20px;
-    // }
-
-    // .purchase-container:hover{
-    //   transform: rotatex(0deg);
-    //   transform: rotatez(0deg);
-    //   transition:.6s;
-    //   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-
-    // }
-
-
-    .product-action {
-    height: 50vh;
-    width: auto;
-    position: sticky;
-    bottom: 120px;
-    align-self: flex-end;
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    background-color: white;
+  .title {
+    margin-bottom: 20px;
   }
-
-  .product-action .title-watchlist {
-    justify-content: space-between;
-    flex-direction: row;
-    display: flex;
-    margin-bottom: 5px;
-    text-align: center;
-    justify-content: center;
-  }
-
-  .product-action .title {
-    width: 70%;
-  }
-  // .product-action .watchlist {
-  //   display: flex;
-  //   justify-content: right;
-  //   max-width: 50px;
-  //   flex-grow: 1;
-  //   color: black;
-  // }
-
 
   .button {
     color: #FF0000;
@@ -245,9 +75,6 @@
     border: #f2f2f2;
   }
 
-
-
-
   .buy-button {
     display: flex;
     justify-content: center;
@@ -255,7 +82,6 @@
     font-size: 16px;
   }
   .buy-button button {
-    // width: 100px;
     padding: 0;
   }
   .product-similar {

@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["purchase", "modal", "pounds", "price", "balance", "quantity", "confirm"]
+  static targets = ["pounds", "price", "balance", "quantity", "confirm"]
 
   connect() {
     console.log(parseInt(this.balanceTarget.textContent))
@@ -17,13 +17,6 @@ export default class extends Controller {
       console.log(1 / parseInt(this.priceTarget.textContent))
     }
   }
-
-  // expand() {
-    // this.purchaseTargets.forEach((target) => {
-      // target.classList.toggle("collapse")
-    // })
-    // this.modalTarget.classList.toggle("modall")
-  // }
 
   calculatePrice(e) {
     console.log(e.currentTarget.value)
