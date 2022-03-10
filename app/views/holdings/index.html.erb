@@ -37,15 +37,13 @@
               <div class="small-card-body">
               <% sum_spent = (@sold_holdings.sum(&:purchased_price) + @active_holdings.sum(&:purchased_price))%>
               <p>You've spent <br>£ <%= number_with_precision(sum_spent, :precision => 2, :delimiter => ',') %></p>
-              <% if @sold_holdings_value > sum_spent %>
-                <p style='color: green'>You've sold <br>£ <%= number_with_precision(@sold_holdings_value, :precision => 2, :delimiter => ',') %></p>
-              <% elsif @sold_holdings_value < sum_spent %>
-                <p style='color: red'>You've sold <br>£ <%= number_with_precision(@sold_holdings_value, :precision => 2, :delimiter => ',') %></p>
+              <p>You've sold <br>£ <%= number_with_precision(@sold_holdings_value, :precision => 2, :delimiter => ',') %></p>
+              <% total_return = @sold_holdings_value - sum_spent %>
+              <% if total_return.positive? || total_return == 0 %>
+                <p style='color: green'>Return <br>£ <%= number_with_precision(total_return, :precision => 2, :delimiter => ',') %></p>
               <% else %>
-                <p>You've sold<br>£ <%= number_with_precision(@sold_holdings_value, :precision => 2, :delimiter => ',') %></p>
+                <p style='color: red'>Return <br>£ <%= number_with_precision(total_return, :precision => 2, :delimiter => ',') %></p>
               <% end %>
-              <p>Return<br>
-              £<%= number_with_precision((@sold_holdings_value - sum_spent), :precision => 2, :delimiter => ',') %></p>
               </div>
             </div>
           </div>
