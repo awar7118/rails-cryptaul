@@ -16,11 +16,11 @@
         <%# <th>7 day chart</th> %>
       </tr>
     </thead>
-    <tbody class="mb-100">
+    <tbody class="mb-100" data-controller="clickableindex">
       <%@watchlists.each do |watchlist| %>
-        <tr class="clicking">
+        <tr data-link="<%=crypto_path(watchlist.crypto)%>" data-clickableindex-target="cryptos" data-action="click->clickableindex#clickable" class = "clicking">
           <td>
-            <%= link_to(image_tag(watchlist.crypto.image), crypto_path(watchlist.crypto),class: "crypto-image")%> <%=watchlist.crypto.name%>
+          <img class="rounded-circle"src="<%= watchlist.crypto.image %>" height="30px"> <%=watchlist.crypto.name%>
           </td>
           <td>
             £<%= number_with_precision(watchlist.crypto.histories.last.price, :precision => 2, :delimiter => ',') %>
