@@ -75,7 +75,11 @@
                     <%= link_to(image_tag(holding.crypto.image), crypto_path(holding.crypto),class: "crypto-image")%> <%=holding.crypto.name%>
                   </td>
                   <td>
+                  <% if (holding.quantity < 0.0001)  %>
+                    <%= number_with_precision(holding.quantity, precision: 5) %>
+                    <% else %>
                     <%= holding.quantity %>
+                    <% end %>
                   </td>
                   <td>
                     £<%= number_with_precision(holding.purchased_price, :precision => 2, :delimiter => ',') %>
