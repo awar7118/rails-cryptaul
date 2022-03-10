@@ -7,12 +7,12 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background: rgba(209, 208, 208, 0.185);
 }
 
 .landing-main {
-  padding-top: 100px;
+  padding-top: 35px;
 }
 
 .center {
@@ -26,8 +26,8 @@ body {
   margin-bottom: 100px;
   background-color: white;
   box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.164);
-  backdrop-filter: blur( 3.5px );
-  -webkit-backdrop-filter: blur( 3.5px );
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.027);
 }
@@ -43,23 +43,22 @@ body {
 }
 
 h2 {
-  font-family: 'Cabin', sans-serif;
-  color: #FF840A;
+  font-family: "Cabin", sans-serif;
+  color: #ff840a;
   opacity: 1;
 }
 
 p {
   font-size: 18px;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
 }
-
 
 h5 {
   margin-top: 20px;
 }
 
 .crypto-female {
-  width:100%;
+  width: 100%;
   opacity: 0.8;
 }
 
@@ -80,8 +79,8 @@ h5 {
 }
 
 .h2 {
-  font-family: 'Cabin', sans-serif;
-  color: #FF840A;
+  font-family: "Cabin", sans-serif;
+  color: #ff840a;
   opacity: 1;
   text-decoration: none;
 }
@@ -100,8 +99,8 @@ h5 {
 .table {
   background-color: white;
   // box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 3.5px );
-  -webkit-backdrop-filter: blur( 3.5px );
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
   border-radius: 12px;
   border: 20px solid rgba(255, 255, 255, 0.027);
   // font-size: 16px;
@@ -111,7 +110,8 @@ h5 {
   height: 60px;
 }
 
-#cryptos-table, #watchlist-table {
+#cryptos-table,
+#watchlist-table {
   box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.164);
   margin-bottom: 50px;
   font-size: 16px;
@@ -121,7 +121,8 @@ h5 {
   height: 95px;
 }
 
-#cryptos-table, #watchlist-table tr {
+#cryptos-table,
+#watchlist-table tr {
   height: 100px;
 }
 
