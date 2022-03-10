@@ -17,11 +17,10 @@
               <h4 style='color'>Buy <%= @crypto.name%></h4>
               <p>1 <%= @crypto.name %> = £<strong data-purchase-modal-target="price"><%= number_with_precision(@crypto.histories.find_by(date: current_user.simulation_date).price, :precision => 2, :delimiter => ',') %></strong></p>
               <p>Your balance is £<strong data-purchase-modal-target="balance"><%= number_with_precision(current_user.balance, :precision => 2, :delimiter => ',') %></strong><p>
-              <p>Please select the number of <%= @crypto.name %> you'd like to purchase</p>
             </div>
             <%= simple_form_for [ @crypto, @holding ] do |f| %>
               <div id='modal-form'>
-                <%= f.input :quantity, input_html: {data: {action: "change->purchase-modal#calculatePrice keyup->purchase-modal#calculatePrice", purchase_modal_target: "quantity"}} %>
+                <%= f.input :quantity, label: "Please select the number of #{@crypto.name} you'd like to purchase", input_html: {data: {action: "change->purchase-modal#calculatePrice keyup->purchase-modal#calculatePrice", purchase_modal_target: "quantity"}} %>
                 <%= f.submit 'Confirm Purchase', data: {purchase_modal_target: "confirm"}, class: "buy-button banner-btn" %>
               </div>
             <% end %>
