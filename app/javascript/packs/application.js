@@ -27,6 +27,17 @@ document.addEventListener("turbolinks:load", () => {
   AOS.init();
   $('[data-toggle="tooltip"]').tooltip()
   initSweetalert('#sweet-alert-demo', {
+    title: "Are you sure?",
+    text: "This action cannot be reversed",
+    icon: "warning"
+  }, (value) => {
+    if (value) {
+      const link = document.querySelector('#delete-link');
+      link.click();
+    }
+  });
+
+  initSweetalert('#sweet-alert-demo', {
     title: "Purchase Successful",
     text: "",
     icon: "success"
@@ -35,6 +46,8 @@ document.addEventListener("turbolinks:load", () => {
     link.click();
   });
 });
+
+
 
 // $(function () {
 //   $('[data-toggle="tooltip"]').tooltip()
