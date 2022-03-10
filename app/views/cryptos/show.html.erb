@@ -7,8 +7,8 @@
       <div class="title-exchange">
         <br>
         <h4 style='color'>Buy <%= @crypto.name%></h4>
-        <p>1 <%= @crypto.name %> = £<strong data-purchase-modal-target="price"><%= number_with_precision(@crypto.histories.find_by(date: current_user.simulation_date).price, :precision => 2, :delimiter => ',') %></strong></p>
-        <p>Your balance is £<strong data-purchase-modal-target="balance"><%= number_with_precision(current_user.balance, :precision => 2, :delimiter => ',') %></strong><p>
+        <p>1 <%= @crypto.name %> = £<strong data-purchase-modal-target="price"><%= @crypto.histories.find_by(date: current_user.simulation_date).price %></strong></p>
+        <p>Your balance is £<strong data-purchase-modal-target="balance"><%= current_user.balance %></strong><p>
         <p>Please select the number of <%= @crypto.name %> you'd like to purchase</p>
       </div>
       <%= simple_form_for [ @crypto, @holding ] do |f| %>
