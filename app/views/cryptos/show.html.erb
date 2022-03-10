@@ -27,11 +27,11 @@
     </div>
 
     <%# <div class="container product-exchange rounded">Current exchange rate</div> %>
-    <div class="purchase-container">
+    <%# <div class="purchase-container"> %>
       <%# Container for purchase area %>
       <div class="sticky" data-purchase-modal-target="modal" data-controller="purchase-modal">
         <%# Container for pre-buy %>
-        <div class="container product-action" data-purchase-modal-target="purchase">
+        <div class="container purchase-container" data-purchase-modal-target="purchase">
           <div class="title-watchlist">
             <div class="title">
               <h4><%= @crypto.name%></h4>
@@ -73,7 +73,7 @@
           </div>
           </div>
       </div>
-    </div>
+    <%# </div> %>
 </div>
 <div>
   <div class="container product-info-container" data-controller="accordion">
