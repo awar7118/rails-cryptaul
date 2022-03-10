@@ -25,8 +25,8 @@
   <%# Graph and purchase container %>
   <div class="container graph-purchase-container">
     <%# Container for graph %>
-    <div class="product-graph">
-      <%= line_chart @price_data, id: 'rounded-graph', library: { hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#FF840A'], height: "400px" %>
+    <div id="rounded-graph">
+      <%= line_chart @price_data, library: { hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#FF840A'], height: "390px" %>
     </div>
     <%# Container for purchase area %>
     <div class="purchase-container">
