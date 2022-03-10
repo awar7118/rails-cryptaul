@@ -14,11 +14,12 @@
         <li>
           <%= link_to 'Browse Cryptos', cryptos_path%>
         </li>
-          <li>
-          <%= link_to 'Jargon Buster', jargon_buster_path%>
-        </li>
-        <li>
-          <%= link_to 'Learn More', articles_path%>
+        <li class="dropdown">
+            <button class="dropbtn">Learn More</button>
+            <div class="dropdown-content">
+              <%= link_to 'Jargon Buster', jargon_buster_path%>
+              <%= link_to 'Articles', articles_path%>
+            </div>
         </li>
         <li class ="nav-item dropdown">
         <div class="dropdown">
@@ -28,7 +29,7 @@
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
 
-            <li><%= link_to 'Reset Holdings',reset_holdings_path, class: "dropdown-item" %></li>
+            <li><%= link_to 'Reset Holdings',reset_holdings_path, data: { confirm: "Are you sure?" }, class: "dropdown-item" %></li>
           </ul>
         </div>
         </li>
