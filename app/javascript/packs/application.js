@@ -27,8 +27,8 @@ document.addEventListener("turbolinks:load", () => {
   AOS.init();
   $('[data-toggle="tooltip"]').tooltip()
   initSweetalert('#sweet-alert-demo', {
-    title: "A nice alert",
-    text: "This is a great alert, isn't it?",
+    title: "Purchase Successful",
+    text: "",
     icon: "success"
   }, () => {
     const link = document.querySelector('#confirm_link');
