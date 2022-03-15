@@ -23,7 +23,7 @@ We used the MoSCoW prioritization approach to build this project and be able to 
 ### Built With
 
 - [Ruby on Rails](https://rubyonrails.org/)
-- [Stimulu.js](https://stimulus.hotwired.dev/)
+- [Stimulus.js](https://stimulus.hotwired.dev/)
 - [Font Awesome](https://fontawesome.com/)
 - [Google Fonts](https://fonts.google.com/)
 - [Sweet Alert](https://sweetalert.js.org/)
