@@ -48,7 +48,8 @@ We used the MoSCoW prioritization approach to build this project and be able to 
 
 ## Figma
 
-![Our Figma](https://www.figma.com/file/xYLh2l3KfYkSFrs20UjMfb/CrypTaul?node-id=0%3A1)
+[Our Figma](https://www.figma.com/file/xYLh2l3KfYkSFrs20UjMfb/CrypTaul?node-id=0%3A1)
+![Our Figma](public/figma1.png)
 
 ## Future work
 
