@@ -1,7 +1,7 @@
 # Cryptaul
 
 A one-stop shop for crypto newbies. Learn to buy and sell cryptocurrencies in a 365 day simulation
-![Our Landing ](./public/cryptaullandingpage.png.PNG)
+![Our Landing ](./public/cryptaullandingpagePNG)
 
 ## Installation
 
@@ -56,7 +56,7 @@ We used the MoSCoW prioritization approach to build this project and be able to 
 ## Schema
 
 Current Schema
-![Our schema](./public/dbschema.png.PNG)
+![Our schema](./public/dbschema.PNG)
 
 ## Figma
 
