@@ -9,7 +9,7 @@ A one-stop shop for crypto newbies. Learn to buy and sell cryptocurrencies in a 
 1. [About the Project](#about-the-project)
 2. [Built With](#built-with)
 3. [Features](#features)
-4. [Database](#database)
+4. [Schema](#schema)
 5. [Future Work](#future-work)
 6. [Contributors](#contributers)
 7. [Acknowledgements](#acknowledgements)
