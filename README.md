@@ -1,19 +1,7 @@
 # Cryptaul
 
 A one-stop shop for crypto newbies. Learn to buy and sell cryptocurrencies in a 365 day simulation
-![Our Landing ](./public/cryptaullandingpagePNG)
-
-## Installation
-
-To install Cryptaul.
-
-```bash
-Bundle install
-```
-
-```bash
-Yarn install
-```
+![Our Landing ](./public/cryptaullandingpage.png)
 
 ## Table of Contents
 
@@ -56,7 +44,7 @@ We used the MoSCoW prioritization approach to build this project and be able to 
 ## Schema
 
 Current Schema
-![Our schema](./public/dbschema.PNG)
+![Our schema](./public/dbschema.png)
 
 ## Figma
 
