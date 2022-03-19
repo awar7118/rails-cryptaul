@@ -16,7 +16,7 @@ A one-stop shop for crypto newbies. Learn to buy and sell cryptocurrencies in a 
 
 ## About The Project
 
-Cryptocurrencies and decentralised finance (DeFi) are taking over the world and redefining what money is. We wanted to create a platform that allows users to benefit from the features listed in the features section the below, all the while eradicating financial risk and building confidence in investing in cryptocurrency.
+Cryptocurrencies and decentralised finance (DeFi) are taking over the world and redefining what money is. We wanted to create a platform that allows users to benefit from the features listed in the features section below, all the while eradicating financial risk and building confidence in investing in cryptocurrency.
 
 We used the MoSCoW prioritization approach to build this project and be able to produce a MVP within the space of 2 weeks.
 
