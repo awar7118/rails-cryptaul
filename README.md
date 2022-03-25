@@ -10,9 +10,10 @@ A one-stop shop for crypto newbies. Learn to buy and sell cryptocurrencies in a 
 2. [Built With](#built-with)
 3. [Features](#features)
 4. [Schema](#schema)
-5. [Future Work](#future-work)
-6. [Contributors](#contributers)
-7. [Acknowledgements](#acknowledgements)
+5. [Database](#database)
+6. [Future Work](#future-work)
+7. [Contributors](#contributers)
+8. [Acknowledgements](#acknowledgements)
 
 ## About The Project
 
@@ -45,6 +46,21 @@ We used the MoSCoW prioritization approach to build this project and be able to 
 ## Schema
 
 ![Our schema](./public/dbschema.png)
+
+## Database
+
+/db/jsondata/getjsons.rb file --> Parses data from coingecko Api endpoints. (called A and B for differentiation only)
+
+Endpoint A - gets all the coin data, such as the symbol, logo, current price and marketcap and more. 
+
+Endpoint B - gets historical data for each cryptocurrency. This is the price each day for the past 365 days.
+
+Data from Endpoint A gets written in /db/jsondata/crypto.json file 
+
+Data from Endpoint B gets written in /db/jsondata/#{crypto.name}.json file. A single file for each crypto containing all the histories.
+
+seeds.rb file --> Creates instance of each crypto from crypto.json file and in this loop, writes crypto histories in the database.
+
 
 ## Figma
 
