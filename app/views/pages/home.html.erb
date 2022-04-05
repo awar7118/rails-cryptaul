@@ -1,20 +1,22 @@
 <% if user_signed_in? %>
   <%= render 'shared/navbar' %>
 <% else %>
-  <nav class="menu">
-    <div class="options">
-      <ul>
-        <li>
-          <%= link_to 'Sign Up', new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to 'Sign In', new_user_session_path %>
-        </li>
-        <li>
-          <%= link_to 'Learn More', articles_path %>
-        </li>
-      </ul>
+  <nav>
+    <div class="navbar-brand">
+    <img src="https://res.cloudinary.com/domtywpyc/image/upload/v1646143122/mvm0isuwrx6vyrvhz1rn.png" alt="" width="30" height="30" class="logo">
+    <%= link_to 'Cryptaul', root_path %>
     </div>
+    <ul>
+      <li>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to 'Sign In', new_user_session_path %>
+      </li>
+      <li>
+        <%= link_to 'Learn More', articles_path %>
+      </li>
+    </ul>
   </nav>
 <% end %>
 

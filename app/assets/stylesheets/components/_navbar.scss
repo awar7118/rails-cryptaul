@@ -98,6 +98,26 @@ nav ul li button:hover {
   width: 30px;
 }
 
+.navbar-brand {
+  position: absolute;
+  left: 15px;
+  padding: 8px 8px;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: 'Sora', sans-serif;
+  text-align: center;
+}
+
+.navbar-brand a {
+  text-decoration: none;
+  padding: 10px 5px;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: larger;
+  font-weight: bolder;
+}
+.logo {
+  margin-bottom: 4px;
+}
+
 .simulation-navbar {
   height: 35px;
   line-height: 35px;
