@@ -1,23 +1,46 @@
 <% if user_signed_in? %>
   <%= render 'shared/navbar' %>
 <% else %>
-  <nav>
-    <div class="navbar-brand">
-    <img src="https://res.cloudinary.com/domtywpyc/image/upload/v1646143122/mvm0isuwrx6vyrvhz1rn.png" alt="" width="30" height="30" class="logo">
-    <%= link_to 'Cryptaul', root_path %>
-    </div>
-    <ul>
+  <%# <nav> %>
+    <%# <img src="https://res.cloudinary.com/domtywpyc/image/upload/v1646143122/mvm0isuwrx6vyrvhz1rn.png" alt="" width="30" height="30" class="logo"> %>
+    <%# <%= link_to 'Cryptaul', root_path, class:"navbar-brand" %>
+    <%# <ul>
       <li>
         <%= link_to 'Sign Up', new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to 'Sign In', new_user_session_path %>
-      </li>
-      <li>
-        <%= link_to 'Learn More', articles_path %>
-      </li>
+      <%# </li> %>
+      <%# <li> %>
+        <%# <%= link_to 'Sign In', new_user_session_path %>
+      <%# </li>
+      <li> %>
+        <%# <%= link_to 'Learn More', articles_path %>
+      <%# </li>
     </ul>
-  </nav>
+  </nav> %>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" id="logo" href="#">Cryptaul</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sign In', new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Learn More', articles_path, class: "nav-link" %>
+        </li>
+      </ul>
+      <%# <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> %>
+    </div>
+  </div>
+</nav>
 <% end %>
 
 <div class="banner-home">
@@ -88,7 +111,7 @@
     <div class="team-info">
       <h2>Meet The Team</h2>
       <div class="members-container">
-        <div class="row justify-content-between">
+        <div class="row justify-content-center">
           <a href="https://github.com/solkarim91" target="_blank" class="member-card col-sm">
             <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/solkarim91" />
               <h5>Solomon</h5>
