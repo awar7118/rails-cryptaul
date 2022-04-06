@@ -1,63 +1,73 @@
-<nav class="menu">
-  <div class="options">
-    <% if user_signed_in? %>
-      <ul>
-        <li>
-          <%= link_to 'Home', root_path%>
-        </li>
-        <li>
-          <%= link_to 'Dashboard', my_dashboard_path%>
-        </li>
-        <li>
-          <%= link_to 'Watchlist', watchlists_path%>
-        </li>
-        <li>
-          <%= link_to 'Browse Cryptos', cryptos_path%>
-        </li>
-        <li class="dropdown">
+<% if user_signed_in? %>
+<div class="sticky-top" id="navbar">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <%= link_to 'Cryptaul', root_path, class: "navbar-brand", id: "logo" %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
+          <li class="nav-item">
+            <%= link_to 'Dashboard', my_dashboard_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Watchlist', watchlists_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Browse Cryptos', cryptos_path, class: "nav-link" %>
+          </li>
+          <li class="dropdown">
             <button class="dropbtn">Learn More</button>
             <div class="dropdown-content">
               <%= link_to 'Jargon Buster', jargon_buster_path%>
               <%= link_to 'Articles', articles_path%>
             </div>
-        </li>
-        <li class ="nav-item dropdown">
-        <div class="dropdown">
-          <button class="btn btn-basic dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-
-            <img class="avatar-bordered nav-avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/solkarim91" />
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
-
-            <li><%= link_to 'Reset Holdings',reset_holdings_path, data: { confirm: "Are you sure?" }, class: "dropdown-item" %></li>
-          </ul>
-        </div>
-        </li>
-      </ul>
-      <ul class="simulation-navbar">
-        <li style="margin-right:20px">
-          <h6>Simulation Date: <%= current_user.simulation_date.strftime('%d/%m/%Y') %></h6>
-        </li>
-        <li>
-          <%= link_to '+1 Day', change_simulation_path(current_user), style:'color:#FF840A', id:'date-sim-btn' %>
-        </li>
-        <li>
-          <h6>|</h6>
-        </li>
-        <li>
-          <%= link_to '+7 Days', change_simulation_week_path(current_user), style:'color:#FF840A', id:'date-sim-btn' %>
-        </li>
-        <li style="margin-left:20px">
-          <h6 style="color:#FF840A">Balance: £<%= number_with_precision(current_user.balance, :precision => 2, :delimiter => ',') %></h6>
-        </li>
-      </ul>
-    <% else %>
-    <% end %>
+          </li>
+          <li class ="dropdown">
+            <div class="dropdown">
+              <button class="btn btn-basic dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <img class="avatar-bordered nav-avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/solkarim91" />
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+                <li><%= link_to 'Reset Holdings',reset_holdings_path, data: { confirm: "Are you sure?" }, class: "dropdown-item" %></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+      <%# <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> %>
+  <div class="simulation-navbar">
+    <ul>
+      <li style="margin-top:8px" class="col-sm">
+        <h6>Simulation Date: <%= current_user.simulation_date.strftime('%d/%m/%Y') %></h6>
+      </li>
+      <div class="col-sm">
+      <li>
+        <%= link_to '+1 Day', change_simulation_path(current_user), style:'color:#FF840A', id:'date-sim-btn' %>
+      </li>
+      <li>
+        <h6>|</h6>
+      </li>
+      <li>
+        <%= link_to '+7 Days', change_simulation_week_path(current_user), style:'color:#FF840A', id:'date-sim-btn' %>
+      </li>
+      <li style="margin-left:20px">
+        <h6 style="color:#FF840A">Balance: £<%= number_with_precision(current_user.balance, :precision => 2, :delimiter => ',') %></h6>
+      </li>
+      </div>
+    </ul>
   </div>
-  <%# Script to make it scroll back down to the part of the page you was on when it was clicked. %>
-  <%# the if statement says for it to only run on the cryptos controller index page %>
-  <% if params[:controller] == 'cryptos' && params[:action] == 'index' %>
+</div>
+<% else %>
+<% end %>
+    <% if params[:controller] == 'cryptos' && params[:action] == 'index' %>
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {
             var scrollpos = sessionStorage.getItem('scrollpos');
@@ -72,4 +82,3 @@
         });
     </script>
   <% end %>
-</nav>

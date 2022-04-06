@@ -1,40 +1,67 @@
 <% if user_signed_in? %>
   <%= render 'shared/navbar' %>
 <% else %>
-  <nav class="menu">
-    <div class="options">
-      <ul>
-        <li>
-          <%= link_to 'Sign Up', new_user_registration_path %>
+  <%# <nav> %>
+    <%# <img src="https://res.cloudinary.com/domtywpyc/image/upload/v1646143122/mvm0isuwrx6vyrvhz1rn.png" alt="" width="30" height="30" class="logo"> %>
+    <%# <%= link_to 'Cryptaul', root_path, class:"navbar-brand" %>
+    <%# <ul>
+      <li>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+      <%# </li> %>
+      <%# <li> %>
+        <%# <%= link_to 'Sign In', new_user_session_path %>
+      <%# </li>
+      <li> %>
+        <%# <%= link_to 'Learn More', articles_path %>
+      <%# </li>
+    </ul>
+  </nav> %>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <%= link_to 'Cryptaul', root_path, class: "navbar-brand", id: "logo" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link" %>
         </li>
-        <li>
-          <%= link_to 'Sign In', new_user_session_path %>
+        <li class="nav-item">
+          <%= link_to 'Sign In', new_user_session_path, class: "nav-link" %>
         </li>
-        <li>
-          <%= link_to 'Learn More', articles_path %>
+        <li class="nav-item">
+          <%= link_to 'Learn More', articles_path, class: "nav-link" %>
         </li>
       </ul>
+      <%# <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> %>
     </div>
-  </nav>
+  </div>
+</nav>
 <% end %>
 
 <div class="banner-home">
   <div class="banner-info-container">
-    <div class="banner-title">
+    <%# <div class="banner-title">
       <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646143122/mvm0isuwrx6vyrvhz1rn.png",
       class: "coin-img", width: 100, height: 100, crop: :fill) %>
-      <h1><strong>Cryptaul.</strong></h1>
-    </div>
+      <%# <h1><strong>Cryptaul.</strong></h1> %>
+    <%# </div> %>
     <div class="banner-subs">
       <h3>The investment playground for <br>crypto newbies</h3>
       <br>
 
-      <div class="banner-buttons">
+      <div class="banner-buttons container">
       <% if user_signed_in? %>
-        <%= link_to 'Learn More', articles_path, class: "banner-btn" %>
+        <%= link_to 'Learn More', articles_path, class: "banner-btn col-sm" %>
         <% else%>
-        <%= link_to 'Learn More', articles_path, class: "banner-btn" %>
-        <%= link_to 'Sign Up', new_user_registration_path, class: "banner-btn" %>
+          <div class="row">
+            <%= link_to 'Learn More', articles_path, class: "banner-btn col-sm" %>
+            <%= link_to 'Sign Up', new_user_registration_path, class: "banner-btn col-sm" %>
+          </div>
         <% end %>
       </div>
     </div>
@@ -57,25 +84,27 @@
 
   <div data-aos="fade-up" class="info-container">
     <div class="features-container">
-      <div class="feature-card">
-        <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646215620/ed9wvp3mcgfcnwkfjlj2.svg",
-        class: "feature-illustration", width: 150, height: 150) %>
-        <h2><%= link_to 'Browse', cryptos_path, class: "h2" %></h2>
-        <p>Take a look around! We want to make the world of crypto investment less intimidating... and more fun!</p>
-      </div>
-      <div class="feature-card">
-        <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646215613/dr6ympijtc9ywkmpaaw0.svg",
-        class: "feature-illustration", width: 150, height: 150) %>
-        <h2><%= link_to 'Learn', articles_path, class: "h2" %></h2>
-        <p>All of your questions, <strong>answered.</strong>
-        <br>The information online is too technical & can be pretty overwhelming. <br>Here, you'll find all the info you need to get started. </p>
-      </div>
-      <div class="feature-card">
-        <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646215626/uuigmxv4a9ubrppjniws.svg",
-        class: "feature-illustration", width: 150, height: 150) %>
-        <h2><%= link_to 'Sign Up', new_user_registration_path, class: "h2" %></h2>
+      <div class="row justify-content-center">
+        <div class="feature-card col-sm">
+          <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646215620/ed9wvp3mcgfcnwkfjlj2.svg",
+          class: "feature-illustration", width: 150, height: 150) %>
+          <h2><%= link_to 'Browse', cryptos_path, class: "h2" %></h2>
+          <p>Take a look around! We want to make the world of crypto investment less intimidating... and more fun!</p>
+        </div>
+        <div class="feature-card col-sm">
+          <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646215613/dr6ympijtc9ywkmpaaw0.svg",
+          class: "feature-illustration", width: 150, height: 150) %>
+          <h2><%= link_to 'Learn', articles_path, class: "h2" %></h2>
+          <p>All of your questions, <strong>answered.</strong>
+          <br>The information online is too technical & can be pretty overwhelming. <br>Here, you'll find all the info you need to get started. </p>
+        </div>
+        <div class="feature-card col-sm">
+          <%= cl_image_tag("https://res.cloudinary.com/domtywpyc/image/upload/v1646215626/uuigmxv4a9ubrppjniws.svg",
+          class: "feature-illustration", width: 150, height: 150) %>
+          <h2><%= link_to 'Sign Up', new_user_registration_path, class: "h2" %></h2>
 
-        <p>If you're ready to jump in & start trading. We'll even throw in 1000 CryptaulCredits™️ free of charge 😉<br>Click the link above!</p>
+          <p>If you're ready to jump in & start trading. We'll even throw in 1000 CryptaulCredits™️ free of charge 😉<br>Click the link above!</p>
+        </div>
       </div>
     </div>
   </div>
@@ -84,42 +113,44 @@
     <div class="team-info">
       <h2>Meet The Team</h2>
       <div class="members-container">
-        <a href="https://github.com/solkarim91" target="_blank" class="member-card">
-          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/solkarim91" />
-            <h5>Solomon</h5>
-            <ul class="team-member-list">
-              <li>⭐️ Crypto Newbie</li>
-              <li>📍 London</li>
-            </ul>
-            <p>I recently made the switch to coding from a background in telecommunications & never looked back!</p>
-        </a>
-        <a href="https://github.com/britishninja47" target="_blank" class="member-card">
-          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/britishninja47" />
-            <h5>Jeremiah</h5>
-            <ul class="team-member-list">
-              <li>🚀 Crypto Expert</li>
-              <li>📍 London</li>
-            </ul>
-            <p>I've always had a passion & interest in technology and feel excited to start my new journey in Programming and Coding with Le Wagon!</p>
-        </a>
-        <a href="https://github.com/taramacu" target="_blank" class="member-card">
-          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/taramacu" />
-            <h5>Tara</h5>
-            <ul class="team-member-list">
-              <li>⭐️ Crypto Newbie</li>
-              <li>📍 London</li>
-            </ul>
-            <p>I'm passionate about any tech that helps people understand their finances and make better life choices - I personally use Cryptaul daily!</p>
-        </a>
-        <a href="https://github.com/awar7118" target="_blank" class="member-card">
-          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/awar7118" />
-            <h5>Ahmed</h5>
-            <ul class="team-member-list">
-              <li>🚀 Crypto Expert</li>
-              <li>📍 London</li>
-            </ul>
-            <p>I am a crypto enthusiast who is passionate about making crypto more accessible to everyone.</p>
-        </a>
+        <div class="row justify-content-center">
+          <a href="https://github.com/solkarim91" target="_blank" class="member-card col-m">
+            <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/solkarim91" />
+              <h5>Solomon</h5>
+              <ul class="team-member-list">
+                <li>⭐️ Crypto Newbie</li>
+                <li>📍 London</li>
+              </ul>
+              <p>I recently made the switch to coding from a background in telecommunications & never looked back!</p>
+          </a>
+          <a href="https://github.com/britishninja47" target="_blank" class="member-card col-m">
+            <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/britishninja47" />
+              <h5>Jeremiah</h5>
+              <ul class="team-member-list">
+                <li>🚀 Crypto Expert</li>
+                <li>📍 London</li>
+              </ul>
+              <p>I've always had a passion & interest in technology and feel excited to start my new journey in Programming and Coding with Le Wagon!</p>
+          </a>
+          <a href="https://github.com/taramacu" target="_blank" class="member-card col-m">
+            <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/taramacu" />
+              <h5>Tara</h5>
+              <ul class="team-member-list">
+                <li>⭐️ Crypto Newbie</li>
+                <li>📍 London</li>
+              </ul>
+              <p>I'm passionate about any tech that helps people understand their finances and make better life choices - I personally use Cryptaul daily!</p>
+          </a>
+          <a href="https://github.com/awar7118" target="_blank" class="member-card col-m">
+            <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/awar7118" />
+              <h5>Ahmed</h5>
+              <ul class="team-member-list">
+                <li>🚀 Crypto Expert</li>
+                <li>📍 London</li>
+              </ul>
+              <p>I am a crypto enthusiast who is passionate about making crypto more accessible to everyone.</p>
+          </a>
+        </div>
       </div>
     </div>
   </div>
