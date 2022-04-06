@@ -14,7 +14,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 .sticky-top {
   top: -60px;
-  //   align-items: center;
+    // align-items: center;
     background: linear-gradient(
       90deg,
       rgba(255, 255, 255, 0) 0%,
@@ -29,6 +29,7 @@
 }
 #navbar {
   background-color: #ffffff;
+  align-items: center;
 }
 // .navbar {
 // //   margin: 0 auto;
@@ -53,7 +54,7 @@
 //   display: inline-block;
 // }
 
-nav ul li {
+nav ul li, .dropbtn {
   // padding: 5px;
   font-family: "Open Sans";
   text-transform: uppercase;
@@ -61,6 +62,7 @@ nav ul li {
   font-size: 15px;
   text-decoration: none;
   display: block;
+  align-items: center;
 }
 
 // nav ul li a:hover {
@@ -105,10 +107,10 @@ nav ul li {
 //   color: #FF840A;
 // }
 
-// .nav-avatar {
-//   opacity: 2;
-//   width: 30px;
-// }
+.nav-avatar {
+  opacity: 2;
+  width: 30px;
+}
 
 // .navbar-brand {
   // position: absolute;
@@ -158,6 +160,8 @@ nav ul li {
   text-align: center;
   margin: 0;
   border: none;
+  background-color: transparent;
+  padding: 8px;
 }
 
 /* The container <div> - needed to position the dropdown content */

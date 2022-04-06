@@ -18,7 +18,7 @@
   </nav> %>
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" id="logo" href="#">Cryptaul</a>
+    <%= link_to 'Cryptaul', root_path, class: "navbar-brand", id: "logo" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -54,9 +54,9 @@
       <h3>The investment playground for <br>crypto newbies</h3>
       <br>
 
-      <div class="banner-buttons container center">
+      <div class="banner-buttons container">
       <% if user_signed_in? %>
-        <%= link_to 'Learn More', articles_path, class: "banner-btn" %>
+        <%= link_to 'Learn More', articles_path, class: "banner-btn col-sm" %>
         <% else%>
           <div class="row">
             <%= link_to 'Learn More', articles_path, class: "banner-btn col-sm" %>

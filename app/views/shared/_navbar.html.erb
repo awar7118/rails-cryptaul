@@ -1,12 +1,13 @@
+<% if user_signed_in? %>
 <div class="sticky-top" id="navbar">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand" id="logo" href="#">Cryptaul</a>
+      <%= link_to 'Cryptaul', root_path, class: "navbar-brand", id: "logo" %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mb-2 mb-lg-0">
+        <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
           <li class="nav-item">
             <%= link_to 'Dashboard', my_dashboard_path, class: "nav-link" %>
           </li>
@@ -16,19 +17,19 @@
           <li class="nav-item">
             <%= link_to 'Browse Cryptos', cryptos_path, class: "nav-link" %>
           </li>
-            <li class="dropdown">
-              <button class="dropbtn">Learn More</button>
-              <div class="dropdown-content">
-                <%= link_to 'Jargon Buster', jargon_buster_path%>
-                <%= link_to 'Articles', articles_path%>
-              </div>
+          <li class="dropdown">
+            <button class="dropbtn">Learn More</button>
+            <div class="dropdown-content">
+              <%= link_to 'Jargon Buster', jargon_buster_path%>
+              <%= link_to 'Articles', articles_path%>
+            </div>
           </li>
-          <li class ="nav-item dropdown">
+          <li class ="dropdown">
             <div class="dropdown">
               <button class="btn btn-basic dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 <img class="avatar-bordered nav-avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/solkarim91" />
               </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                 <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
                 <li><%= link_to 'Reset Holdings',reset_holdings_path, data: { confirm: "Are you sure?" }, class: "dropdown-item" %></li>
               </ul>
@@ -62,6 +63,8 @@
     </ul>
   </div>
 </div>
+<% else %>
+<% end %>
     <% if params[:controller] == 'cryptos' && params[:action] == 'index' %>
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {
