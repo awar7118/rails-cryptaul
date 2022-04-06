@@ -139,16 +139,19 @@ nav ul li, .dropbtn {
 }
 
 .simulation-navbar {
-  height: 35px;
-  line-height: 35px;
+  line-height: 20px;
+  // height: 100%;
   align-items: center;
   background-color: #f5f5f5;
+  font-family: "Nunito", "Helvetica", "sans-serif";
 
 }
 .simulation-navbar ul {
   list-style: none;
   text-align: center;
   justify-content: center;
+  margin: 0;
+  padding: 0 18px;
 }
 .simulation-navbar ul li {
   text-align: center;

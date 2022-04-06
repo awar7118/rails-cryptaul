@@ -45,9 +45,10 @@
       </form> %>
   <div class="simulation-navbar">
     <ul>
-      <li style="margin-right:20px">
+      <li style="margin-top:8px" class="col-sm">
         <h6>Simulation Date: <%= current_user.simulation_date.strftime('%d/%m/%Y') %></h6>
       </li>
+      <div class="col-sm">
       <li>
         <%= link_to '+1 Day', change_simulation_path(current_user), style:'color:#FF840A', id:'date-sim-btn' %>
       </li>
@@ -60,6 +61,7 @@
       <li style="margin-left:20px">
         <h6 style="color:#FF840A">Balance: £<%= number_with_precision(current_user.balance, :precision => 2, :delimiter => ',') %></h6>
       </li>
+      </div>
     </ul>
   </div>
 </div>
