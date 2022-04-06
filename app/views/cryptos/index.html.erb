@@ -4,8 +4,8 @@
     </div>
   </div>
 
-<div class= "container centered col-8 m-auto">
-  <table class='center table', id="cryptos-table", style="float:left mb-10">
+<div class= "container centered col-8">
+  <table class='center table table-header', id="cryptos-table", style="float:left mb-10">
     <thead>
       <tr>
         <th>#</th>
@@ -47,7 +47,7 @@
             <% end %>
             <div class="graph-img-cryptos">
               <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
-              hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, colors: ['#EE841C'], height: "80px", width: "350px" %>
+              hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, colors: ['#EE841C'], height: "auto", width: "25vw" %>
             </div>
           </td>
           <td>

@@ -27,11 +27,7 @@
 }
 
 tbody > tr:hover {
-  // box-shadow: 0 2px 2px 0 rgba(31, 38, 135, 0.37);
-  // backdrop-filter: blur(4px);
-  // webkit-backdrop-filter: blur(4px);
   border-radius: 7px;
-  // border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   transform: scale(1.01);
 }
 
@@ -52,3 +48,45 @@ tbody > tr:hover {
 }
 
 // color for symbol #5B616E
+/*------------------------------------------
+  Responsive Grid Media Queries - 1280, 1024, 768, 480
+   1280-1024   - desktop (default grid)
+   1024-768    - tablet landscape
+   768-480     - tablet
+   480-less    - phone landscape & smaller
+--------------------------------------------*/
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+  .clicking {
+    font-size: 90%;
+  }
+
+  .crypto-image img {
+    height: 25px;
+    width: auto;
+  }
+  .table-header{
+    font-size: 90%;
+  }
+
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  .clicking {
+    font-size: 85%;
+  }
+
+  .crypto-image img {
+    height: 20px;
+    width: auto;
+  }
+  .table-header{
+    font-size: 90%;
+  }
+  tbody > td .button {
+    font-size: 50%;
+  }
+ }
+
+@media all and (min-width: 480px) and (max-width: 768px) { }
+
+@media all and (max-width: 480px) { }
