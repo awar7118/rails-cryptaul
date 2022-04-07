@@ -1,52 +1,55 @@
-  <%# <div class="dashboard-page center"> %>
   <div class="dashboard-main-container centered col-10 m-auto center">
     <% if current_user.holdings.exists? %>
     <div class="dashboard-cards-container">
       <div class="dashboard-row-first">
         <div class="dashboard-card-graph">
           <h2>PORTFOLIO PROGRESS</h2>
-            <div class="">
-    <%= line_chart @holding_record, library: { hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "200px" %>
-  </div>
+          <div>
+            <%= line_chart @holding_record, library: { hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "200px" %>
+          </div>
         </div>
-      <div class="dashboard-row-second">
-            <div class="dashboard-small-cards">
+        <div class="container">
+          <div class="dashboard-row-second row">
+            <div class="dashboard-small-cards" id="coin-of-the-day">
               <h2>COIN OF THE DAY</h2>
 
-              <p style="text-align: center; padding-left: 51px; padding-right: 51px;"> Today coin of the day is none other then  <a href="#" data-toggle="tooltip" title="Solana is a highly functional open source project that implements a new, permissionless and high-speed layer-1 blockchain. Created in 2017 by Anatoly Yakovenko, a former executive at Qualcomm, Solana aims to scale throughput beyond what is typically achieved by popular blockchains while keeping costs low." data-original-title="Default tooltip">Solana</a>. Solana has
+              <p style="text-align: center; padding-left: 15px; padding-right: 15px;"> Today coin of the day is <a href="#" data-toggle="tooltip" title="Solana is a highly functional open source project that implements a new, permissionless and high-speed layer-1 blockchain. Created in 2017 by Anatoly Yakovenko, a former executive at Qualcomm, Solana aims to scale throughput beyond what is typically achieved by popular blockchains while keeping costs low." data-original-title="Default tooltip">Solana</a>.<br> Solana has
               made a significant change and has become a serious competitor.
-              </p> <img src="https://vectorlogo4u.com/wp-content/uploads/2021/09/solana-logo-vector-01-1024x484.png" alt="coin" style="width: 86px;display: inline;margin-right: 0px;margin-left: 215px;margin-top: -220px;">
+              </p>
+              <%# <img src="https://vectorlogo4u.com/wp-content/uploads/2021/09/solana-logo-vector-01-1024x484.png" alt="coin" style="width: 86px;display: inline;margin-right: 0px;margin-left: 215px;margin-top: -220px;"> %>
 
             </div>
-          <div class="dashboard-small-cards">
-              <h2>ACTIVE HOLDINGS (<%= @active_holdings.count %>)</h2>
-              <div class="small-card-body">
-              <p>You've spent <br>£ <%= number_with_precision(@active_holdings.sum(&:purchased_price), :precision => 2, :delimiter => ',') %></p>
-              <% if @active_holdings_value > @active_holdings.sum(&:purchased_price) %>
-                <p style='color: green'>Current return <br>£ <%= number_with_precision(@active_holdings_value, :precision => 2, :delimiter => ',') %></p>
-              <% elsif @active_holdings_value < @active_holdings.sum(&:purchased_price) %>
-                <p style='color: red'>Current return <br>£ <%= number_with_precision(@active_holdings_value, :precision => 2, :delimiter => ',') %></p>
-              <% else %>
-                <p>Current return<br>£ <%= number_with_precision(@active_holdings_value, :precision => 2, :delimiter => ',') %></p>
-              <% end %>
+            <div class="dashboard-small-cards holdings-cards">
+                <h2>ACTIVE HOLDINGS (<%= @active_holdings.count %>)</h2>
+                <div class="small-card-body">
+                <p>You've spent <br>£ <%= number_with_precision(@active_holdings.sum(&:purchased_price), :precision => 2, :delimiter => ',') %></p>
+                <% if @active_holdings_value > @active_holdings.sum(&:purchased_price) %>
+                  <p style='color: green'>Current return <br>£ <%= number_with_precision(@active_holdings_value, :precision => 2, :delimiter => ',') %></p>
+                <% elsif @active_holdings_value < @active_holdings.sum(&:purchased_price) %>
+                  <p style='color: red'>Current return <br>£ <%= number_with_precision(@active_holdings_value, :precision => 2, :delimiter => ',') %></p>
+                <% else %>
+                  <p>Current return<br>£ <%= number_with_precision(@active_holdings_value, :precision => 2, :delimiter => ',') %></p>
+                <% end %>
+                </div>
               </div>
-            </div>
-            <div class="dashboard-small-cards">
-              <h2>SOLD HOLDINGS (<%= @sold_holdings.count %>)</h2>
-              <div class="small-card-body">
-              <% sum_spent = (@sold_holdings.sum(&:purchased_price) + @active_holdings.sum(&:purchased_price))%>
-              <p>You've spent <br>£ <%= number_with_precision(sum_spent, :precision => 2, :delimiter => ',') %></p>
-              <p>You've sold <br>£ <%= number_with_precision(@sold_holdings_value, :precision => 2, :delimiter => ',') %></p>
-              <% total_return = @sold_holdings_value - sum_spent %>
-              <% if total_return.positive? || total_return == 0 %>
-                <p style='color: green'>Return <br>£ <%= number_with_precision(total_return, :precision => 2, :delimiter => ',') %></p>
-              <% else %>
-                <p style='color: red'>Return <br>£ <%= number_with_precision(total_return, :precision => 2, :delimiter => ',') %></p>
-              <% end %>
+              <div class="dashboard-small-cards holdings-cards">
+                <h2>SOLD HOLDINGS (<%= @sold_holdings.count %>)</h2>
+                <div class="small-card-body">
+                <% sum_spent = (@sold_holdings.sum(&:purchased_price) + @active_holdings.sum(&:purchased_price))%>
+                <p>You've spent <br>£ <%= number_with_precision(sum_spent, :precision => 2, :delimiter => ',') %></p>
+                <p>You've sold <br>£ <%= number_with_precision(@sold_holdings_value, :precision => 2, :delimiter => ',') %></p>
+                <% total_return = @sold_holdings_value - sum_spent %>
+                <% if total_return.positive? || total_return == 0 %>
+                  <p style='color: green'>Return <br>£ <%= number_with_precision(total_return, :precision => 2, :delimiter => ',') %></p>
+                <% else %>
+                  <p style='color: red'>Return <br>£ <%= number_with_precision(total_return, :precision => 2, :delimiter => ',') %></p>
+                <% end %>
+                </div>
               </div>
             </div>
           </div>
-      </div>
+        </div>
+
         <div class="dashboard-holding-card">
           <h2>YOUR PORTFOLIO</h2>
           <% if @active_holdings.count == 0 %>
@@ -57,15 +60,14 @@
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Quantity</th>
+                <th class="responsive-display">Quantity</th>
                 <th>Purchased for</th>
                 <th>Worth today</th>
                 <th>Current return</th>
-                <th>24hr change (%)</th>
-                <th>Length of holding</th>
-                <th>Graph</th>
+                <th class="responsive-display">24hr change (%)</th>
+                <th class="responsive-display">Length of holding</th>
+                <th class="current-holdings-graph">Graph</th>
                 <th></th>
-                <%# <th>7 day chart</th> %>
               </tr>
             </thead>
             <tbody data-controller="clickableindex">
@@ -74,7 +76,7 @@
                   <td>
                     <%= link_to(image_tag(holding.crypto.image), crypto_path(holding.crypto),class: "crypto-image")%> <%=holding.crypto.name%>
                   </td>
-                  <td>
+                  <td class="responsive-display">
                   <% if (holding.quantity < 0.0001)  %>
                     <%= number_with_precision(holding.quantity, precision: 5) %>
                     <% else %>
@@ -95,7 +97,7 @@
                   <% end %>
                   £<%= number_with_precision(current_return, :precision => 2, :delimiter => ',') %>
                   </td>
-                  <td>
+                  <td class="responsive-display">
                   <% if holding.crypto.previousdaypercentagechange.negative?() %>
                     <div class = "red-font">
                       <%= number_with_precision(holding.crypto.previousdaypercentagechange, :precision => 2, :delimiter => ',') %>%
@@ -106,7 +108,7 @@
                     </div>
                   <% end %>
                   </td>
-                    <td>
+                    <td class="responsive-display">
                     <%if ((current_user.simulation_date - holding.purchased_date).to_i)/86400 == 1%>
                       1 day
                     <% else %>
@@ -117,9 +119,9 @@
                     <% @price_data = holding.crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
                     <% [price.date, price.price] %>
                   <% end %>
-                  <div>
+                  <div class="current-holdings-graph">
                     <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
-            hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "300px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
+                    hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "300px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
                   </div>
                 </td>
                 <td>
@@ -150,13 +152,12 @@
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Quantity</th>
+                <th class="responsive-display">Quantity</th>
                 <th>Purchased for</th>
                 <th>Sold for</th>
                 <th>Return</th>
                 <th>Length of holding</th>
-                <th><span class="white-space">aaaaaaaaaaa</span>Graph<span class="white-space">aaaaaaaaaaa</span></th>
-                <%# <th>7 day chart</th> %>
+                <th class="responsive-display graph-th-sold"><span class="white-space">aaaaaaaaaaa</span>Graph<span class="white-space">aaaaaaaaaaa</span></th>
               </tr>
             </thead>
             <tbody data-controller="clickableindex" style="padding: 0;">
@@ -165,7 +166,7 @@
                   <td>
                     <%= link_to(image_tag(holding.crypto.image), crypto_path(holding.crypto),class: "crypto-image")%> <%=holding.crypto.name%>
                   </td>
-                  <td>
+                  <td class="responsive-display">
                     <%= holding.quantity %>
                   </td>
                   <td>
@@ -193,7 +194,7 @@
                     <% @price_data = holding.crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
                       <% [price.date, price.price] %>
                       <% end %>
-                    <div class="graph-img-dashboard">
+                    <div class="graph-img-dashboard responsive-display">
                       <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
                       hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#EE841C'], height: "60px", width: "300px", xmin: holding.purchased_date, xmax: current_user.simulation_date %>
                     </div>

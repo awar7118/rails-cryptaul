@@ -44,12 +44,13 @@ table {
   font-family: 'Cabin', sans-serif;
 }
 
-
 .dashboard-small-cards {
+  padding-top: 5px;
   width: 33%;
-  height: 110px;
+  height: 125px;
   // border: 1px solid grey;
 }
+
 .dashboard-card-graph {
   width: 100%;
   // height: 250px;
@@ -65,41 +66,6 @@ table {
 .small-card-body {
   display: flex;
   justify-content: space-around;
-}
-
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
 }
 
 #no-holdings-card {
@@ -130,6 +96,118 @@ table {
   opacity: 0.8;
 }
 
+.holdings-cards h2 {
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+  //CSS Code
+  .dashboard-row-second {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .responsive-display, .current-holdings-graph {
+    display: none;
+  }
+
+  .current-holdings-graph {
+    display: none;
+  }
+
+  .dashboard-small-cards {
+    width: 100%;
+    height: 110px;
+    margin: 10px 0;
+  }
+
+  .dashboard-main-container h2 {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  //CSS Code
+  .dashboard-row-second {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .responsive-display, .current-holdings-graph {
+    display: none;
+  }
+
+  .dashboard-small-cards {
+    width: 100%;
+    height: 110px;
+    margin: 10px 0;
+  }
+
+  .dashboard-main-container h2 {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+  //CSS Code
+  #coin-of-the-day {
+    width: 100%;
+  }
+
+  .responsive-display, .current-holdings-graph {
+    display: none;
+  }
+
+  .dashboard-small-cards {
+    padding-top: 10px;
+    width: 48%;
+    height: 110px;
+    margin: 10px 0;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (min-width: 980px) and (max-width: 1023px) {
+  //CSS Code
+  #coin-of-the-day {
+    width: 100%;
+  }
+
+  .responsive-display {
+    display: none;
+  }
+
+  .dashboard-small-cards {
+    width: 48%;
+    height: 110px;
+    margin: 10px 0;
+    justify-content: space-between;
+    // border: 1px solid grey;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
+  //CSS Code
+
+  .dashboard-small-cards {
+    width: 33%;
+    height: 110px;
+    justify-content: space-between;
+    // border: 1px solid grey;
+  }
+
+  .responsive-display {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1250px) {
+  .graph-img-dashboard, .graph-th-sold {
+    display: none;
+  }
+}
 
 
 // .animation-container {
