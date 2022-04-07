@@ -26,6 +26,10 @@
   margin: 1px;
 }
 
+table tbody{
+  overflow: auto;
+}
+
 tbody > tr:hover {
   // box-shadow: 0 2px 2px 0 rgba(31, 38, 135, 0.37);
   // backdrop-filter: blur(4px);
@@ -51,4 +55,53 @@ tbody > tr:hover {
   vertical-align: middle;
 }
 
+table .fa-heart{
+  font-size: 10px;
+  color: red;
+}
+
 // color for symbol #5B616E
+
+/*------------------------------------------
+  Responsive Grid Media Queries - 1280, 1024, 768, 480
+   1280-1024   - desktop (default grid)
+   1024-768    - tablet landscape
+   768-480     - tablet
+   480-less    - phone landscape & smaller
+--------------------------------------------*/
+@media all and (min-width: 1024px) and (max-width: 1280px) { }
+
+@media all and (min-width: 768px) and (max-width: 1024px) { }
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .graph-img-cryptos{
+    display: none;
+   }
+  .graph-td{
+    display: none;
+  }
+  .graph-th{
+    display: none;
+  }
+  td .graph-td{
+   display: none;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .graph-img-cryptos{
+    display: none;
+   }
+  .graph-td{
+    display: none;
+  }
+  .graph-th{
+    display: none;
+  }
+  td .graph-td {
+   display: none;
+  }
+  .graph-th{
+    display: none;
+   }
+ }
