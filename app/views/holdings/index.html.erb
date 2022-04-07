@@ -128,7 +128,7 @@
                   <%= simple_form_for [ holding ] do |f| %>
                       <div>
                         <%# <%= f.input :quantity, input_html: {data: {action: "keyup->purchase-modal#calculatePrice", purchase_modal_target: "quantity"}} %>
-                        <%= f.submit "Sell for £#{number_with_precision((holding.crypto.histories.find_by(date: current_user.simulation_date).price * holding.quantity), :precision => 2, :delimiter => ',')}", class: "sell-btn-filled"%>
+                        <%= f.submit "Sell (£#{number_with_precision((holding.crypto.histories.find_by(date: current_user.simulation_date).price * holding.quantity), :precision => 2, :delimiter => ',')})", class: "sell-btn-filled"%>
                       </div>
                     <% end %>
                   <%# <div class="buy-button" data-controller="purchase-modal">
