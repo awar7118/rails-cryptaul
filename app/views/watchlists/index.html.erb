@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <div class= "container centered col-8 m-auto">
+    <div class= "container centered">
       <table class='table center', id="watchlist-table">
         <% if @watchlists.count == 0 %>
           <p class="center">Add coins to your watchlist and they'll appear here.</p>
@@ -53,7 +53,7 @@
                 </td>
                 <td>
                   <%= link_to watchlist_path(watchlist), method: :delete do%>
-                  <i class="fas fa-heart" style="font-size:25px; color: red;"></i>
+                  <i class="fas fa-heart" style="color: red;"></i>
                   <% end %>
                 </td>
               </tr>
