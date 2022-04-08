@@ -10,6 +10,15 @@
 
 ![Our Landing ](./public/cryptaullandingpage.png)
 
+ <p align="center">
+    <br />
+    <a href="https://www.cryptaul.xyz/" target='#'>View Demo</a>
+    |
+    <a href="https://github.com/awar7118/rails-cryptaul/issues">Report Bug</a>
+    |
+    <a href="https://github.com/awar7118/rails-cryptaul/issues">Request Feature</a>
+  </p>
+  
 ## Table of Contents
 
 1. [About the Project](#about-the-project)
