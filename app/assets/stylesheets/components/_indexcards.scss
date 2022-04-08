@@ -118,42 +118,45 @@ table .fa-heart{
 
 
 //  // CSS to hide graph in watchlist page!
-// @media all and (max-width: 768px) {
+@media all and (max-width: 768px) {
 
-//    #watchlist-table .fa-heart{
-//     font-size: 16px;
-//   }
-//    #watchlist-table .crypto-stats-title h1{
-//     font-size: 40px;
-//   }
-//    #watchlist-table .graph-img-cryptos{
-//     display: none;
-//    }
-//     #watchlist-table .graph-td{
-//     display: none;
-//   }
-//    #watchlist-table .graph-th{
-//     display: none;
-//   }
-//    #watchlist-table .graph-td {
-//    display: none;
-//   }
-//    #watchlist-table .graph-th{
-//     display: none;
-//    }
-//    #cryptos-table .graph-td {
-//     display: none;
-//   }
-//  }
+   #watchlist-table .fa-heart{
+    font-size: 16px;
+  }
+   #watchlist-table .crypto-stats-title h1{
+    font-size: 40px;
+  }
+   #watchlist-table .graph-img-cryptos{
+    display: none;
+   }
+    #watchlist-table .graph-td{
+    display: none;
+  }
+   #watchlist-table .graph-th{
+    display: none;
+  }
+   #watchlist-table .graph-td {
+   display: none;
+  }
+   #watchlist-table .graph-th{
+    display: none;
+   }
+   #cryptos-table .graph-td {
+    display: none;
+  }
+#watchlist-table {
+  font-size: 14px;
+}
+ }
 
-//  @media all and (max-width: 480px) {
-//   #watchlist-table .banner{
-//     margin-bottom: 20px;
-//   }
-//   #watchlist-table tbody{
-//     font-size: 12px;
-//   }
-//   #watchlist-table thead{
-//     font-size: 14px;
-//   }
-//  }
+ @media all and (max-width: 480px) {
+  #watchlist-table .banner{
+    margin-bottom: 20px;
+  }
+  #watchlist-table tbody{
+    font-size: 12px;
+  }
+  #watchlist-table thead{
+    font-size: 14px;
+  }
+ }
