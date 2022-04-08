@@ -1,6 +1,12 @@
-# Cryptaul
+<h1 align="center">
+    Cryptaul
+</h1>
+<br>
+<p align="center">
+    A one-stop-shop for crypto newbies. Learn to buy and sell cryptocurrencies in a 365-day simulation
+</p>
+<br>
 
-A one-stop-shop for crypto newbies. Learn to buy and sell cryptocurrencies in a 365-day simulation
 
 ![Our Landing ](./public/cryptaullandingpage.png)
 
