@@ -1,70 +1,71 @@
-  <div class="banner-pages">
-    <div class="main-title">
-      <h1>Crypto Stats</h1>
-    </div>
-  </div>
 
-<div class= "container centered col-8 m-auto">
-  <table class='center table', id="cryptos-table", style="float:left mb-10">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>24hr Change</th>
-        <th><span class="white-space">aaaaaaaaaaa</span>Graph<span class="white-space">aaaaaaaaaaa</span></th>
-        <th>Watchlist</th>
-        <%# <th>7 day chart</th> %>
-      </tr>
-    </thead>
-    <tbody data-controller="clickableindex">
-      <%counter = 0 %>
-      <%@cryptos.each do |crypto| %>
-        <tr data-link="<%=crypto_path(crypto)%>" data-clickableindex-target="cryptos" data-action="click->clickableindex#clickable" class = "clicking">
-          <td>
-            <%=counter += 1%>
-          </td>
-          <td>
-            <%= link_to(image_tag(crypto.image), crypto_path(crypto),class: "crypto-image")%> <%=crypto.name%>
-          </td>
-          <td>
-            £<%= number_with_precision(crypto.price, :precision => 2, :delimiter => ',') %>
-          </td>
-          <td>
-            <% if crypto.previousdaypercentagechange.negative?() %>
-              <div class = "red-font">
-                <%= number_with_precision(crypto.previousdaypercentagechange, :precision => 2, :delimiter => ',') %>%
-              </div>
-            <% else %>
-              <div class = "green-font">
-                +<%= number_with_precision(crypto.previousdaypercentagechange, :precision => 2, :delimiter => ',')%>%
-              </div>
-            <% end %>
-          </td>
-          <td class="graph-td">
-            <% @price_data = crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
-              <% [price.date, price.price] %>
-            <% end %>
-            <div class="graph-img-cryptos">
-              <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
-              hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, colors: ['#EE841C'], height: "80px", width: "350px" %>
-            </div>
-          </td>
-          <td>
-            <% if crypto.watchlists.where(user: current_user).count > 0 %>
-              <%= link_to watchlist_path(crypto.watchlists.first), method: :delete do %>
-                <i class="fas fa-heart" style="font-size:25px; color: red;"></i>
-              <% end %>
-            <% else %>
-              <%= simple_form_for [ crypto, @watchlist ] do |f| %>
-                <button name="button" type="submit" style="border: none;background: none;">
-                  <i class="far fa-heart" style="font-size:25px; color: red;"></i>
-                </button>
-              <% end %>
-            <% end %>
-          </td>
+<div class="browse-crypto-page">
+  <div class= "container centered justify-content-center">
+    <div class="banner-pages">
+      <div class="main-title crypto-stats-title">
+        <h1>Crypto Stats</h1>
+      </div>
+    </div>
+    <table class='center table', id="cryptos-table", style="float:left mb-10">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>24hr Change</th>
+          <th class="graph-th"><span class="white-space">aaaaaaaaaaa</span>Graph<span class="white-space">aaaaaaaaaaa</span></th>
+          <th>Watchlist</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody data-controller="clickableindex">
+        <%counter = 0 %>
+        <%@cryptos.each do |crypto| %>
+          <tr data-link="<%=crypto_path(crypto)%>" data-clickableindex-target="cryptos" data-action="click->clickableindex#clickable" class = "clicking">
+            <td>
+              <%=counter += 1%>
+            </td>
+            <td>
+              <%= link_to(image_tag(crypto.image), crypto_path(crypto),class: "crypto-image")%> <%=crypto.name%>
+            </td>
+            <td>
+              £<%= number_with_precision(crypto.price, :precision => 2, :delimiter => ',') %>
+            </td>
+            <td>
+              <% if crypto.previousdaypercentagechange.negative?() %>
+                <div class = "red-font">
+                  <%= number_with_precision(crypto.previousdaypercentagechange, :precision => 2, :delimiter => ',') %>%
+                </div>
+              <% else %>
+                <div class = "green-font">
+                  +<%= number_with_precision(crypto.previousdaypercentagechange, :precision => 2, :delimiter => ',')%>%
+                </div>
+              <% end %>
+            </td>
+            <td class="graph-td">
+              <% @price_data = crypto.histories.where('date <= ?', current_user.simulation_date).map do |price| %>
+                <% [price.date, price.price] %>
+              <% end %>
+              <div class="graph-img-cryptos">
+                <%= line_chart @price_data, library: { vAxis: { baselineColor: '#FFFFFF', ticks: [] },
+                hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, colors: ['#EE841C'], height: "80px", width: "350px" %>
+              </div>
+            </td>
+            <td>
+              <% if crypto.watchlists.where(user: current_user).count > 0 %>
+                <%= link_to watchlist_path(crypto.watchlists.first), method: :delete do %>
+                  <i class="fas fa-heart" style="color: red;"></i>
+                <% end %>
+              <% else %>
+                <%= simple_form_for [ crypto, @watchlist ] do |f| %>
+                  <button name="button" type="submit" style="border: none;background: none;">
+                    <i class="far fa-heart" style="color: red;"></i>
+                  </button>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

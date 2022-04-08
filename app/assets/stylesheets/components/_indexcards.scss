@@ -27,11 +27,7 @@
 }
 
 tbody > tr:hover {
-  // box-shadow: 0 2px 2px 0 rgba(31, 38, 135, 0.37);
-  // backdrop-filter: blur(4px);
-  // webkit-backdrop-filter: blur(4px);
   border-radius: 7px;
-  // border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   transform: scale(1.01);
 }
 
@@ -51,4 +47,113 @@ tbody > tr:hover {
   vertical-align: middle;
 }
 
+table .fa-heart{
+  font-size: 20px;
+  color: red;
+}
+
 // color for symbol #5B616E
+
+/*------------------------------------------
+  Responsive Grid Media Queries - 1280, 1024, 768, 480
+   1280-1024   - desktop (default grid)
+   1024-768    - tablet landscape
+   768-480     - tablet
+   480-less    - phone landscape & smaller
+--------------------------------------------*/
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) { }
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .browse-crypto-page tbody{
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .browse-crypto-page .banner-pages{
+    margin-bottom: 40px;
+  }
+  .browse-crypto-page tbody{
+    font-size: 12px;
+  }
+  .browse-crypto-page thead{
+    font-size: 14px;
+  }
+ }
+
+// CSS to hide graph in index page!
+@media all and (max-width: 768px) {
+  .browse-crypto-page .banner-pages{
+    margin-bottom: 40px;
+  }
+  .browse-crypto-page .fa-heart{
+    font-size: 16px;
+  }
+  .browse-crypto-page .crypto-stats-title h1{
+    font-size: 40px;
+  }
+  .browse-crypto-page .graph-img-cryptos{
+    display: none;
+   }
+   .browse-crypto-page .graph-td{
+    display: none;
+  }
+  .browse-crypto-page .graph-th{
+    display: none;
+  }
+  .browse-crypto-page .graph-td {
+   display: none;
+  }
+  .browse-crypto-page .graph-th{
+    display: none;
+   }
+   #cryptos-table .graph-td {
+    display: none;
+  }
+ }
+
+
+//  // CSS to hide graph in watchlist page!
+// @media all and (max-width: 768px) {
+
+//    #watchlist-table .fa-heart{
+//     font-size: 16px;
+//   }
+//    #watchlist-table .crypto-stats-title h1{
+//     font-size: 40px;
+//   }
+//    #watchlist-table .graph-img-cryptos{
+//     display: none;
+//    }
+//     #watchlist-table .graph-td{
+//     display: none;
+//   }
+//    #watchlist-table .graph-th{
+//     display: none;
+//   }
+//    #watchlist-table .graph-td {
+//    display: none;
+//   }
+//    #watchlist-table .graph-th{
+//     display: none;
+//    }
+//    #cryptos-table .graph-td {
+//     display: none;
+//   }
+//  }
+
+//  @media all and (max-width: 480px) {
+//   #watchlist-table .banner{
+//     margin-bottom: 20px;
+//   }
+//   #watchlist-table tbody{
+//     font-size: 12px;
+//   }
+//   #watchlist-table thead{
+//     font-size: 14px;
+//   }
+//  }
