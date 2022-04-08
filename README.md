@@ -27,7 +27,7 @@
 4. [Schema](#schema)
 5. [Database](#database)
 6. [Future Work](#future-work)
-7. [Contributors](#contributers)
+7. [Contributors](#Contributors)
 8. [Acknowledgements](#acknowledgements)
 
 ## About The Project
