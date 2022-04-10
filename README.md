@@ -12,7 +12,7 @@
 
  <p align="center">
     <br />
-    <a href="https://www.cryptaul.xyz/" target='#'>View Demo</a>
+    <a href="https://www.cryptaul.xyz/" target='_blank'>View Demo</a>
     |
     <a href="https://github.com/awar7118/rails-cryptaul/issues">Report Bug</a>
     |
