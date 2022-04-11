@@ -195,11 +195,11 @@ p {
     justify-content: space-between;
     margin-bottom: 10px;
     padding: 0;
-    height: 560px;
+    height: 550px;
   }
   .purchase-container {
     padding: 10px;
-    height: 330px;
+    height: 320px;
     width: 100%;
     margin: 0;
   }
@@ -225,5 +225,12 @@ p {
   }
   #rounded-graph {
     display: none;
+  }
+  .buy-button {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    font-size: 16px;
+    margin-bottom: 15px;
   }
 }
