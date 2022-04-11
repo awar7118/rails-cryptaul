@@ -29,6 +29,9 @@
     <div id="rounded-graph">
       <%= line_chart @price_data, library: { hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#FF840A'], height: "390px" %>
     </div>
+    <div id="rounded-graph-mobile">
+      <%= line_chart @price_data, library: { hAxis: { ticks: [], baselineColor: '#FFFFFF', gridlines: { count: 0, color: 'white' }, textPosition: 'none' } }, points: false, prefix: "£", round: 2, zeros: true, colors: ['#FF840A'], height: "190px" %>
+    </div>
     <%# Container for purchase area %>
     <div class="purchase-container">
     <%# Watchlist button %>
