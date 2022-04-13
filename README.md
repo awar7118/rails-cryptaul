@@ -93,7 +93,7 @@ seeds.rb file --> Creates an instance of each crypto from crypto.json file and i
 
 Tara Culpin - [Github](https://github.com/taramacu)
 
-Ahmed Warsama - [Github](https://www.linkedin.com/in/awar7118/)
+Ahmed Warsama - [Github](https://github.com/awar7118)
 
 Solomon Karim - [Github](https://github.com/Solkarim91)
 
