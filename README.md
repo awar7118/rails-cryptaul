@@ -3,7 +3,7 @@
 </h1>
 <br>
 <p align="center">
-    A one-stop-shop for crypto newbies. Learn to buy and sell cryptocurrencies in a 365-day simulation
+    A one-stop shop for cryptocurrency newcomers. Learn to buy and sell cryptocurrencies in a 365-day simulation.
 </p>
 <br>
 
@@ -32,9 +32,9 @@
 
 ## About The Project
 
-Cryptocurrencies and decentralised finance (Defi) are taking over the world and redefining what money is. We wanted to create a platform that allows users to benefit from the features listed in the features section below, all the while eradicating financial risk and building confidence in investing in cryptocurrency.
+Cryptocurrencies and decentralised finance (DeFi) are redefining how people think about money. We created a risk-free simulation that helps newcomers build confidence while learning how cryptocurrency markets behave.
 
-We used the MoSCoW prioritization approach to build this project and be able to produce an MVP within the space of 2 weeks.
+We used the MoSCoW prioritisation method to scope and deliver an MVP in two weeks.
 
 ### Built With
 
@@ -49,14 +49,14 @@ We used the MoSCoW prioritization approach to build this project and be able to 
 
 ## Features
 
-- Ability to view historic cryptocurrency data(going back 365 days) including previous prices, 24hr changes and market caps.
-- Ability to add cryptocurrencies to their watchlists and keep an eye on them
-- A view of the top 25 cryptocurrencies listed out in order of market cap
-- A dashboard that displays all the information users need at a glance
-- A jargon buster to break down technical jargon
-- An additional navbar that allows you to simulate the passing of time in 1 day or 1-week increments
-- An articles page that allows you to learn more about cryptocurrencies
-- Ability to buy and sell cryptocurrencies at different points in time
+- View 365 days of historical cryptocurrency prices, 24-hour changes and market capitalisation
+- Add cryptocurrencies to a personal watchlist
+- Browse the top 25 cryptocurrencies by market capitalisation
+- Review key portfolio information from a single dashboard
+- Learn terminology through a built-in jargon buster
+- Simulate time passing in one-day or one-week increments
+- Read introductory articles about cryptocurrencies
+- Practise buying and selling at different points in the simulation
 
 ## Schema
 
@@ -64,17 +64,17 @@ We used the MoSCoW prioritization approach to build this project and be able to 
 
 ## Database
 
-/db/jsondata/getjsons.rb file --> Parses data from coingecko Api endpoints. (called A and B for differentiation only)
+`db/jsondata/getjsons.rb` parses data from two CoinGecko API endpoints.
 
-Endpoint A - gets all the coin data, such as the symbol, logo, current price and market cap and more. 
+- **Endpoint A** retrieves each cryptocurrency's symbol, logo, current price and market capitalisation.
 
-Endpoint B - gets historical data for each cryptocurrency. This is the price each day for the past 365 days.
+- **Endpoint B** retrieves daily historical prices for the previous 365 days.
 
-Data from Endpoint A gets written in /db/jsondata/crypto.json file 
+Endpoint A data is written to `db/jsondata/crypto.json`.
 
-Data from Endpoint B gets written in /db/jsondata/#{crypto.name}.json file. A single file for each crypto containing all the histories.
+Endpoint B data is written to `db/jsondata/#{crypto.name}.json`, with one history file per cryptocurrency.
 
-seeds.rb file --> Creates an instance of each crypto from crypto.json file and in this loop, writes crypto histories in the database.
+`seeds.rb` creates each cryptocurrency from `crypto.json` and writes its historical records to the database.
 
 
 ## Figma
